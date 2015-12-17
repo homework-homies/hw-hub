@@ -19,7 +19,8 @@ class SubmissionsController < ApplicationController
   end
 
   def update
-    @submission = Submission.create({
+    @submission = Submission.find(params[:id])
+    @submission = Submission.update({
       student_id: params["student_id"],
       assignment_id: params["assignment_id"],
       submitted_on: params["submitted_on"],
