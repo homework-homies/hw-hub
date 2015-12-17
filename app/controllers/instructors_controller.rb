@@ -14,11 +14,13 @@ class InstructorsController < ApplicationController
     @cohorts = @instructor.cohorts
     @gists = @instructor.gists
     @assignments = @instructor.assignments
+    @students = 
   end
 
   def destroy
     @instructor = Instructor.find(params[:id])
     @instructor.destroy
+    redirect_to "/"
   end
 
   private
