@@ -14,6 +14,7 @@ class InstructorsController < ApplicationController
     @cohorts = @instructor.cohorts
     @gists = @instructor.gists
     @assignments = @instructor.assignments
+    @array_of_submissions = [];
   end
 
   def destroy
