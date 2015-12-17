@@ -17,11 +17,9 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if sessions[:student_id]
+    if sessions[:student_id] || sessions[:instructor_id] || sessions[:producer_id]
       sessions[:student_id] = nil
-    elsif sessions[:instructor_id]
       sessions[:instructor_id] = nil
-    elsif sessions[:producer_id]
       sessions[:producer_id] = nil
     end
   end
