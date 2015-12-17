@@ -60,3 +60,7 @@ cohort3.assignments.push(assignment3)
 instructor1.assignments.push(assignment1)
 instructor2.assignments.push(assignment2)
 instructor3.assignments.push(assignment3)
+
+cohort1.students.push(student1)
+cohort2.students.push(student2)
+cohort3.students.push(student3)
