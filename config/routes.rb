@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   
   root 'welcome#index'
 
-
   resources :assignments, only: [:create, :show]
   resources :students, except: [:update, :index] do
     resources :submissions, only: [:create, :update, :show]
@@ -11,9 +10,6 @@ Rails.application.routes.draw do
   resources :producers, except: [:index, :update]
   resources :instructors, except: [:update, :index]
   resources :cohorts, only: [:show, :create]
-
-
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

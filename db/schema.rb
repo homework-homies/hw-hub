@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216214016) do
+ActiveRecord::Schema.define(version: 20151217170733) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,12 +38,6 @@ ActiveRecord::Schema.define(version: 20151216214016) do
 
   add_index "cohorts_instructors", ["cohort_id", "instructor_id"], name: "index_cohorts_instructors_on_cohort_id_and_instructor_id", using: :btree
   add_index "cohorts_instructors", ["instructor_id", "cohort_id"], name: "index_cohorts_instructors_on_instructor_id_and_cohort_id", using: :btree
-
-  create_table "enrollments", force: :cascade do |t|
-    t.integer "cohorts_id"
-    t.integer "students_id"
-    t.boolean "is_enrolled"
-  end
 
   create_table "gists", force: :cascade do |t|
     t.string  "title"
