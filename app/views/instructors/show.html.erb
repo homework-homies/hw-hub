@@ -1,1 +1,47 @@
 <h1>Instructors Show Page</h1>
+
+<!-- COHORTS -->
+<h1>Cohorts</h1>
+<ul>
+<% @cohorts.each do |cohort| %>
+<li><%= link_to cohort.cohort_name, cohort_path(@cohort) %></li>
+<% end %>
+</ul>
+
+<!-- ASSIGNMENTS CREATED -->
+<h1>Assigments</h1>
+<ul>
+<% @assigments.each do |assigment| %>
+<li><%= link_to assigment.title, assigment_path(@assigment)%></li>
+<% @array_of_submissions.push(assigment.submissions) %>
+<% end %>
+</ul>
+
+
+<!-- SUBMISSIONS (ALL) -->
+<h1>All Submissions</h1>
+<ul>
+<% @array_of_submissions.each do |submission| %>
+<li><%= link_to submission.title, submission_path(@submission) %></li>
+<% end %>
+</ul>
+
+
+<!-- SUBMISSIONS (PENDING) -->
+<% @array_of_submissions_pendind = @array_of_submissions.where(grade_status: "Pending")%>
+
+<h1>Pending Submissions</h1>
+<ul>
+<% @array_of_submissions_pendind.each do |submission| %>
+<li><%= link_to submission.title, submission_path(@submission) %></li>
+<% end %>
+</ul>
+
+
+<!-- GISTS -->
+<h1>Gists by me</h1>
+<ul>
+<% @gists.each do |gist| %>
+<%= link_to gist.title, cohort_path(@gist) %>
+<% end %>
+</ul>
