@@ -22,9 +22,9 @@ gist1 = Gist.create({ title: "gist1", content:"gist1 content", gist_link: "gist1
 gist2 = Gist.create({ title: "gist2", content:"gist2 content", gist_link: "gist2 link"})
 gist3 = Gist.create({ title: "gist3", content:"gist3 content", gist_link: "gist3 link"})
 
-cohort1 = Cohort.create({cohort_name: "persephone", start_on: "20131928", end_on: 01234123})
+cohort1 = Cohort.create({cohort_name: "persephone", start_on: "20131928", end_on: "01234123"})
 cohort2 = Cohort.create({cohort_name: "bacon", start_on: "20131928", end_on: "01234123"})
-cohort3 = Cohort.create({cohort_name: "tomato", start_on: "20131928", end_on: 01234123})
+cohort3 = Cohort.create({cohort_name: "tomato", start_on: "20131928", end_on: "01234123"})
 
 assignment1 = Assignment.create({ title: "assignment1", prompt_link:"assignment1 link", assigned_on: "12345903"})
 assignment2 = Assignment.create({ title: "assignment2", prompt_link:"assignment2 link", assigned_on: "12345903"})

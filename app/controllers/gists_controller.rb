@@ -6,7 +6,7 @@ class GistsController < ApplicationController
   end
 
   def show
-    @gists = Gist.find(params[:id])
+    @gist = Gist.find(params[:id])
   end
 
   private
