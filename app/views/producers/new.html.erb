@@ -1,1 +1,8 @@
 <h1>Producers New Page</h1>
+
+<%= form_for @producer do |f| %>
+  <%= f.text_field :name %>
+  <%= f.text_field :email %>
+  <%= f.password_field :password %>
+  <%= f.password_field :password_confirmation %>
+<% end %>
