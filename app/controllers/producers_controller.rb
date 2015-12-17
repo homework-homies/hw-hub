@@ -1,16 +1,25 @@
 class ProducersController < ApplicationController
   def new
+    @producer = Producer.new
   end
 
   def create
-  end
-
-  def edit
+    @producer = Producer.create(producer_params)
+    redirect_to '/login'
   end
 
   def show
+    @producer = Producer.find(params[:id])
+    @cohorts = @producer.cohorts
   end
 
   def destroy
+    @producer = Producer.find(params[:id])
+    @producer.destroy
   end
+
+  private 
+    def producer_params
+      params.require(:producer).permit(:name, :email, :password, :password_confirmation)
+    end
 end  
