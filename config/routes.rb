@@ -7,12 +7,12 @@ Rails.application.routes.draw do
   delete '/login' => 'sessions#destroy'
 
   resources :assignments, only: [:create, :show]
-  resources :students, except: [:update, :index] do
+  resources :students, except: [:update, :index, :edit] do
     resources :submissions, only: [:create, :update, :show]
   end
   resources :gists, only: [:create, :show]
-  resources :producers, except: [:index, :update]
-  resources :instructors, except: [:update, :index]
+  resources :producers, except: [:index, :update, :edit]
+  resources :instructors, except: [:update, :index, :edit]
   resources :cohorts, only: [:show, :create]
 
 
