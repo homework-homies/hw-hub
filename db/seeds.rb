@@ -30,5 +30,3 @@ assignment1 = Assignment.create({ title: "assignment1", prompt_link:"assignment1
 assignment2 = Assignment.create({ title: "assignment2", prompt_link:"assignment2 link", assigned_on: "12345903"})
 assignment3 = Assignment.create({ title: "assignment3", prompt_link:"assignment3 link", assigned_on: "12345903"})
 
-
-
