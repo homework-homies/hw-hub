@@ -13,5 +13,5 @@ class Cohort < ActiveRecord::Base
   has_many :assignments
   belongs_to :producer
   has_many :gists
-  has_many :instructors
+  has_and_belongs_to_many :instructors
 end

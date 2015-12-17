@@ -46,5 +46,39 @@ assignment2 = Assignment.create({ title: "assignment2", prompt_link:"assignment2
 
 assignment3 = Assignment.create({ title: "assignment3", prompt_link:"assignment3 link", assigned_on: "12345903"})
 
+#join instructors & cohorts
+cohort1.instructors.push(instructor1)
+cohort2.instructors.push(instructor1)
+cohort2.instructors.push(instructor2)
+cohort3.instructors.push(instructor2)
+
+instructor1.gists.push(gist1)
+instructor2.gists.push(gist2)
+instructor3.gists.push(gist2)
+
+cohort1.gists.push(gist1)
+cohort1.gists.push(gist2)
+cohort2.gists.push(gist3)
+cohort3.gists.push(gist2)
+
+student1.submissions.push(submission2)
+student2.submissions.push(submission1)
+student3.submissions.push(submission3)
+
+student1.assignments.push(assignment1)
+student2.assignments.push(assignment2)
+student3.assignments.push(assignment3)
+
+cohort1.assignments.push(assignment1)
+cohort2.assignments.push(assignment2)
+cohort3.assignments.push(assignment3)
+
+instructor1.assignments.push(assignment1)
+instructor2.assignments.push(assignment2)
+instructor3.assignments.push(assignment3)
+
+
+
+
 
 

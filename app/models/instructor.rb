@@ -12,4 +12,5 @@ class Instructor < ActiveRecord::Base
   has_secure_password
   has_many :gists
   has_many :assignments
+  has_and_belongs_to_many :cohorts
 end
