@@ -1,21 +1,26 @@
 <h1><%= @student.name %></h1>
 
+<h1><%= @student.name %>'s Homework Submissions</h1>
+<h3><%= @student.cohort.name %></h3>
 <ul>
   <% @submissions.each do |submission| %>
     <li>
-      <%= submission.submitted_on %>  <%= submission.assignment.title %>  <%= submission.grade_status %>
+      <%= submission.submitted_on %> <%= submission.title %> <%= submission.assignment.title %>  <%= submission.grade_status %>
     </li>
   <% end %>
 </ul>
 
+<h3>Submit A New Assignment Here: </h3>
 <%= form_for @submission do |f| %>
   <%= f.text_field :comments %>
+  <%= f.submit :Submit %>
 <% end %>
 
+<h3>Homework Takeaways</h3>
 <ul>
   <%= @gists.each do |gist| %>
     <li>
-      <%= gist.title %>  <%= gist.gist_link %>
+      <%= gist.date %> <%= gist.title %>  <a href="#"><%= gist.gist_link %></a>
     </li>
   <% end %>
 </ul>
