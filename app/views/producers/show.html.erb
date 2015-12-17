@@ -1,2 +1,8 @@
 <h1>Producers Show Page</h1>
 
+<ul><% @cohorts.each do |cohort| %>
+  <li><%= cohort.cohort_name %></li>
+  <li><%= cohort.start_on %></li>
+  <li><%= cohort.num_students %></li>
+</ul>
+
