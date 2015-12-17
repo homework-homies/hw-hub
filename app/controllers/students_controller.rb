@@ -7,7 +7,6 @@ class StudentsController < ApplicationController
     @submissions = @student.submissions
     @gists = Cohort.find(@student.cohort_id).gists
     @new_submission = Submission.new
-
   end
 
   def new
