@@ -16,6 +16,7 @@ class ProducersController < ApplicationController
   def destroy
     @producer = Producer.find(params[:id])
     @producer.destroy
+    redirect_to "/"
   end
 
   private 
