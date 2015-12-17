@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   
   root 'welcome#index'
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  delete '/login' => 'sessions#destroy'
+
   resources :assignments, only: [:create, :show]
   resources :students, except: [:update, :index] do
     resources :submissions, only: [:create, :update, :show]
