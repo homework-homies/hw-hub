@@ -2,7 +2,7 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = Assignment.create(assignment_params)
-    redirect_to "/instructors/:id"
+    redirect_to instructor_path(sessions[:instructor_id]) if sessions[:instructor_id]
   end
 
   def show
@@ -11,7 +11,7 @@ class AssignmentsController < ApplicationController
 
   private
      def assignment_params
-        params.require(:assignment).permit(:title, :promopt_link, :assigned_on)
+        params.require(:assignment).permit(:title, :prompt_link, :assigned_on)
      end 
 end  
 
