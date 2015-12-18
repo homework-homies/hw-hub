@@ -7,6 +7,7 @@
 <ul><% @students.each do |student| %>
   <li> <%=student.name %></li>
   <li> Completion: <%= student.completion_rate %></li>
+  <li> Number of pending assignments: <%= student.pending_assignments? %>
   <% end %>
 </ul>
 
