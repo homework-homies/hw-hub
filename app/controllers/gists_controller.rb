@@ -2,6 +2,14 @@ class GistsController < ApplicationController
 
   def create
     @gist = Gist.create(gist_params)
+    @students = @gist.cohort.students
+    @students.each do |student|
+      respond_to do |format|
+        if @gist.save
+          GistMailer.gist_email(student.email).deliver_now
+        end
+      end
+    end
     redirect_to @gist
   end
 

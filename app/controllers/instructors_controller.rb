@@ -8,7 +8,7 @@ class InstructorsController < ApplicationController
     @instructor = Instructor.create(instructor_params)
     redirect_to "/login"
   end
-
+ 
   def show
     @instructor = Instructor.find(params[:id])
     @cohorts = @instructor.cohorts
