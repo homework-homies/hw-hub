@@ -1,26 +1,41 @@
 <h1><%= @student.name %></h1>
 
+<!-- students submissions index tab -->
+<h3>View Submissions</h3>
 <h1><%= @student.name %>'s Homework Submissions</h1>
-<h3><%= @student.cohort.name %></h3>
+<h3><%= @student.cohort.cohort_name %></h3>
 <ul>
   <% @submissions.each do |submission| %>
     <li>
-      <%= submission.submitted_on %> <%= submission.title %> <%= submission.assignment.title %>  <%= submission.grade_status %>
+      <%= submission.submitted_on %>
+      </br>
+      <a hre="students/<%= submission.student.id %>/submissions/<%= submission.id %>"><%= submission.title %></a>
+      </br>
+      <a href="/assignments/<%= submission.assignment.id %>"><%= submission.assignment.title %></a>
+      </br>
+      <%= submission.grade_status %>
     </li>
   <% end %>
 </ul>
 
-<h3>Submit A New Assignment Here: </h3>
-<%= form_for @submission do |f| %>
-  <%= f.text_field :comments %>
+<h3>Submit Assignment</h3>
+<h1>Submit A New Assignment Here: </h1>
+<%= form_for :submission do |f| %>
+  <%= f.text_field :title %>
+
+
+  <%= f.text_area :comments, rows: 10, cols: 25 %>
   <%= f.submit :Submit %>
 <% end %>
 
 <h3>Homework Takeaways</h3>
+<h1>Homework Takeaways</h1>
 <ul>
-  <%= @gists.each do |gist| %>
+  <% @gists.each do |gist| %>
     <li>
-      <%= gist.date %> <%= gist.title %>  <a href="#"><%= gist.gist_link %></a>
+      <%= gist.date %> 
+      <a href="/gists/<%= gist.id %>"><%= gist.title %></a>
+      <a href="<%= gist.gist_link %>"><%= gist.gist_link %></a>
     </li>
   <% end %>
 </ul>
