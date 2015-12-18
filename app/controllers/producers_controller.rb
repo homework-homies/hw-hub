@@ -11,7 +11,6 @@ class ProducersController < ApplicationController
   def show
     @producer = Producer.find(params[:id])
     @cohorts = @producer.cohorts
-
   end
 
   def destroy
