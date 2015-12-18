@@ -2,13 +2,13 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
-    @instructors = Cohort.find(@student.cohort_id).instructors
+    @instructors = @student.cohort.instructors
     @assignments = Cohort.find(@student.cohort_id).assignments
     @submissions = @student.submissions
     @gists = Cohort.find(@student.cohort_id).gists
     @new_submission = Submission.new
   end
-
+ 
   def new
     @student = Student.new
   end

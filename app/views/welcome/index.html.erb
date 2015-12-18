@@ -1,24 +1,16 @@
 <h1>Welcome to the G.A. Homework Hub</h1>
 
+ 
+<%= form_tag "/login" do %>
 
-<%= form_for("/login", method: "POST") do |f| %>
-  <select name="login_selector">
-    <option value="" disabled selected>Select One</option>
-    <option value="Student">Student</option>
-    <option value="Instructor">Instructor</option>
-    <option value="Producer">Producer</option>
-  </select><br/>
+  <%= label_tag "Status: " %>
+  <%= select_tag :login_selector, options_for_select(['Student', 'Instructor', 'Producer'], :include_blank => true) %><br/>
   
-  <%= f.label "Email :" %>
-  <%= f.email_field :email %><br/>
+  <%= label_tag "Email :" %>
+  <%= email_field_tag :email %><br/>
 
-  <%= f.label "Password: " %>
-  <%= f.password_field :password %>
+  <%= label_tag "Password: " %>
+  <%= password_field_tag :password %>
 
-  <%= f.submit "Log in" %>
+  <%= submit_tag "Log in" %>
 <% end %> 
-
-
-<h2>To login, select the appropriate tab above.</h2>
-<p>Not a member?</p>
-<button>Request an Invitation Here</button>
