@@ -1,5 +1,7 @@
 <h1>Gists Created by <%= @instructor.name %></h1>
 
+<ul>
 <% @gists.each do |gist| %>
-	<p><%= link_to gist.title, gist_path(gist) %></p>
+	<li><%= link_to gist.title, gist_path(gist) %></li>
 <% end %>
+</ul>
