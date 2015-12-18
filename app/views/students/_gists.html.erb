@@ -1,0 +1,10 @@
+<h1>Gists</h1>
+<ul>
+  <% @gists.each do |gist| %>
+    <li>
+      <%= gist.date %> 
+      <a href="/gists/<%= gist.id %>"><%= gist.title %></a>
+      <a href="<%= gist.gist_link %>"><%= gist.gist_link %></a>
+    </li>
+  <% end %>
+</ul>
