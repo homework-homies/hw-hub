@@ -56,7 +56,7 @@
     <tr>
       <td><%= gist.date %></td>
       <td><a href="/gists/<%= gist.id %>"><%= gist.title %></a></td>
-      <td><a href="<%= gist.gist_link %>"><%= gist.gist_link %></a></td>
+      <td><%= gist.gist_link %></td>
     </tr>
   <% end %>
 </table>
@@ -74,7 +74,7 @@
   <% @assignments.each do |assignment| %>
     <tr>
       <td><%= assignment.assigned_on %></td>
-      <td><%= assignment.title %></td>
+      <td><%= link_to assignment.title, assignment_path(assignment) %></td>
       <td><%= assignment.prompt_link %></td>
     </tr>
   <% end %>
