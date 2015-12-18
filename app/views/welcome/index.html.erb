@@ -1,8 +1,6 @@
 <h1>Welcome to the G.A. Homework Hub</h1>
 
- 
 <%= form_tag "/login" do %>
-
   <%= label_tag "Status: " %>
   <%= select_tag :login_selector, options_for_select(['Student', 'Instructor', 'Producer'], :include_blank => true) %><br/>
   
