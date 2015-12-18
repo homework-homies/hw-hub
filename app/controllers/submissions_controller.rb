@@ -1,13 +1,6 @@
 class SubmissionsController < ApplicationController
   def create
-    @submission = Submission.create({
-      student_id: params["student_id"],
-      assignment_id: params["assignment_id"],
-      submitted_on: params["submitted_on"],
-      grade_status: params["grade_status"],
-      comments: params["comments"]
-      submission_link: params["submission_link"]
-    })
+    @submission = Submission.create(submission_params)
     redirect_to @submission
   end
 
@@ -21,13 +14,12 @@ class SubmissionsController < ApplicationController
 
   def update
     @submission = Submission.find(params[:id])
-    @submission = Submission.update({
-      student_id: params["student_id"],
-      assignment_id: params["assignment_id"],
-      submitted_on: params["submitted_on"],
-      grade_status: params["grade_status"],
-      comments: params["comments"]
-    })
+    @submission = Submission.update(submission_params)
     redirect_to @submission
   end
+
+  private
+    def submission_params
+       params.require(:submission).permit(:tile, :student_id, :submission_link, :comments, :assignment_id, :grade_status)
+    end  
 end  
