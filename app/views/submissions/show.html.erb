@@ -1,1 +1,10 @@
 <h1>Submissions Show Page</h1>
+
+<h1><%= @submission.student.name %></h1>
+
+<p>Assignment Title: <%= @submission.assignment.title %></p>
+<!--  -->
+<p>Comments: <%= @submission.comments %></p>
+<p>Score: <%= @submission.grade_status %></p>
+
+<button>View All Assignments</button>
