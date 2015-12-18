@@ -3,6 +3,8 @@ class SubmissionsController < ApplicationController
     @submission = Submission.create(submission_params)
     @student = Student.find(params[:student_id])
     @student.submissions.push(@submission)
+    @assignment = Assignment.find_by(title: params[:assignment_selector])
+    @assignment.submissions.push(@submission)
     redirect_to "/students/#{params[:student_id]}/submissions/#{@submission.id}"
   end
 
