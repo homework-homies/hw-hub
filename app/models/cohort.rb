@@ -16,3 +16,7 @@ class Cohort < ActiveRecord::Base
   has_and_belongs_to_many :instructors
   has_many :students
 end
+
+def num_students
+  self.students.length
+end
