@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217221104) do
+ActiveRecord::Schema.define(version: 20151218161105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20151217221104) do
     t.string  "grade_status"
     t.string  "comments"
     t.string  "title"
+    t.string  "submission_link"
   end
 
 end
