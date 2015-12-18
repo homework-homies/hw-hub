@@ -4,5 +4,10 @@
 <p>Start Date: <%= @cohort.start_on %> </p>
 <p>End On: <%= @cohort.end_on %> </p>
 
+<ul><% @students.each do |student| %>
+  <li> <%=student.name %></li>
+  <% end %>
+</ul>
+
 
 
