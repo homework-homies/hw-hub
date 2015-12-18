@@ -1,21 +1,10 @@
 <h1>Cohort <%= @cohort.cohort_name %></h1>
-
 <p>Start Date: <%= @cohort.start_on %> </p>
 <p>End On: <%= @cohort.end_on %> </p>
 
-<h1>Students</h1>
-<ul><% @students.each do |student| %>
-  <li> <%=link_to student.name, student_path(student) %></li>
-  <li> Completion: <%= student.completion_rate %></li>
-  <li> Number of pending assignments: <%= student.pending_assignments? %>
-  <% end %>
-</ul>
 
-<h1>Gists</h1>
-<ul><% @gists.each do |gist| %>
-  <li> <%= gist.title %> </li>
-</ul>
-<% end %>
+<%= render 'students' %>
+<%= render 'gists' %>
 
 
 
