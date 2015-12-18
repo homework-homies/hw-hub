@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :gists, only: [:create, :show]
   resources :producers, except: [:index, :update, :edit]
   resources :instructors, except: [:update, :index, :edit]
-  resources :cohorts, only: [:show, :create]
+  resources :cohorts, only: [:show, :create, :new]
 
 
   # The priority is based upon order of creation: first created -> highest priority.
