@@ -14,6 +14,7 @@ class InstructorsController < ApplicationController
     @cohorts = @instructor.cohorts
     @gists = @instructor.gists
     @assignments = @instructor.assignments
+    @new_gist = Gist.new
   end
 
   def destroy
