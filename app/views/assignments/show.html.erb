@@ -1,1 +1,7 @@
-<h1>Assignments Show Page</h1>
+<h1>Assignment Show Page</h1>
+
+<p> Title: <%= @assignment.title %> </p>
+<p> Link: <%= @assignment.prompt_link %> </p>
+<p> Cohort: <%= @assignment.cohort.cohort_name %></p>
+<p> Assigned On: <%= @assignment.assigned_on %></p>
+<p> Made by: <%= @assignment.instructor.name %> </p>
