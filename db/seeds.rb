@@ -91,3 +91,6 @@ assignment1.submissions.push(submission1)
 assignment2.submissions.push(submission2)
 assignment3.submissions.push(submission3)
 
+producer1.cohorts.push(cohort1)
+producer2.cohorts.push(cohort2)
+producer3.cohorts.push(cohort3)
