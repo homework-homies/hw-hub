@@ -1,4 +1,7 @@
 class WelcomeController < ApplicationController
-  def new
+  def index
+  	@instructor = Instructor.new
+  	@student = Student.new
+  	@producer = Producer.new
   end
 end  
