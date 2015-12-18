@@ -1,1 +1,8 @@
 <h1>New Cohort</h1>
+<%= form_for @cohort, url:{ :action=>'create' } do |f| %>
+<%= f.text_field :cohort_name, :placeholder => "Cohort Name" %>
+<%= f.text_field :producer_id, :placeholder => "Producer" %>
+<%= f.text_field :start_on, :placeholder => "Starts on" %>
+<%= f.text_field :end_on, :placeholder => "Finishes on" %>
+<%= f.submit "Submit" %>
+<% end %>
