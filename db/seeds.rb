@@ -90,3 +90,8 @@ cohort2.students.push(student2)
 cohort2.save
 cohort3.students.push(student3)
 cohort3.save
+
+assignment1.submissions.push(submission1)
+assignment2.submissions.push(submission2)
+assignment3.submissions.push(submission3)
+
