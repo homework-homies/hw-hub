@@ -1,5 +1,7 @@
 <h1>Assignments Created by <%= @instructor.name %></h1>
 
+<ul>
 <% @assignments.each do |assignment| %>
-	<p><%= link_to assignment.title, assignment_path(assignment) %></p>
+	<li><%= link_to assignment.title, assignment_path(assignment) %></li>
 <% end %>
+</ul>
