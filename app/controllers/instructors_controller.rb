@@ -14,7 +14,17 @@ class InstructorsController < ApplicationController
     @cohorts = @instructor.cohorts
     @gists = @instructor.gists
     @assignments = @instructor.assignments
-    @array_of_submissions = [];
+
+    @submissions = []
+    @students = []
+
+    @cohorts.each do |cohort|
+      @students.push(cohort.students)
+    end
+
+    @assignments.each do |assignment|
+      @submissions.push(assignment.submissions)
+    end
   end
 
   def destroy

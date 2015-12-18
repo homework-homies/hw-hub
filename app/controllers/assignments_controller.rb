@@ -5,6 +5,10 @@ class AssignmentsController < ApplicationController
     redirect_to instructor_path(sessions[:instructor_id]) if sessions[:instructor_id]
   end
 
+  def new
+    @assignment = Assignment.new
+  end
+
   def show
     @assignment = Assignment.find(params[:id])
   end
