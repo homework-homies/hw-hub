@@ -1,7 +1,9 @@
 class SubmissionsController < ApplicationController
   def create
     @submission = Submission.create(submission_params)
-    redirect_to @submission
+    @student = Student.find(params[:student_id])
+    @student.submissions.push(@submission)
+    redirect_to "/students/#{params[:student_id]}/submissions/#{@submission.id}"
   end
 
   def show
@@ -20,6 +22,6 @@ class SubmissionsController < ApplicationController
 
   private
     def submission_params
-       params.require(:submission).permit(:tile, :student_id, :submission_link, :comments, :assignment_id, :grade_status)
+       params.require(:submission).permit(:title, :student_id, :submission_link, :comments, :assignment_id, :grade_status)
     end  
 end  

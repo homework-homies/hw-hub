@@ -1,41 +1,55 @@
 <h1><%= @student.name %></h1>
 
 <!-- students submissions index tab -->
-<h3>View Submissions</h3>
-<h1><%= @student.name %>'s Homework Submissions</h1>
+<h3>View Assignments</h3>
+<h1><%= @student.name %>'s Homework Assignments</h1>
 <h3><%= @student.cohort.cohort_name %></h3>
-<ul>
+<table>
+<tr>
+  <th>Date Submitted</th>
+  <th>Title</th>
+  <th>Assignment Link</th>
+  <th>Score</th>
+</tr>
   <% @submissions.each do |submission| %>
-    <li>
-      <%= submission.submitted_on %>
-      </br>
-      <a hre="students/<%= submission.student.id %>/submissions/<%= submission.id %>"><%= submission.title %></a>
-      </br>
-      <a href="/assignments/<%= submission.assignment.id %>"><%= submission.assignment.title %></a>
-      </br>
-      <%= submission.grade_status %>
-    </li>
+    <tr>
+      <td><%= submission.submitted_on %></td>
+      <td><a href="students/<%= submission.student.id %>/submissions/<%= submission.id %>"><%= submission.title %></a></td>
+      <td><a href="/assignments/<%= submission.assignment.id %>"><%= submission.assignment.title %></a></td>
+      <td><%= submission.grade_status %></td>
+    </tr>
   <% end %>
-</ul>
+</table>
 
 <h3>Submit Assignment</h3>
-<h1>Submit A New Assignment Here: </h1>
-<%= form_for :submission do |f| %>
+<h1>Submit Your Homework Here: </h1>
+<%= form_for [@student, @new_submission] do |f| %>
+  <%= f.label :title %>
   <%= f.text_field :title %>
-
-
+  </br>
+  <%= f.label :submission_link %>
+  <%= f.text_field :submission_link %>
+  </br>
+  <%= f.label :comments %>
   <%= f.text_area :comments, rows: 10, cols: 25 %>
+  </br>
   <%= f.submit :Submit %>
 <% end %>
 
 <h3>Homework Takeaways</h3>
 <h1>Homework Takeaways</h1>
-<ul>
+<table>
+  <tr>
+    <th>Date Posted</th>
+    <th>Title</th>
+    <th>Link</th>
+  </tr>
+
   <% @gists.each do |gist| %>
-    <li>
-      <%= gist.date %> 
-      <a href="/gists/<%= gist.id %>"><%= gist.title %></a>
-      <a href="<%= gist.gist_link %>"><%= gist.gist_link %></a>
-    </li>
+    <tr>
+      <td><%= gist.date %></td>
+      <td><a href="/gists/<%= gist.id %>"><%= gist.title %></a></td>
+      <td><a href="<%= gist.gist_link %>"><%= gist.gist_link %></a></td>
+    </tr>
   <% end %>
-</ul>
+</table>
