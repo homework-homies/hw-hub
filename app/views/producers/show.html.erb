@@ -1,13 +1,4 @@
+<h1><%= @producer.name %>'s Page</h1>
 <%= render 'cohorts' %>
+<%= render 'students' %>
 
-<ul> 
-  <% @cohorts.each do |cohort| %>
-  <ul>
-    <% cohort.students.each do |student| %> 
-      <li> 
-        <%= student.name %>
-      </li>
-    <% end %>
-  </ul>
-  <% end %>
-</ul>

@@ -1,16 +1,4 @@
 <h1>Welcome to the G.A. Homework Hub</h1>
 
- 
-<%= form_tag "/login" do %>
+ <%= render 'login' %>
 
-  <%= label_tag "Status: " %>
-  <%= select_tag :login_selector, options_for_select(['Student', 'Instructor', 'Producer'], :include_blank => true) %><br/>
-  
-  <%= label_tag "Email :" %>
-  <%= email_field_tag :email %><br/>
-
-  <%= label_tag "Password: " %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag "Log in" %>
-<% end %> 
