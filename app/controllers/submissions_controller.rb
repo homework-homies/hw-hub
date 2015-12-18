@@ -6,6 +6,7 @@ class SubmissionsController < ApplicationController
       submitted_on: params["submitted_on"],
       grade_status: params["grade_status"],
       comments: params["comments"]
+      submission_link: params["submission_link"]
     })
     redirect_to @submission
   end
