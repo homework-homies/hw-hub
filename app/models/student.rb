@@ -18,12 +18,18 @@ class Student < ActiveRecord::Base
 
   def completion_rate 
     submissions = self.submissions
-    num_complete = 0;
-    submissions.each do |submission|
-      if submission.grade_status == "complete"
-        num_complete ++;
-      end
-    end
-    completion_rate = (num_complete/submissions) * 100
+    num_complete = []
+    
+    submissions.each { |submission| num_complete << submission if submission.grade_status == "incomplete" }
+
+    completion_rate = (num_complete.length.to_f / submissions.length.to_f) * 100 
   end
 end
+          
+    
+    
+    # completion_rate = (num_complete/submissions.length) * 100
+
+
+
+
