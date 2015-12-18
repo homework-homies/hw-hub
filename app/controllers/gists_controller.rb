@@ -9,7 +9,7 @@ class GistsController < ApplicationController
           GistMailer.gist_email(student.email).deliver_now
         end
       end
-    end
+    end 
     redirect_to @gist
   end
 
