@@ -6,14 +6,14 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/login' => 'sessions#destroy'
 
-  resources :assignments, only: [:create, :show]
+  resources :assignments, only: [:new, :create, :show]
   resources :students, except: [:update, :index, :edit] do
     resources :submissions, only: [:create, :update, :show]
   end
   resources :gists, only: [:create, :show]
   resources :producers, except: [:index, :update, :edit]
   resources :instructors, except: [:update, :index, :edit]
-  resources :cohorts, only: [:show, :create]
+  resources :cohorts, only: [:show, :create, :new]
 
 
   # The priority is based upon order of creation: first created -> highest priority.

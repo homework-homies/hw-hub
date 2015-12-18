@@ -1,8 +1,16 @@
-<h1>Welcome to the Homework Hub</h1>
+<h1>Welcome to the G.A. Homework Hub</h1>
 
-<%= form_tag("/login", method: "POST") %>
-  <%= label_tag ""
+ 
+<%= form_tag "/login" do %>
 
-<p>Select the appropriate link above to log in.</p>
+  <%= label_tag "Status: " %>
+  <%= select_tag :login_selector, options_for_select(['Student', 'Instructor', 'Producer'], :include_blank => true) %><br/>
+  
+  <%= label_tag "Email :" %>
+  <%= email_field_tag :email %><br/>
 
-<p>Not a member? Submit a profile request here!</p>
+  <%= label_tag "Password: " %>
+  <%= password_field_tag :password %>
+
+  <%= submit_tag "Log in" %>
+<% end %> 

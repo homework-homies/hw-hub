@@ -1,0 +1,11 @@
+<h1> Assignment New Page </h1>
+<%= form_for :assignments do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :prompt_link %>
+  <select name="cohort_selector">
+  <option value="" disabled selected> Cohort </option>
+  <% @instructor.cohorts.each do |cohort| %>
+  <option value="<%= cohort.cohort_name %>"> <%= cohort.cohort_name %> </option>
+  <% end %>  
+
+<% end %>

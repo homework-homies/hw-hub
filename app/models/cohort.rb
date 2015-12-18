@@ -15,4 +15,10 @@ class Cohort < ActiveRecord::Base
   has_many :gists
   has_and_belongs_to_many :instructors
   has_many :students
+
+  def num_students
+  self.students.length
+  end
+
 end
+

@@ -1,1 +1,13 @@
-<h1>Producers Show Page</h1>
+<%= render 'cohorts' %>
+
+<ul> 
+  <% @cohorts.each do |cohort| %>
+  <ul>
+    <% cohort.students.each do |student| %> 
+      <li> 
+        <%= student.name %>
+      </li>
+    <% end %>
+  </ul>
+  <% end %>
+</ul>

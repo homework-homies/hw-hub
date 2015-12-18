@@ -2,20 +2,32 @@ class SessionsController < ApplicationController
 
   def new
   end
-
+  
   def create
-    if params[:login_selector] == "student"
+    if params[:login_selector] == "Student"
       @student = Student.find_by({email: params[:email]}).try(:authenticate, params[:password])
-      sessions[:student_id] = @student.id
-      redirect_to @student
-    elsif params[:login_selector] == "instructor"
+      if @student 
+        session[:student_id] = @student.id
+        redirect_to @student
+      else
+        redirect_to '/'
+      end
+    elsif params[:login_selector] == "Instructor"
       @instructor = Instructor.find_by({email: params[:email]}).try(:authenticate, params[:password])
-      sessions[:instructor_id] = @instructor.id
-      redirect_to @instructor
-    elsif params[:login_selector] == "producer"
+      if @instructor
+        session[:instructor_id] = @instructor.id
+        redirect_to @instructor
+      else
+        redirect_to '/'
+      end
+    elsif params[:login_selector] == "Producer"
       @producer = Producer.find_by({email: params[:email]}).try(:authenticate, params[:password])
-      sessions[:producer_id] = @producer.id
-      redirect_to @producer
+      if @producer
+        session[:producer_id] = @producer.id
+        redirect_to @producer
+      else
+        redirect_to '/'
+      end
     end  
   end
 

@@ -1,13 +1,9 @@
 class SubmissionsController < ApplicationController
   def create
-    @submission = Submission.create({
-      student_id: params["student_id"],
-      assignment_id: params["assignment_id"],
-      submitted_on: params["submitted_on"],
-      grade_status: params["grade_status"],
-      comments: params["comments"]
-    })
-    redirect_to @submission
+    @submission = Submission.create(submission_params)
+    @student = Student.find(params[:student_id])
+    @student.submissions.push(@submission)
+    redirect_to "/students/#{params[:student_id]}/submissions/#{@submission.id}"
   end
 
   def show
@@ -20,13 +16,12 @@ class SubmissionsController < ApplicationController
 
   def update
     @submission = Submission.find(params[:id])
-    @submission = Submission.update({
-      student_id: params["student_id"],
-      assignment_id: params["assignment_id"],
-      submitted_on: params["submitted_on"],
-      grade_status: params["grade_status"],
-      comments: params["comments"]
-    })
+    @submission = Submission.update(submission_params)
     redirect_to @submission
   end
+
+  private
+    def submission_params
+       params.require(:submission).permit(:title, :student_id, :submission_link, :comments, :assignment_id, :grade_status)
+    end  
 end  

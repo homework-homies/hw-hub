@@ -1,0 +1,20 @@
+<h1>Cohorts</h1>
+
+<table>
+  <tr>
+    <td>Start Date</td>
+    <td>Course Name</td>
+    <td>Number of Students</td>
+  </tr>
+
+  <% @cohorts.each do |cohort| %>
+    <tr>
+      <td><%= cohort.start_on %></td>
+      <td><%= link_to cohort.cohort_name, cohort_path(cohort) %></td>
+      <td><%= cohort.num_students %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<%= link_to "Create New Cohort", new_cohort_path %>

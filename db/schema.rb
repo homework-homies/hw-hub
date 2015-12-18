@@ -1,4 +1,4 @@
-titl# encoding: UTF-8
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -11,7 +11,7 @@ titl# encoding: UTF-8
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217201824) do
+ActiveRecord::Schema.define(version: 20151218161105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20151217201824) do
     t.string  "gist_link"
     t.integer "instructor_id"
     t.integer "cohort_id"
+    t.string  "date"
   end
 
   create_table "instructors", force: :cascade do |t|
@@ -72,6 +73,8 @@ ActiveRecord::Schema.define(version: 20151217201824) do
     t.date    "submitted_on"
     t.string  "grade_status"
     t.string  "comments"
+    t.string  "title"
+    t.string  "submission_link"
   end
 
 end
