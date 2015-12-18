@@ -28,64 +28,43 @@ assignment3 = Assignment.create({ title: "assignment3", prompt_link:"assignment3
 
 #join instructors & cohorts
 cohort1.instructors.push(instructor1)
-cohort1.save
 cohort2.instructors.push(instructor1)
-cohort2.save
 cohort2.instructors.push(instructor2)
-cohort2.save
 cohort3.instructors.push(instructor2)
-cohort3.save
 
 instructor1.gists.push(gist1)
-instructor1.save
 instructor2.gists.push(gist2)
-instructor2.save
 instructor3.gists.push(gist2)
-instructor3.save
+
 
 cohort1.gists.push(gist1)
-cohort1.save
 cohort1.gists.push(gist2)
-cohort1.save
 cohort2.gists.push(gist3)
-cohort2.save
 cohort3.gists.push(gist2)
-cohort3.save
 
 student1.submissions.push(submission2)
-student1.save
 student2.submissions.push(submission1)
-student2.save
 student3.submissions.push(submission3)
-student3.save
+
 
 student1.assignments.push(assignment1)
-student1.save
 student2.assignments.push(assignment2)
-student2.save
 student3.assignments.push(assignment3)
-student3.save
 
 cohort1.assignments.push(assignment1)
-cohort1.save
 cohort2.assignments.push(assignment2)
-cohort2.save
 cohort3.assignments.push(assignment3)
-cohort3.save
+
 
 instructor1.assignments.push(assignment1)
-instructor1.save
 instructor2.assignments.push(assignment2)
-instructor2.save
 instructor3.assignments.push(assignment3)
-instructor3.save
+
 
 cohort1.students.push(student1)
-cohort1.save
 cohort2.students.push(student2)
-cohort2.save
 cohort3.students.push(student3)
-cohort3.save
+
 
 assignment1.submissions.push(submission1)
 assignment2.submissions.push(submission2)
