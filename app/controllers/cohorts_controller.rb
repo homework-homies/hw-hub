@@ -12,6 +12,7 @@ class CohortsController < ApplicationController
   def show
     @cohort = Cohort.find(params[:id])
     @students = @cohort.students
+    @gists = @cohort.gists
   end
 
   private
