@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def new
   end
-
+ 
   def create
     if params[:login_selector] == "student"
       @student = Student.find_by({email: params[:email]}).try(:authenticate, params[:password])
