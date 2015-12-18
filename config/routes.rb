@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/login' => 'sessions#destroy'
 
-  resources :assignments, only: [:create, :show]
+  resources :assignments, only: [:new, :create, :show]
   resources :students, except: [:update, :index, :edit] do
     resources :submissions, only: [:create, :update, :show]
   end
