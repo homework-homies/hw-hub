@@ -17,9 +17,9 @@ $(document).ready(function(){
 <button class="key-test-button">Validate</button>
 
 <script>
-var key_instructor = "<%= ENV["key1"] %>";
-var key_producer = "<%= ENV["key2"] %>";
-var key_student = "<%= ENV["key3"] %>";
+var key_instructor = "<%=  Rails.application.secrets.instructor_key %>";
+var key_producer = "<%=  Rails.application.secrets.instructor_key %>";
+var key_student = "<%=  Rails.application.secrets.instructor_key %>";
 
 	$('.key-test-button').on('click', function(){
 		if ($('.key-test-input').val() === key_instructor){
