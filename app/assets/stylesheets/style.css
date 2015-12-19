@@ -62,7 +62,7 @@ body {
 }
 
 .tab-links {
-    padding:9px 15px 9px 0px;
+    padding:9px 15px;
     display:inline-block;
     border-radius:3px 3px 0px 0px;
     background-color: rgba( 157, 41, 41, .9);
