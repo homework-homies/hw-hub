@@ -1,10 +1,10 @@
 class GistMailer < ApplicationMailer
   default from: 'gahomeworkhub@gmail.com'
 
-  def gist_email
-    @students = Student.all  
+  def gist_email(email)
     @url = 'http://example.com/GIST_LINK_HERE'
-    mail(to: @students.email, subject: "Attention! A New Gist Has Been Created")
+    mail(to: email, subject: "Attention! A New Gist Has Been Created")
   end
 
 end
+ 
