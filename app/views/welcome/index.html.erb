@@ -18,8 +18,8 @@ $(document).ready(function(){
 
 <script>
 var key_instructor = "<%=  Rails.application.secrets.instructor_key %>";
-var key_producer = "<%=  Rails.application.secrets.instructor_key %>";
-var key_student = "<%=  Rails.application.secrets.instructor_key %>";
+var key_producer = "<%=  Rails.application.secrets.producer_key %>";
+var key_student = "<%=  Rails.application.secrets.student_key %>";
 
 	$('.key-test-button').on('click', function(){
 		if ($('.key-test-input').val() === key_instructor){
