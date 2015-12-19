@@ -24,6 +24,9 @@ var key_student = "<%= ENV["key3"] %>";
 	$('.key-test-button').on('click', function(){
 		if ($('.key-test-input').val() === key_instructor){
 			$('#hidden-div-instructor').show();
+			$('#hidden-div-student').hide();
+			$('#hidden-div-producer').hide();
+			$('#hidden-div-login').hide();
 		} else if ($('.key-test-input').val() === key_producer){
 			$('#hidden-div-producer').show();
 		} else if ($('.key-test-input').val() ===key_student){
