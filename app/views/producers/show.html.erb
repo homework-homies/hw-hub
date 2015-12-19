@@ -1,4 +1,25 @@
-<h1><%= @producer.name %>'s Page</h1>
+<script>
+$(document).ready(function(){
+	$('#producer-cohorts').hide();
+	$('#producer-students').hide();
+});
+</script>
 
-<%= render 'cohorts' %>
-<%= render 'students' %>
+<h1><%= @producer.name %>'s Page</h1>
+<button class="button-producer-cohorts"></button>
+<button class="button-producer-students"></button>
+
+<script>
+	$('.button-producer-cohorts').on('click', function(){
+		$('#producer-cohorts').show();
+		$('#producer-students').hide();
+	});
+	$('.button-producer-students').on('click', function(){
+		$('#producer-cohorts').hide();
+		$('#producer-students').show();
+	});
+</script>
+
+<%= render 'cohorts' %> <!-- id="producer-cohorts" -->
+<%= render 'students' %> <!-- id="producer-students" -->
+
