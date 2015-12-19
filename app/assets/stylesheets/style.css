@@ -43,51 +43,49 @@ body {
 /*----- Tabs -----*/
 .tabs {
     width:100%;
-    display:inline-block;
-    background-color: rgba( 157, 41, 41, .9);
-    color: white;
 }
  
 /*----- Tab Links -----*/
 /* Clearfix */
 
 
-.tab-links:after {
-    display:block;
-    clear:both;
+.tab-all:after {
+    display: block;
+    clear: both;
     content:'';
 }
 
-.tab-links li {
-  margin: 0;
+.tab-all li {
   float:left;
-  list-style:none;
+  list-style: none;
   color: white;
-  padding:9px 15px 9px 0px;
-  display:inline-block;
-  border-radius:3px 3px 0px 0px;
-  background-color: rgba( 157, 41, 41, .9);
-  text-decoration: none;
-  font-size:16px;
-  font-weight:600;
-  color: white;
-  transition:all linear 0.15s;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 5px;
-  margin-left: 5px;
-    }
-
-.tab-links li:hover {
-  background-color: rgba( 157, 80, 100, .9);
-  text-decoration:none;
 }
 
-li.active a, li.active a:hover {
+.tab-links {
+    padding:9px 15px 9px 0px;
+    display:inline-block;
+    border-radius:3px 3px 0px 0px;
+    background-color: rgba( 157, 41, 41, .9);
+    text-decoration: none;
+    font-size:16px;
+    font-weight:600;
+    color: white;
+    transition:all linear 0.15s;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.tab-links:hover {
+  background-color: rgba(157, 80, 100, .5);
+}
+
+.tab-links:active {
     background:#fff;
     color:#4c4c4c;
 }
- 
+
     /*----- Content of Tabs -----*/
 .home-window {
   vertical-align: middle;
@@ -110,14 +108,14 @@ li.active a, li.active a:hover {
   width: 100%;
 }
 
-    .tab {
-        display:none;
-        text-decoration: none;
-    }
+.tab {
+  display:none;
+  text-decoration: none;
+}
 
-    .tab.active {
-        display:block;
-    }
+.tab.active {
+  display:block;
+}
 
 
 /*.window-body {
@@ -148,17 +146,7 @@ li.active a, li.active a:hover {
   background-color: rgba( 157, 41, 41, .9);
 }*/
 
-.login-instructions {
-  font-family: 'Open Sans', sans-serif;
-  color: white;
-  font-size: 20px;
-}
 
-.non-member {
-  font-family: 'Open Sans', sans-serif;
-  color: white;
-  font-size: 15px;
-}
 
 .request-invite-btn {
   -webkit-border-radius: 8;
