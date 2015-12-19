@@ -1,11 +1,31 @@
+<script>
+$(document).ready(function(){
+	$('#cohort-students').hide();
+	$('#cohort-gists').hide();
+});
+</script>
+
 <%= notice %>
 <h1>Cohort <%= @cohort.cohort_name %></h1>
 <p>Start Date: <%= @cohort.start_on %> </p>
 <p>End On: <%= @cohort.end_on %> </p>
 
+<button class="button-cohort-students">Students</button>
+<button class="button-cohort-gists">Gists</button>
 
-<%= render 'students' %>
-<%= render 'gists' %>
+<script>
+	$('.button-cohort-students').on('click', function(){
+		$('#cohort-students').show();
+		$('#cohort-gists').hide();
+	});
+	$('.button-cohort-gists').on('click', function(){
+		$('#cohort-students').hide();
+		$('#cohort-gists').show();
+	});
+</script>
+
+<%= render 'students' %> <!-- id="cohort-students" -->
+<%= render 'gists' %> <!-- id="cohort-gists" -->
 
 
 
