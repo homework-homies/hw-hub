@@ -1,7 +1,7 @@
 <h1>Gists</h1>
 
 <p> Title: <%= @gist.title %> </p>
-<p> Content: <%= @markdown.render(@gist.content) %> </p>
+<%= @markdown.render(@gist.content) %>
 <p> Link: <%= @gist.gist_link%> </p>
 <p> Date: <%= @gist.date %> </p>
 
