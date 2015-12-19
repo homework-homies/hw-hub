@@ -32,10 +32,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if sessions[:student_id] || sessions[:instructor_id] || sessions[:producer_id]
-      sessions[:student_id] = nil
-      sessions[:instructor_id] = nil
-      sessions[:producer_id] = nil
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      session[:student_id] = nil
+      session[:instructor_id] = nil
+      session[:producer_id] = nil
     end
     redirect_to '/'
   end
