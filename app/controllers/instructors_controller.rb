@@ -5,9 +5,20 @@ class InstructorsController < ApplicationController
   end
 
   def create
-    @instructor = Instructor.create(instructor_params)
-    session[:instructor_id] = @instructor.id
-    redirect_to @instructor
+    @instructor = Instructor.new(instructor_params)
+    if @instructor.save
+      session[:instructor_id] = @instructor.id
+      redirect_to @instructor
+    elsif @instructor.password.length < 7
+      flash[:notice] = "Passwords must contain at least 6 characters"
+      redirect_to '/'
+    elsif @instructor.password != @instructor.password_confirmation
+      flash[:notice] = "Passwords must match"
+      redirect_to '/'
+    else
+      flash[:notice] = "This email has already been registered. Please try logging in."
+      redirect_to '/'
+    end
   end
  
   def show

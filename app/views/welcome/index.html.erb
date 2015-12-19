@@ -1,7 +1,5 @@
-
 <%= notice %>
 
-<!-- KEY -->
 <script>
 $(document).ready(function(){
 	$('#hidden-div-instructor').hide();
@@ -27,10 +25,18 @@ var key_student = "<%=  Rails.application.secrets.student_key %>";
 			$('#hidden-div-student').hide();
 			$('#hidden-div-producer').hide();
 			$('#hidden-div-login').hide();
+
 		} else if ($('.key-test-input').val() === key_producer){
 			$('#hidden-div-producer').show();
+			$('#hidden-div-student').hide();
+			$('#hidden-div-instructor').hide();
+			$('#hidden-div-login').hide();
+
 		} else if ($('.key-test-input').val() ===key_student){
 			$('#hidden-div-student').show();
+			$('#hidden-div-instructor').hide();
+			$('#hidden-div-producer').hide();
+			$('#hidden-div-login').hide();
 		} 
 	});
 </script>
@@ -42,6 +48,9 @@ var key_student = "<%=  Rails.application.secrets.student_key %>";
 <script>
 	$('.login-button').on('click', function(){
 		$('#hidden-div-login').show();
+		$('#hidden-div-instructor').hide();
+		$('#hidden-div-producer').hide();
+		$('#hidden-div-student').hide();
 	});
 </script>
 
