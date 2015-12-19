@@ -2,10 +2,10 @@ class StudentsController < ApplicationController
 
   def show
     @student = Student.find(params[:id])
-    @instructors = @student.cohort.instructors
-    @assignments = Cohort.find(@student.cohort_id).assignments
-    @submissions = @student.submissions
-    @gists = Cohort.find(@student.cohort_id).gists
+    @instructors = @student.cohort.instructors if @student.cohort
+    @assignments = Cohort.find(@student.cohort_id).assignments if @student.cohort
+    @submissions = @student.submissions if @student.submissions
+    @gists = Cohort.find(@student.cohort_id).gists if @student.cohort
     @new_submission = Submission.new
   end
  
@@ -15,17 +15,12 @@ class StudentsController < ApplicationController
 
   def create
     @student = Student.create(student_params)
-    redirect_to "/login"
+    session[:student_id] = @student.id
+    redirect_to @student
   end
 
   def edit
     @student = Student.find(params[:id])
-  end
-
-  def destroy
-    @student = Student.find(params[:id])
-    @student.destroy
-    redirect_to "/"
   end
 
 private

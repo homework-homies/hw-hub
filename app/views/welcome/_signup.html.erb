@@ -2,8 +2,9 @@
 
 <p>Student</p>
 <%= form_for @student, url:{:controller=>'students', :action=>'create', :id => @student.id} do |f| %>
-  <%= f.text_field :name, :placeholder => "Name" %>
+  	<%= f.text_field :name, :placeholder => "Name" %>
 	<%= f.text_field :email, :placeholder => "Email" %>
+	<%= f.text_field :cohort_id, :placeholder => "Cohort" %>
 	<%= f.password_field :password, :placeholder => "Password" %>
 	<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
 	<%= f.submit "Submit" %>
@@ -11,7 +12,7 @@
 
 <p>Instructor</p>
 <%= form_for @instructor, url:{:controller=>'instructors', :action=>'create', :id => @instructor.id} do |f| %>
-  <%= f.text_field :name, :placeholder => "Name" %>
+  	<%= f.text_field :name, :placeholder => "Name" %>
 	<%= f.text_field :email, :placeholder => "Email" %>
 	<%= f.password_field :password, :placeholder => "Password" %>
 	<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
