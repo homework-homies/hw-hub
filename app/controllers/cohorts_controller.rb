@@ -22,7 +22,7 @@ class CohortsController < ApplicationController
 
   private
     def cohort_params
-       params.require(:cohort).permit(:cohort_name, :producer_select, :start_on, :end_on)
+       params.require(:cohort).permit(:cohort_name, :start_on, :end_on)
     end 
 
 end
