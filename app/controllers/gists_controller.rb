@@ -11,7 +11,11 @@ class GistsController < ApplicationController
   end
 
   def show
-    @gist = Gist.find(params[:id])
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @gist = Gist.find(params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   private

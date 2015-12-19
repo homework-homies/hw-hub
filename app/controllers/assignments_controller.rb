@@ -1,8 +1,12 @@
 class AssignmentsController < ApplicationController
 
   def new
-    @assignment = Assignment.new
-    @instructor = Instructor.find(session[:instructor_id])
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @assignment = Assignment.new
+      @instructor = Instructor.find(session[:instructor_id])
+    else
+      redirect_to '/'
+    end
   end
 
   def create
@@ -17,7 +21,11 @@ class AssignmentsController < ApplicationController
   end
 
   def show
-    @assignment = Assignment.find(params[:id])
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @assignment = Assignment.find(params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   private
