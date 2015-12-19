@@ -1,12 +1,19 @@
 <h1>New Gist</h1>
 
-<%= form_for @new_gist, url:{:controller=>'gists', :action=>'create', :id => @new_gist.id} do |f| %>
+<%= form_for @new_gist, url:{:controller=>'gists', :action=>'create', :id => @new_gist.id } do |f| %>
 <%= f.text_field :title, :placeholder => "Give it a title" %>
 <%= f.text_field :content, :placeholder => "Content" %>
 <%= f.text_field :gist_link, :placeholder => "Github Link to Gist" %>
-<%= f.hidden_field :instructor_id, :value => @instructor.id %>
+<%= f.hidden_field :instructor_id, :value => session[:instructor_id] %>
 <%= f.hidden_field :date, :value => Date.today %>
-<%= f.text_field :cohort_id, :value => "Cohort" %>
+<select name="cohort_select">
+  <option value="" disabled selected>Cohort</option>
+  <% @cohorts.each do |cohort| %>
+    <option value="<%= cohort.cohort_name %>">
+      <%= cohort.cohort_name %>
+    </option>
+  <% end %>
+</select>
 <%= f.submit "Submit" %>
 
 <% end %>

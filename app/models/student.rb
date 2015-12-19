@@ -10,6 +10,8 @@
 
 class Student < ActiveRecord::Base 
   has_secure_password
+  validates :email, uniqueness: true 
+  validates :password, length: { minimum: 6 }
   has_many :enrollments
   has_many :submissions
   has_many :assignments, through: :submissions
