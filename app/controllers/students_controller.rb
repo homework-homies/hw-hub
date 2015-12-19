@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
   def show
     @student = Student.find(params[:id])
     @instructors = @student.cohort.instructors if @student.cohort
-    @assignments = Cohort.find(@student.cohort_id).assignments if @student.cohort
+    @assignments = Cohort.find(@student.cohort_id).assignments if @student.cohort.assignments
     @submissions = @student.submissions if @student.submissions
     @gists = Cohort.find(@student.cohort_id).gists if @student.cohort
     @new_submission = Submission.new
@@ -25,7 +25,7 @@ class StudentsController < ApplicationController
 
 private
   def student_params
-      params.require(:student).permit(:name, :email, :password, :password_confirmation)
+      params.require(:student).permit(:name, :email, :cohort_id, :password, :password_confirmation)
   end
 
 end  

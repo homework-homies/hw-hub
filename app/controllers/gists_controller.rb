@@ -2,12 +2,10 @@ class GistsController < ApplicationController
 
   def create
     @gist = Gist.create(gist_params)
-    if @gist.save
-      @gist.cohort.students.each do |student|
+    @gist.cohort.students.each do |student|
         GistMailer.gist_email(student.email).deliver_now
-      end 
+    end 
       redirect_to @gist
-    end
   end
 
   def show
@@ -16,6 +14,6 @@ class GistsController < ApplicationController
 
   private
     def gist_params
-       params.require(:gist).permit(:title, :content, :gist_link, :instructor_id, :cohort_id)
+       params.require(:gist).permit(:title, :content, :gist_link, :date, :instructor_id, :cohort_id)
     end  
 end
