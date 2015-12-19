@@ -4,9 +4,15 @@ class ProducersController < ApplicationController
   end
 
   def create
-    @producer = Producer.create(producer_params)
-    session[:producer_id] = @producer.id
-    redirect_to @producer
+    @producer = Producer.new(producer_params)
+    if @producer.save 
+      session[:producer_id] = @producer.id
+      redirect_to @producer
+    elsif @producer.password.length < 7
+      flash[:notice] = "Passwords must contain at least 6 characters"
+      redirect_to '/'
+    end
+
   end
 
   def show
