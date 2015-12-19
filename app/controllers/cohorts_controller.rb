@@ -2,10 +2,15 @@ class CohortsController < ApplicationController
   
   def new
     @cohort = Cohort.new
+    @producers = Producer.all
   end
 
   def create
     @cohort = Cohort.create(cohort_params)
+    @instructor = Instructor.find(session[:instructor_id])
+    @cohort.instructors.push(@instructor)
+    @cohort.producer = Producer.find_by(name: params["producer_select"])
+    @cohort.save()
     redirect_to @cohort
   end
 
@@ -17,7 +22,7 @@ class CohortsController < ApplicationController
 
   private
     def cohort_params
-       params.require(:cohort).permit(:cohort_name, :producer_id, :start_on, :end_on)
+       params.require(:cohort).permit(:cohort_name, :producer_select, :start_on, :end_on)
     end 
 
 end
