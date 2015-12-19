@@ -1,11 +1,17 @@
-<h1>Submissions Show Page</h1>
+<h1><%= @submission.student.name %>'s Homework from <%= @submission.assignment.title %></h1>
 
-<h1><%= @submission.student.name %></h1>
+<p><b>Link:</b> <a href="<%= @submission.submission_link %>">Click Here</a></p>
+<p><b>Status:</b> <%= @submission.grade_status %></p>
 
-<p>Assignment Title: <%= @submission.assignment.title %></p>
-<!--  -->
-<p>Link: <%= @submission.submission_link %></p>
-<p>Comments: <%= @submission.comments %></p>
-<p>Status: <%= @submission.grade_status %></p>
+<p><b>Submission Comments:</b>
+<br><%= @submission.comments %></p>
 
-<button>View All Assignments</button>
+<button class="previous-page">Back</button>
+<script>
+$(document).ready(function(){
+	$('.previous-page').click(function(){
+		parent.history.back();
+		return false;
+	});
+});
+</script>

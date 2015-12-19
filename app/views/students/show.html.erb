@@ -1,85 +1,49 @@
-<h1><%= @student.name %></h1>
+<script>
+$(document).ready(function(){
+	$('#assignments-students').hide();
+	$('#submissions').hide();
+	$('#submit-homework').hide();
+	$('#gists-students').hide();
+});
+</script>
 
-<!-- students submissions index tab -->
-<h3>Submissions</h3>
-<h1><%= @student.name %>'s Homework Assignments</h1>
-<h3><%= @student.cohort.cohort_name %></h3>
-<table>
-<tr>
-  <th>Date Submitted</th>
-  <th>Title</th>
-  <th>Assignment Link</th>
-  <th>Score</th>
-</tr>
-  <% @submissions.each do |submission| %>
-    <tr>
-      <td><%= submission.submitted_on %></td>
-      <td><a href="<%= submission.student.id %>/submissions/<%= submission.id %>"><%= submission.title %></a></td>
-      <td><a href="/assignments/<%= submission.assignment.id %>"><%= submission.assignment.title %></a></td>
-      <td><%= submission.grade_status %></td>
-    </tr>
-  <% end %>
-</table>
+<h1><%= @student.name %>'s Page</h1>
+<button class="button-assignments-students">Assignments</button>
+<button class="button-submissions">Submissions</button>
+<button class="button-submit-homework">Submit Homework</button>
+<button class="button-gists-students">Gists</button>
 
-<h3>Submit Homework</h3>
-<h1>Submit Your Homework Here: </h1>
-<%= form_for [@student, @new_submission] do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-  </br>
-  <%= f.label :submission_link %>
-  <%= f.text_field :submission_link %>
-  </br>
-  <%= f.label :comments %>
-  <%= f.text_area :comments, rows: 10, cols: 25 %>
-  </br>
-  <select name="assignment_selector">
-    <option value="" disabled selected> Assignment </option>
-    <% @student.cohort.assignments.each do |assignment| %>
-    <option value="<%= assignment.title %>"> <%= assignment.title %> </option>
-    <% end %>
-  </select>
-  </br>
-  <%= f.submit :Submit %>
-<% end %>
+<script>
+	$('.button-assignments-students').on('click', function(){
+		$('#assignments-students').show();
+		$('#submissions').hide();
+		$('#submit-homework').hide();
+		$('#gists-students').hide();
+	});
+	$('.button-submissions').on('click', function(){
+		$('#assignments-students').hide();
+		$('#submissions').show();
+		$('#submit-homework').hide();
+		$('#gists-students').hide();
+	});
+	$('.button-submit-homework').on('click', function(){
+		$('#assignments-students').hide();
+		$('#submissions').hide();
+		$('#submit-homework').show();
+		$('#gists-students').hide();
+	});
+	$('.button-gists-students').on('click', function(){
+		$('#assignments-students').hide();
+		$('#submissions').hide();
+		$('#submit-homework').hide();
+		$('#gists-students').show();
+	});
+</script>
 
-<h3>Gists</h3>
-<h1>Homework Gists</h1>
-<table>
-  <tr>
-    <th>Date Posted</th>
-    <th>Title</th>
-    <th>Link</th>
-  </tr>
-
-  <% @gists.each do |gist| %>
-    <tr>
-      <td><%= gist.date %></td>
-      <td><a href="/gists/<%= gist.id %>"><%= gist.title %></a></td>
-      <td><%= gist.gist_link %></td>
-    </tr>
-  <% end %>
-</table>
-
-
-<h3>Assignments</h3>
-<h1>Homework Assignments</h1>
-
-<table>
-  <tr>
-    <th>Date Assigned</th>
-    <th>Title</th>
-    <th>Assignment Link</th>
-  </tr>
-  <% @assignments.each do |assignment| %>
-    <tr>
-      <td><%= assignment.assigned_on %></td>
-      <td><%= link_to assignment.title, assignment_path(assignment) %></td>
-      <td><%= assignment.prompt_link %></td>
-    </tr>
-  <% end %>
-</table>
-
+<%= render 'assigments' %> <!-- id="assignments-students">-->
+<%= render 'submissions' %> <!-- id="submissions"> -->
+<%= render 'submithomework' %> <!-- id="submit-homework"> -->
+<%= render 'gists' %> <!-- id="gists-students">-->
 
 
 

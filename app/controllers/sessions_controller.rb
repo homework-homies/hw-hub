@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
         session[:student_id] = @student.id
         redirect_to @student
       else
+        flash[:notice] = "Wrong Password. Try Again."
         redirect_to '/'
       end
     elsif params[:login_selector] == "Instructor"
@@ -18,6 +19,7 @@ class SessionsController < ApplicationController
         session[:instructor_id] = @instructor.id
         redirect_to @instructor
       else
+        flash[:notice] = "Wrong Password. Try Again."
         redirect_to '/'
       end
     elsif params[:login_selector] == "Producer"
@@ -26,16 +28,17 @@ class SessionsController < ApplicationController
         session[:producer_id] = @producer.id
         redirect_to @producer
       else
+        flash[:notice] = "Wrong Password. Try Again."
         redirect_to '/'
       end
     end  
   end
 
   def destroy
-    if sessions[:student_id] || sessions[:instructor_id] || sessions[:producer_id]
-      sessions[:student_id] = nil
-      sessions[:instructor_id] = nil
-      sessions[:producer_id] = nil
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      session[:student_id] = nil
+      session[:instructor_id] = nil
+      session[:producer_id] = nil
     end
     redirect_to '/'
   end
