@@ -11,6 +11,10 @@ class ProducersController < ApplicationController
     elsif @producer.password.length < 7
       flash[:notice] = "Passwords must contain at least 6 characters"
       redirect_to '/'
+    elsif @producer.password != @producer.password_confirmation
+      flash[:notice] = "Passwords must match"
+    else 
+      flash[:notice] = "This email has already been registered. Please try logging in. "
     end
 
   end
