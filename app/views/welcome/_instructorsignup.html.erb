@@ -1,6 +1,8 @@
 <div id="hidden-div-instructor">
 <h1>SIGNUP</h1>
-<p>Instructor</p>
+<p>Welcome on Board Instructor!<br>
+Thanks for using your key. <br>
+Sign Up here to start enjoying all the benefits that our GA portal offers.</p>
 <%= form_for @instructor, url:{:controller=>'instructors', :action=>'create', :id => @instructor.id} do |f| %>
   	<%= f.text_field :name, :placeholder => "Name" %>
 	<%= f.email_field :email, :placeholder => "Email" %>
