@@ -10,6 +10,7 @@ class GistsController < ApplicationController
 
   def show
     @gist = Gist.find(params[:id])
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
   end
 
   private
