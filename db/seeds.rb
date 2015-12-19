@@ -26,7 +26,6 @@ assignment1 = Assignment.create({ title: "assignment1", prompt_link:"assignment1
 assignment2 = Assignment.create({ title: "assignment2", prompt_link:"assignment2 link", assigned_on: Date.new(2015,11,3)})
 assignment3 = Assignment.create({ title: "assignment3", prompt_link:"assignment3 link", assigned_on: Date.new(2015,11,22)})
 
-cohort1.instructors.push(instructor1)
 
 #join instructors & cohorts
 cohort1.instructors.push(instructor1)
