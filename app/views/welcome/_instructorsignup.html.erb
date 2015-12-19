@@ -1,3 +1,4 @@
+<div id="hidden-div-instructor">
 <h1>SIGNUP</h1>
 <p>Instructor</p>
 <%= form_for @instructor, url:{:controller=>'instructors', :action=>'create', :id => @instructor.id} do |f| %>
@@ -7,3 +8,4 @@
 	<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
 	<%= f.submit "Submit" %>
 <% end %>
+</div>

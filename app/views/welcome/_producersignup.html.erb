@@ -1,3 +1,4 @@
+<div id="hidden-div-producer">
 <h1>SIGNUP</h1>
 <p>Producer</p>
 <%= form_for @producer , url:{:controller=>'producers', :action=>'create', :id => @producer.id} do |f| %>
@@ -7,3 +8,4 @@
 	<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
 	<%= f.submit "Submit" %>
 <% end %>
+</div>
