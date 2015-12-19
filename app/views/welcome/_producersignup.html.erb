@@ -1,0 +1,9 @@
+<h1>SIGNUP</h1>
+<p>Producer</p>
+<%= form_for @producer , url:{:controller=>'producers', :action=>'create', :id => @producer.id} do |f| %>
+	<%= f.text_field :name, :placeholder => "Name" %>
+	<%= f.text_field :email, :placeholder => "Email" %>
+	<%= f.password_field :password, :placeholder => "Password" %>
+	<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+	<%= f.submit "Submit" %>
+<% end %>
