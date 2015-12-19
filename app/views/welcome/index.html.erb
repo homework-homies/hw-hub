@@ -6,44 +6,12 @@ $(document).ready(function(){
 	$('#hidden-div-student').hide();
 	$('#hidden-div-producer').hide();
 	$('#hidden-div-login').hide();
+	$('#main-root').show();
 });
 </script>
 
-<h1>Welcome to the G.A. Homework Hub</h1>
-<p>You must be a currently enrolled student, a producer or a instructor to be able to sign up.<br> Already have your key? Type it here to continue</p>
-<input class="key-test-input" type="password">
-<button class="key-test-button">Validate</button>
-
-<script>
-var key_instructor = "<%=  Rails.application.secrets.instructor_key %>";
-var key_producer = "<%=  Rails.application.secrets.producer_key %>";
-var key_student = "<%=  Rails.application.secrets.student_key %>";
-
-	$('.key-test-button').on('click', function(){
-		if ($('.key-test-input').val() === key_instructor){
-			$('#hidden-div-instructor').show();
-			$('#hidden-div-student').hide();
-			$('#hidden-div-producer').hide();
-			$('#hidden-div-login').hide();
-
-		} else if ($('.key-test-input').val() === key_producer){
-			$('#hidden-div-producer').show();
-			$('#hidden-div-student').hide();
-			$('#hidden-div-instructor').hide();
-			$('#hidden-div-login').hide();
-
-		} else if ($('.key-test-input').val() ===key_student){
-			$('#hidden-div-student').show();
-			$('#hidden-div-instructor').hide();
-			$('#hidden-div-producer').hide();
-			$('#hidden-div-login').hide();
-		} 
-	});
-</script>
-
-<p>Already Registered?<br>
-<button class="login-button">Login</button> 
-</p>
+<button class="login-button">LOGIN</button> 
+<button class="main-root-button">MAIN</button>
 
 <script>
 	$('.login-button').on('click', function(){
@@ -51,11 +19,19 @@ var key_student = "<%=  Rails.application.secrets.student_key %>";
 		$('#hidden-div-instructor').hide();
 		$('#hidden-div-producer').hide();
 		$('#hidden-div-student').hide();
+		$('#main-root').hide();
+	});
+
+	$('.main-root-button').on('click', function(){
+		$('#hidden-div-login').hide();
+		$('#hidden-div-instructor').hide();
+		$('#hidden-div-producer').hide();
+		$('#hidden-div-student').hide();
+		$('#main-root').show();
 	});
 </script>
 
-
-
+ <%= render 'main' %>
  <%= render 'login' %>
  <%= render 'instructorsignup' %>
  <%= render 'producersignup' %>
