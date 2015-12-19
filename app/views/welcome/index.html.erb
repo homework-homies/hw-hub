@@ -16,14 +16,14 @@ $(document).ready(function(){
 <script>
 var key_instructor = "<%= ENV["key1"] %>";
 var key_producer = "<%= ENV["key2"] %>";
-var key_instructor = "<%= ENV["key3"] %>";
+var key_student = "<%= ENV["key3"] %>";
 
 	$('.key-test-button').on('click', function(){
-		if ($('.key-test-input').val() === environment){
+		if ($('.key-test-input').val() === key_instructor){
 			$('#hidden-div-instructor').show();
-		} else if ($('.key-test-input').val() === "MYKEYP"){
+		} else if ($('.key-test-input').val() === key_producer){
 			$('#hidden-div-producer').show();
-		} else if ($('.key-test-input').val() === "MYKEYS"){
+		} else if ($('.key-test-input').val() ===key_student){
 			$('#hidden-div-student').show();
 		} 
 	});
