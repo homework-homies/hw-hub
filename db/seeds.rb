@@ -6,7 +6,7 @@ producer1 = Producer.create({name: "producer1", email: "producer1@ga.com", passw
 producer2 = Producer.create({name: "producer2", email: "producer2@ga.com", password: "password", password_confirmation: "password"})
 producer3 = Producer.create({name: "producer3", email: "producer3@ga.com", password: "password", password_confirmation: "password"})
 
-student1 = Student.create({name: "student1", email: "student1@ga.com", password: "password", password_confirmation: "password"})
+student1 = Student.create({name: "Taylor Basso", email: "taylorpbasso@gmail.com", password: "password", password_confirmation: "password", cohort_id: 1})
 student2 = Student.create({name: "student1", email: "student2@ga.com", password: "password", password_confirmation: "password"})
 student3 = Student.create({name: "student1", email: "student3@ga.com", password: "password", password_confirmation: "password"})
 
@@ -25,6 +25,8 @@ cohort3 = Cohort.create({cohort_name: "tomato", start_on: Date.new(2015,9,28), e
 assignment1 = Assignment.create({ title: "assignment1", prompt_link:"assignment1 link", assigned_on: Date.new(2015,10,28)})
 assignment2 = Assignment.create({ title: "assignment2", prompt_link:"assignment2 link", assigned_on: Date.new(2015,11,3)})
 assignment3 = Assignment.create({ title: "assignment3", prompt_link:"assignment3 link", assigned_on: Date.new(2015,11,22)})
+
+cohort1.instructors.push(instructor1)
 
 #join instructors & cohorts
 cohort1.instructors.push(instructor1)
