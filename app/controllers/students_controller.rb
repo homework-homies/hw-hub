@@ -14,9 +14,20 @@ class StudentsController < ApplicationController
   end
 
   def create
-    @student = Student.create(student_params)
-    session[:student_id] = @student.id
+    @student = Student.new(student_params)
+    if @student.save 
+      session[:student_id] = @student.id
     redirect_to @student
+    elsif @student.password.length < 7
+      flash[:notice] = "Passwords must contain at least 6 characters" 
+      redirect_to '/'
+    elsif @student.password != @student.password_confirmation
+      flash[:notice] = "Passwords must match"
+      redirect_to '/'
+    else 
+      flash[:notice] = "This email has already been registered. Please try logging in."
+      redirect_to '/' 
+    end 
   end
 
   def edit

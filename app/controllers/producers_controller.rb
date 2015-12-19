@@ -13,8 +13,10 @@ class ProducersController < ApplicationController
       redirect_to '/'
     elsif @producer.password != @producer.password_confirmation
       flash[:notice] = "Passwords must match"
+      redirect_to '/'
     else 
       flash[:notice] = "This email has already been registered. Please try logging in. "
+      redirect_to '/'
     end
 
   end
