@@ -6,4 +6,12 @@
 <p><b>Submission Comments:</b>
 <br><%= @submission.comments %></p>
 
-<button>View All Assignments</button>
+<button class="previous-page">Back</button>
+<script>
+$(document).ready(function(){
+	$('.previous-page').click(function(){
+		parent.history.back();
+		return false;
+	});
+});
+</script>

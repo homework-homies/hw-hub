@@ -1,13 +1,49 @@
+<script>
+$(document).ready(function(){
+	$('#assignments-students').hide();
+	$('#submissions').hide();
+	$('#submit-homework').hide();
+	$('#gists-students').hide();
+});
+</script>
+
 <h1><%= @student.name %>'s Page</h1>
+<button class="button-assignments-students">Assignments</button>
+<button class="button-submissions">Submissions</button>
+<button class="button-submit-homework">Submit Homework</button>
+<button class="button-gists-students">Gists</button>
 
+<script>
+	$('.button-assignments-students').on('click', function(){
+		$('#assignments-students').show();
+		$('#submissions').hide();
+		$('#submit-homework').hide();
+		$('#gists-students').hide();
+	});
+	$('.button-submissions').on('click', function(){
+		$('#assignments-students').hide();
+		$('#submissions').show();
+		$('#submit-homework').hide();
+		$('#gists-students').hide();
+	});
+	$('.button-submit-homework').on('click', function(){
+		$('#assignments-students').hide();
+		$('#submissions').hide();
+		$('#submit-homework').show();
+		$('#gists-students').hide();
+	});
+	$('.button-gists-students').on('click', function(){
+		$('#assignments-students').hide();
+		$('#submissions').hide();
+		$('#submit-homework').hide();
+		$('#gists-students').show();
+	});
+</script>
 
-<h1>Homeworks:</h1>
-<%= render 'assigments' %>
-<%= render 'submissions' %>
-
-
-<%= render 'submithomework' %>
-<%= render 'gists' %>
+<%= render 'assigments' %> <!-- id="assignments-students">-->
+<%= render 'submissions' %> <!-- id="submissions"> -->
+<%= render 'submithomework' %> <!-- id="submit-homework"> -->
+<%= render 'gists' %> <!-- id="gists-students">-->
 
 
 
