@@ -1,10 +1,51 @@
-<h1><%= @instructor.name %> Show Page</h1>
+<script>
+$(document).ready(function(){
+	$('#instructor-cohorts').hide();
+	$('#instructor-new-gist').hide();
+	$('#instructor-assignments').hide();
+	$('#instructor-gists').hide();
+});
+</script>
+
+<h1><%= @instructor.name %>'s Portal</h1>
 <%= @instructor.email %>
 
-<%= render 'cohorts' %>
-<%= render 'newgist' %>
-<%= render 'assignments' %>
-<%= render 'gists' %>
+<button class="button-instructor-cohorts">Cohorts</button>
+<button class="button-instructor-assignments">Assignments</button>
+<button class="button-instructor-gists">Gists</button>
+<button class="button-instructor-new-gist">Create New Gist</button>
+
+<script>
+	$('.button-instructor-cohorts').on('click', function(){
+		$('#instructor-cohorts').show();
+		$('#instructor-new-gist').hide();
+		$('#instructor-assignments').hide();
+		$('#instructor-gists').hide();
+	});
+	$('.button-instructor-assignments').on('click', function(){
+		$('#instructor-cohorts').hide();
+		$('#instructor-new-gist').hide();
+		$('#instructor-assignments').show();
+		$('#instructor-gists').hide();
+	});
+	$('.button-instructor-gists').on('click', function(){
+		$('#instructor-cohorts').hide();
+		$('#instructor-new-gist').hide();
+		$('#instructor-assignments').hide();
+		$('#instructor-gists').show();
+	});
+	$('.button-instructor-new-gist').on('click', function(){
+		$('#instructor-cohorts').hide();
+		$('#instructor-new-gist').show();
+		$('#instructor-assignments').hide();
+		$('#instructor-gists').hide();
+	});
+</script>
+
+<%= render 'cohorts' %> <!-- id="instructor-cohorts" -->
+<%= render 'newgist' %> <!-- id="instructor-new-gist" -->
+<%= render 'assignments' %> <!-- id="instructor-assignments" -->
+<%= render 'gists' %> <!-- id="instructor-gists" -->
 
 
 
