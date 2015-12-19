@@ -6,7 +6,8 @@ class InstructorsController < ApplicationController
 
   def create
     @instructor = Instructor.create(instructor_params)
-    redirect_to "/login"
+    session[:instructor_id] = @instructor.id
+    redirect_to @instructor
   end
  
   def show

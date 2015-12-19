@@ -5,7 +5,8 @@ class ProducersController < ApplicationController
 
   def create
     @producer = Producer.create(producer_params)
-    redirect_to '/login'
+    session[:producer_id] = @producer.id
+    redirect_to @producer
   end
 
   def show
