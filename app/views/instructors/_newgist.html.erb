@@ -6,7 +6,14 @@
 <%= f.text_field :gist_link, :placeholder => "Github Link to Gist" %>
 <%= f.hidden_field :instructor_id, :value => session[:instructor_id] %>
 <%= f.hidden_field :date, :value => Date.today %>
-<%= f.text_field :cohort_id, :placeholder => "Cohort" %>
+<select name="cohort_select">
+  <option value="" disabled selected>Cohort</option>
+  <% @cohorts.each do |cohort| %>
+    <option value="<%= cohort.cohort_name %>">
+      <%= cohort.cohort_name %>
+    </option>
+  <% end %>
+</select>
 <%= f.submit "Submit" %>
 
 <% end %>
