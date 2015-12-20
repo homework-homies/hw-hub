@@ -8,20 +8,20 @@
 </head>
 <body>
 
-  <div class="header">
-    <img class="header-logo" src="http://washingtontechnology.org/wp-content/uploads/2014/11/General_Assembly_logo.png">
-    
-    <p class="header-label">HOMEWORK HUB</p>
+  <!-- HEADER -->
+  <div class="navbar navbar-fixed-top navbar-custom ">
 
+    <img class="header-logo navbar-left" src="http://washingtontechnology.org/wp-content/uploads/2014/11/General_Assembly_logo.png">
+    <p class="header-label navbar-left">HOMEWORK HUB</p>
     <% if session[:student_id] || session[:instructor_id] || session[:producer_id] %>
-      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout" %>
+      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
     <% end %>
-
   </div>
+  <!--/HEADER-->
 
-  <div class="home-window">
-    <%= yield %>
-  </div>
+  <!-- BODY-->
+  <%= yield %>
+  <!--/BODY-->
 
 </body>
 </html>
