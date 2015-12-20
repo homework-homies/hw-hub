@@ -30,7 +30,7 @@ a {
 .logout {
   font-family: 'Oswald', sans-serif;
   font-size: 25px;
-  color: black;
+  color: black !important;
   text-align: right;
   text-decoration: none;
   margin: 20px;
