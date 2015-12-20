@@ -6,14 +6,6 @@ $(document).ready(function(){
 	$('#hidden-div-login').hide();
 	$('#main-root').show();
 });
-</script>
- 
- <ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
- 	<li class="tab-links login-button">LOGIN</li>
-	<li class="tab-links main-root-button">MAIN</li>
- </ul>
-
-<script>
 	$('.login-button').on('click', function(){
 		$('#hidden-div-login').show();
 		$('#hidden-div-instructor').hide();
@@ -31,10 +23,20 @@ $(document).ready(function(){
 	});
 </script>
 
- <%= render 'main' %>
- <%= render 'login' %>
- <%= render 'instructorsignup' %>
- <%= render 'producersignup' %>
- <%= render 'studentsignup' %>
+<div class ="jumbotab">
+	<ul class="nav nav-tabs">
+	  <li role="presentation" class="active"><a href="#">Home</a></li>
+	  <li role="presentation"><a href="#">Profile</a></li>
+	  <li role="presentation"><a href="#">Messages</a></li>
+	</ul>
+</div>
+
+<div class="jumbotron">
+	 <%= render 'main' %>
+	 <%= render 'login' %>
+	 <%= render 'instructorsignup' %>
+	 <%= render 'producersignup' %>
+	 <%= render 'studentsignup' %>
+ </div>
 
  
