@@ -5,10 +5,23 @@ $(document).ready(function(){
 });
 </script>
 
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-	<li class="tab-links button-cohort-students">Students</li>
-	<li class="tab-links button-cohort-gists">Gists</li>
-</ul>
+
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-instructor-cohorts" style="margin-left: 10px; margin-right: 3px;">Login</a></li>
+	  <li role="presentation"><a href="#" class="button-cohort-students" style="margin-right: 3px;">Instructor</a></li>
+	  <li role="presentation"><a href="#" class="button-cohort-gists">Producer</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		<%= notice %>
+		<h1>Cohort <%= @cohort.cohort_name %></h1>
+		<p>Start Date: <%= @cohort.start_on %> </p>
+		<p>End On: <%= @cohort.end_on %> </p>
+
+		<%= render 'students' %> <!-- id="cohort-students" -->
+		<%= render 'gists' %> <!-- id="cohort-gists" -->
+	</div>
+ </div>
 
 <script>
 	$('.button-cohort-students').on('click', function(){
@@ -20,15 +33,5 @@ $(document).ready(function(){
 		$('#cohort-gists').show();
 	});
 </script>
-
-<div class="tab-content">
-<%= notice %>
-<h1>Cohort <%= @cohort.cohort_name %></h1>
-<p>Start Date: <%= @cohort.start_on %> </p>
-<p>End On: <%= @cohort.end_on %> </p>
-
-<%= render 'students' %> <!-- id="cohort-students" -->
-<%= render 'gists' %> <!-- id="cohort-gists" -->
-</div>
 
 

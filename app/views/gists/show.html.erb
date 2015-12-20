@@ -1,6 +1,15 @@
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-	<li class="tab-links previous-page">Back</li>
-</ul>
+<div class="jumbotrontransparent jumbotron">
+	<div class="jumbotronpersonalized jumbotron">
+		<div class="tab-content"><h1>Gists</h1>
+		<p> Title: <%= @gist.title %> </p>
+		<p> Content: <%= markdown(@gist.content) %> </p>
+		<p> Link: <%= @gist.gist_link%> </p>
+		<p> Date: <%= @gist.date %> </p>
+		<button class="tab-links previous-page">Back</button>
+	</div>
+ </div>
+
+
 <script>
 $(document).ready(function(){ 
 	$('.previous-page').click(function(){
@@ -10,15 +19,5 @@ $(document).ready(function(){
 });
 </script>
 
-<div class="tab-content">
-<h1>Gists</h1>
-
-<p> Title: <%= @gist.title %> </p>
-<p> Content: <%= markdown(@gist.content) %> </p>
-<p> Link: <%= @gist.gist_link%> </p>
-
-<p> Date: <%= @gist.date %> </p>
-
-</div>
 
 

@@ -7,18 +7,22 @@ $(document).ready(function(){
 });
 </script>
 
-<ul>
-<li class="button-instructor-cohorts">Cohorts</li>
-<li class="button-instructor-assignments">Assignments</li>
-<li class="button-instructor-gists">Gists</li>
-<li class="button-instructor-new-gist">Create New Gist</li>
-</ul>
-<h1><%= @instructor.name %>'s Portal</h1>
-<%= @instructor.email %>
-<%= render 'cohorts' %> <!-- id="instructor-cohorts" -->
-<%= render 'newgist' %> <!-- id="instructor-new-gist" -->
-<%= render 'assignments' %> <!-- id="instructor-assignments" -->
-<%= render 'gists' %> <!-- id="instructor-gists" -->
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-instructor-cohorts" style="margin-left: 10px; margin-right: 3px;">Cohorts</a></li>
+	  <li role="presentation"><a href="#" class="button-instructor-assignments" style="margin-right: 3px;">Assignments</a></li>
+	  <li role="presentation"><a href="#" class="button-instructor-gists" style="margin-right: 3px;">Gists</a></li>
+	  <li role="presentation"><a href="#" class="button-instructor-new-gist">New Gist</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		 <h1><%= @instructor.name %>'s Portal</h1>
+		<%= @instructor.email %>
+		<%= render 'cohorts' %> <!-- id="instructor-cohorts" -->
+		<%= render 'newgist' %> <!-- id="instructor-new-gist" -->
+		<%= render 'assignments' %> <!-- id="instructor-assignments" -->
+		<%= render 'gists' %> <!-- id="instructor-gists" -->
+	</div>
+ </div>
 
 <script>
 	$('.button-instructor-cohorts').on('click', function(){

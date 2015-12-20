@@ -5,14 +5,17 @@ $(document).ready(function(){
 });
 </script>
 
-<ul>
-	<li class="button-producer-cohorts">Cohorts</li>
-	<li class="button-producer-students">All Students</li>
-</ul>
-
-<h1><%= @producer.name %>'s Page</h1>
-<%= render 'cohorts' %> <!-- id="producer-cohorts" -->
-<%= render 'students' %> <!-- id="producer-students" -->
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-producer-cohorts" style="margin-left: 10px; margin-right: 3px;">Cohorts</a></li>
+	  <li role="presentation"><a href="#" class="button-producer-students">All Students</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		<h1><%= @producer.name %>'s Page</h1>
+		<%= render 'cohorts' %> <!-- id="producer-cohorts" -->
+		<%= render 'students' %> <!-- id="producer-students" -->
+	</div>
+ </div>
 
 
 <script>

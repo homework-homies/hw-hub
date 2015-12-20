@@ -1,25 +1,24 @@
 <div id="submit-homework">
-<h1>Submit Your Homework Here: </h1>
+
+<p>Submit Your Homework Here:</p>
+
+<div class = "center form-actions">
 <%= form_for [@student, @new_submission] do |f| %>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
-  </br>
-  <%= f.label :submission_link %><br>
-  <%= f.text_field :submission_link %>
-  </br>
-  <%= f.label :comments %><br>
-  <%= f.text_area :comments, rows: 10, cols: 25 %>
-  </br>
   <select name="assignment_selector">
     <option value="" disabled selected>Assignment</option>
     
     <% @student.cohort.assignments.each do |assignment| %>
       <option value="<%= assignment.title %>"> <%= assignment.title %></option>
     <% end %>
-    
   </select>
-  </br>
-  
+  </br><br>
+  <%= f.text_field :title, :placeholder => "Title" %>
+  <br>
+  <%= f.text_field :submission_link, :placeholder => "Link" %>
+  <br><br>
+  <%= f.text_area :comments, rows: 5, cols: 100, :placeholder => "Your Comments" %>
+  <br><br>
   <%= f.submit :Submit %>
 <% end %>
+</div>
 </div>

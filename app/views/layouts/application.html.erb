@@ -9,24 +9,22 @@
 <body>
 
   <!-- HEADER -->
-<!--   <div class="navbar navbar-fixed-top navbar-custom "> -->
-
-<!--     <img class="header-logo navbar-left" src="http://washingtontechnology.org/wp-content/uploads/2014/11/General_Assembly_logo.png"> -->
+  <div class="navbar navbar-fixed-top navbar-custom ">
+    <img class="header-logo navbar-left" src="http://washingtontechnology.org/wp-content/uploads/2014/11/General_Assembly_logo.png">
     <p class="header-label navbar-left">HOMEWORK HUB</p>
     <% if session[:student_id] %>
+      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
       <% @user = Student.find(session[:student_id]) %>
-      <p> Hello, <%= @user.name %>!</p>
-      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout" %>
+      <p class="logout navbar-right"> Hello, <%= @user.name %>!</p>
     <% elsif session[:instructor_id] %>
+      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
       <% @user = Instructor.find(session[:instructor_id]) %>
-      <p> Hello, <%= @user.name %>!</p>
-      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout" %>
+      <p class="logout navbar-right"> Hello, <%= @user.name %>!</p>
     <% elsif session[:producer_id] %>
+      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
       <% @user = Producer.find(session[:producer_id]) %>
-      <p> Hello, <%= @user.name %>!</p>
-      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar -right" %>
+      <p class="logout navbar-right"> Hello, <%= @user.name %>!</p>
     <% end %>
-
   </div>
   <!--/HEADER-->
 

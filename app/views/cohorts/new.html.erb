@@ -1,4 +1,5 @@
 <h1>New Cohort</h1>
+<div class = "center form-actions">
 <%= form_for @cohort, url:{ :action=>'create' } do |f| %>
 <%= f.text_field :cohort_name, :placeholder => "Cohort Name" %>
 <%= f.date_field :start_on, :placeholder => "Starts on" %>
@@ -12,3 +13,4 @@
 </select>
 <%= f.submit "Submit" %>
 <% end %>
+</div>
