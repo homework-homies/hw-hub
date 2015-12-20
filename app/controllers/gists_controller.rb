@@ -2,8 +2,10 @@ class GistsController < ApplicationController
 
   def create
     @gist = Gist.create(gist_params)
+
     @gist.cohort = Cohort.find_by(cohort_name: params[:cohort_select])
-    @gist.save()
+    @gist.save
+    
     @gist.cohort.students.each do |student|
         GistMailer.gist_email(student.email).deliver_now
     end 
@@ -11,7 +13,11 @@ class GistsController < ApplicationController
   end
 
   def show
-    @gist = Gist.find(params[:id])
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @gist = Gist.find(params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   private

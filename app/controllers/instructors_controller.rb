@@ -1,7 +1,11 @@
 class InstructorsController < ApplicationController
 
   def new
-    @instructor = Instructor.new
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @instructor = Instructor.new
+    else
+      redirect_to '/'
+    end
   end
 
   def create
@@ -22,17 +26,15 @@ class InstructorsController < ApplicationController
   end
  
   def show
-    @instructor = Instructor.find(params[:id])
-    @cohorts = @instructor.cohorts
-    @gists = @instructor.gists
-    @assignments = @instructor.assignments
-    @new_gist = Gist.new
-  end
-
-  def destroy
-    @instructor = Instructor.find(params[:id])
-    @instructor.destroy
-    redirect_to "/"
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @instructor = Instructor.find(params[:id])
+      @cohorts = @instructor.cohorts
+      @gists = @instructor.gists
+      @assignments = @instructor.assignments
+      @new_gist = Gist.new
+    else
+      redirect_to '/'
+    end
   end
 
   private
