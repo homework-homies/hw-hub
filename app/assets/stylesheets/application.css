@@ -14,4 +14,8 @@
  *= require_self
  *= require_style
  *= require_grids
+ *= require_bootstrap-theme
+ *= require_bootstrap-theme.min
+ *= require_bootstrap
+ *= require_bootstrap.min
  */
