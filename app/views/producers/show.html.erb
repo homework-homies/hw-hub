@@ -5,9 +5,10 @@ $(document).ready(function(){
 });
 </script>
 
-<h1><%= @producer.name %>'s Page</h1>
-<button class="button-producer-cohorts">Cohorts</button>
-<button class="button-producer-students">All Students</button>
+<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
+	<li class="tab-links button-producer-cohorts">Cohorts</li>
+	<li class="tab-links button-producer-students">All Students</li>
+</ul>
 
 <script>
 	$('.button-producer-cohorts').on('click', function(){
@@ -20,6 +21,10 @@ $(document).ready(function(){
 	});
 </script>
 
+
+<div class="tab-content">
+<h1><%= @producer.name %>'s Page</h1>
 <%= render 'cohorts' %> <!-- id="producer-cohorts" -->
 <%= render 'students' %> <!-- id="producer-students" -->
+</div>
 

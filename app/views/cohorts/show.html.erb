@@ -5,13 +5,10 @@ $(document).ready(function(){
 });
 </script>
 
-<%= notice %>
-<h1>Cohort <%= @cohort.cohort_name %></h1>
-<p>Start Date: <%= @cohort.start_on %> </p>
-<p>End On: <%= @cohort.end_on %> </p>
-
-<button class="button-cohort-students">Students</button>
-<button class="button-cohort-gists">Gists</button>
+<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
+	<li class="tab-links button-cohort-students">Students</li>
+	<li class="tab-links button-cohort-gists">Gists</li>
+</ul>
 
 <script>
 	$('.button-cohort-students').on('click', function(){
@@ -24,8 +21,14 @@ $(document).ready(function(){
 	});
 </script>
 
+<div class="tab-content">
+<%= notice %>
+<h1>Cohort <%= @cohort.cohort_name %></h1>
+<p>Start Date: <%= @cohort.start_on %> </p>
+<p>End On: <%= @cohort.end_on %> </p>
+
 <%= render 'students' %> <!-- id="cohort-students" -->
 <%= render 'gists' %> <!-- id="cohort-gists" -->
-
+</div>
 
 
