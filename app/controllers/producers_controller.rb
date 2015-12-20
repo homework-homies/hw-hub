@@ -1,6 +1,10 @@
 class ProducersController < ApplicationController
   def new
-    @producer = Producer.new
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @producer = Producer.new
+    else
+      redirect_to '/'
+    end
   end
 
   def create
@@ -22,14 +26,12 @@ class ProducersController < ApplicationController
   end
 
   def show
-    @producer = Producer.find(params[:id])
-    @cohorts = @producer.cohorts
-  end
-
-  def destroy
-    @producer = Producer.find(params[:id])
-    @producer.destroy
-    redirect_to "/"
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @producer = Producer.find(params[:id])
+      @cohorts = @producer.cohorts
+    else
+      redirect_to '/'
+    end
   end
 
   private 

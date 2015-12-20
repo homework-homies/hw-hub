@@ -5,14 +5,17 @@ class GistsController < ApplicationController
     @gist.cohort = Cohort.find_by(cohort_name: params[:cohort_select])
     @gist.save()
     @gist.cohort.students.each do |student|
-      GistMailer.gist_email(student.email).deliver_now
+        GistMailer.gist_email(student.email).deliver_now
     end 
-    redirect_to @gist
+      redirect_to @gist
   end
 
   def show
-    @gist = Gist.find(params[:id])
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true)
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @gist = Gist.find(params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   private
