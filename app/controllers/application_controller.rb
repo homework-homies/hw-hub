@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       @current_user ||= Producer.find(session[:producer_id])
     end
   end
-
+ 
   helper_method :current_user
 
   def authorize

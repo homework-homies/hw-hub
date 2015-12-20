@@ -1,5 +1,5 @@
 class GistsController < ApplicationController
-
+  
   def create
     @gist = Gist.create(gist_params)
 
@@ -22,6 +22,6 @@ class GistsController < ApplicationController
 
   private
     def gist_params
-       params.require(:gist).permit(:title, :content, :gist_link, :date, :instructor_id, :cohort_id)
+      params.require(:gist).permit(:title, :content, :gist_link, :date, :instructor_id, :cohort_id)
     end  
 end
