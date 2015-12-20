@@ -2,8 +2,10 @@ class GistsController < ApplicationController
 
   def create
     @gist = Gist.create(gist_params)
+
     @gist.cohort = Cohort.find_by(cohort_name: params[:cohort_select])
-    @gist.save()
+    @gist.save
+    
     @gist.cohort.students.each do |student|
         GistMailer.gist_email(student.email).deliver_now
     end 
