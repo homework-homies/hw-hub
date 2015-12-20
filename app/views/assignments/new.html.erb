@@ -7,18 +7,22 @@ $(document).ready(function(){
 });
 </script>
 
-<div class = "center form-actions">
-<h1>Create a New Assignment</h1>
-<%= form_for @assignment, url:{ :action=>'create' } do |f| %>
-  <%= f.text_field :title, :placeholder => "Title" %>
-  <%= f.text_field :prompt_link, :placeholder => "Link" %>
-  <select name="cohort_selector">
-  <option value="" disabled selected> Cohort </option>
-  	<% @instructor.cohorts.each do |cohort| %>
-  		<option value="<%= cohort.cohort_name %>"> <%= cohort.cohort_name %> </option>
-  	<% end %>  
-  <%= f.submit "Submit" %>
-<% end %>
+<div class="jumbotrontransparent jumbotron">
+  <div class="jumbotronpersonalized jumbotron">
 
-<button class="tab-links previous-page">Back</button>
+    <div class = "center form-actions">
+      <h1>Create a New Assignment</h1>
+      <%= form_for @assignment, url:{ :action=>'create' } do |f| %>
+        <%= f.text_field :title, :placeholder => "Title" %>
+        <%= f.text_field :prompt_link, :placeholder => "Link" %>
+        <select name="cohort_selector">
+        <option value="" disabled selected> Cohort </option>
+        	<% @instructor.cohorts.each do |cohort| %>
+        		<option value="<%= cohort.cohort_name %>"> <%= cohort.cohort_name %> </option>
+        	<% end %>  
+        <%= f.submit "Submit" %>
+      <% end %>
+      <button class="tab-links previous-page">Back</button>
+    </div>
+  </div>
 </div>

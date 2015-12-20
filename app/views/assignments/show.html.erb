@@ -1,3 +1,12 @@
+<script>
+$(document).ready(function(){
+	$('.previous-page').click(function(){
+		parent.history.back();
+		return false;
+	});
+});
+</script>
+
 <div class="jumbotrontransparent jumbotron">
 	<div class="jumbotronpersonalized jumbotron">
 		<h1>Assignment Show Page</h1>
@@ -7,5 +16,9 @@
 		<p> Cohort: <%= @assignment.cohort.cohort_name %></p>
 		<p> Assigned On: <%= @assignment.assigned_on %></p>
 		<p> Made by: <%= @assignment.instructor.name %> </p>
- </div>
+
+<div class = "center form-actions">
+<button class="tab-links previous-page">Back</button>
+</div>
+</div>
 
