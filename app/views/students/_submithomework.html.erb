@@ -12,12 +12,14 @@
     <% end %>
   </select>
   </br><br>
+
   <%= f.text_field :title, :placeholder => "Title" %>
   <br>
   <%= f.text_field :submission_link, :placeholder => "Link" %>
   <br><br>
   <%= f.text_area :comments, rows: 5, cols: 100, :placeholder => "Your Comments" %>
   <br><br>
+  <%= f.hidden_field :submitted_on, :value => Date.today %>
   <%= f.submit :Submit %>
 <% end %>
 </div>
