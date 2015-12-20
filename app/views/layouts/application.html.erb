@@ -13,9 +13,19 @@
     
     <p class="header-label">HOMEWORK HUB</p>
 
-    <% if session[:student_id] || session[:instructor_id] || session[:producer_id] %>
-      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout" %>
-    <% end %>
+      <% if session[:student_id] %>
+        <% @user = Student.find(session[:student_id]) %>
+        <p> Hello, <%= @user.name %>!</p>
+        <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout" %>
+      <% elsif session[:instructor_id] %>
+        <% @user = Instructor.find(session[:instructor_id]) %>
+        <p> Hello, <%= @user.name %>!</p>
+        <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout" %>
+      <% elsif session[:producer_id] %>
+        <% @user = Producer.find(session[:producer_id]) %>
+        <p> Hello, <%= @user.name %>!</p>
+        <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout" %>
+      <% end %>
 
   </div>
 
