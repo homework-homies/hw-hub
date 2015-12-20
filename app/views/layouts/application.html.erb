@@ -10,19 +10,18 @@
 
   <div class="header">
     <img class="header-logo" src="http://washingtontechnology.org/wp-content/uploads/2014/11/General_Assembly_logo.png">
+    
     <p class="header-label">HOMEWORK HUB</p>
+
+    <% if session[:student_id] || session[:instructor_id] || session[:producer_id] %>
+      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout" %>
+    <% end %>
+
   </div>
 
   <div class="home-window">
     <%= yield %>
   </div>
-
-<% if session[:student_id] || session[:instructor_id] || session[:producer_id] %>
-
-  <%= link_to "Sign Out", login_path, :method => :delete %>
-<% end %>
-
-
 
 </body>
 </html>

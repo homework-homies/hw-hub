@@ -7,11 +7,12 @@ $(document).ready(function(){
 });
 </script>
 
-<h1><%= @student.name %>'s Page</h1>
-<button class="button-assignments-students">Assignments</button>
-<button class="button-submissions">Submissions</button>
-<button class="button-submit-homework">Submit Homework</button>
-<button class="button-gists-students">Gists</button>
+<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
+	<li class="tab-links button-assignments-students">Assignments</li>
+	<li class="tab-links button-submissions">Submissions</li>
+	<li class="tab-links button-submit-homework">Submit Homework</li>
+	<li class="tab-links button-gists-students">Gists</li>
+</ul>
 
 <script>
 	$('.button-assignments-students').on('click', function(){
@@ -19,31 +20,37 @@ $(document).ready(function(){
 		$('#submissions').hide();
 		$('#submit-homework').hide();
 		$('#gists-students').hide();
+		$('#student-main').hide();
 	});
 	$('.button-submissions').on('click', function(){
 		$('#assignments-students').hide();
 		$('#submissions').show();
 		$('#submit-homework').hide();
 		$('#gists-students').hide();
+		$('#student-main').hide();
 	});
 	$('.button-submit-homework').on('click', function(){
 		$('#assignments-students').hide();
 		$('#submissions').hide();
 		$('#submit-homework').show();
 		$('#gists-students').hide();
+		$('#student-main').hide();
 	});
 	$('.button-gists-students').on('click', function(){
 		$('#assignments-students').hide();
 		$('#submissions').hide();
 		$('#submit-homework').hide();
 		$('#gists-students').show();
+		$('#student-main').hide();
 	});
 </script>
 
-<%= render 'assigments' %> <!-- id="assignments-students">-->
-<%= render 'submissions' %> <!-- id="submissions"> -->
-<%= render 'submithomework' %> <!-- id="submit-homework"> -->
-<%= render 'gists' %> <!-- id="gists-students">-->
-
+<div class="tab-content">
+	<%= render 'assigments' %> <!-- id="assignments-students">-->
+	<%= render 'submissions' %> <!-- id="submissions"> -->
+	<%= render 'submithomework' %> <!-- id="submit-homework"> -->
+	<%= render 'gists' %> <!-- id="gists-students">-->
+	<%= render 'main' %> 
+</div>
 
 

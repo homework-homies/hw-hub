@@ -1,8 +1,12 @@
 class CohortsController < ApplicationController
   
   def new
-    @cohort = Cohort.new
-    @producers = Producer.all
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @cohort = Cohort.new
+      @producers = Producer.all
+    else
+      redirect_to '/'
+    end
   end
 
   def create
@@ -15,9 +19,13 @@ class CohortsController < ApplicationController
   end
 
   def show
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
     @cohort = Cohort.find(params[:id])
     @students = @cohort.students
     @gists = @cohort.gists
+    else
+      redirect_to '/'
+    end
   end
 
   private

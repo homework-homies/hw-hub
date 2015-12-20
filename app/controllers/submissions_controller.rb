@@ -9,11 +9,19 @@ class SubmissionsController < ApplicationController
   end
 
   def show
-    @submission = Submission.find(params[:id])
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @submission = Submission.find(params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   def edit 
-    @submission = Submission.find(params[:id])
+    if session[:student_id] || session[:instructor_id] || session[:producer_id]
+      @submission = Submission.find(params[:id])
+    else
+      redirect_to '/'
+    end
   end
 
   def update
