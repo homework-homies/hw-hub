@@ -7,14 +7,24 @@ $(document).ready(function(){
 	$('#main-root').show();
 });
 </script>
- 
- <ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
- 	<li class="tab-links login-button">LOGIN</li>
-	<li class="tab-links main-root-button">MAIN</li>
- </ul>
+
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-pills nav-justified">
+	  <li role="presentation"><a href="#" class="login-button">Login</a></li>
+	  <li role="presentation"><a href="#" class="main-root-button">Main</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		 <%= render 'main' %>
+		 <%= render 'login' %>
+		 <%= render 'instructorsignup' %>
+		 <%= render 'producersignup' %>
+		 <%= render 'studentsignup' %>
+	</div>
+ </div>
 
 <script>
-	$('.login-button').on('click', function(){
+ 	$('.login-button').on('click', function(event){
+ 		event.preventDefault();
 		$('#hidden-div-login').show();
 		$('#hidden-div-instructor').hide();
 		$('#hidden-div-producer').hide();
@@ -22,7 +32,8 @@ $(document).ready(function(){
 		$('#main-root').hide();
 	});
 
-	$('.main-root-button').on('click', function(){
+	$('.main-root-button').on('click', function(event){
+		event.preventDefault();
 		$('#hidden-div-login').hide();
 		$('#hidden-div-instructor').hide();
 		$('#hidden-div-producer').hide();
@@ -30,11 +41,5 @@ $(document).ready(function(){
 		$('#main-root').show();
 	});
 </script>
-
- <%= render 'main' %>
- <%= render 'login' %>
- <%= render 'instructorsignup' %>
- <%= render 'producersignup' %>
- <%= render 'studentsignup' %>
 
  
