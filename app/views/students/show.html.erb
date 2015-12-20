@@ -7,12 +7,18 @@ $(document).ready(function(){
 });
 </script>
 
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-	<li class="tab-links button-assignments-students">Assignments</li>
-	<li class="tab-links button-submissions">Submissions</li>
-	<li class="tab-links button-submit-homework">Submit Homework</li>
-	<li class="tab-links button-gists-students">Gists</li>
+<ul >
+	<li class="button-assignments-students">Assignments</li>
+	<li class="button-submissions">Submissions</li>
+	<li class="button-submit-homework">Submit Homework</li>
+	<li class="button-gists-students">Gists</li>
 </ul>
+
+	<%= render 'assigments' %> <!-- id="assignments-students">-->
+	<%= render 'submissions' %> <!-- id="submissions"> -->
+	<%= render 'submithomework' %> <!-- id="submit-homework"> -->
+	<%= render 'gists' %> <!-- id="gists-students">-->
+	<%= render 'main' %> 
 
 <script>
 	$('.button-assignments-students').on('click', function(){
@@ -44,13 +50,5 @@ $(document).ready(function(){
 		$('#student-main').hide();
 	});
 </script>
-
-<div class="tab-content">
-	<%= render 'assigments' %> <!-- id="assignments-students">-->
-	<%= render 'submissions' %> <!-- id="submissions"> -->
-	<%= render 'submithomework' %> <!-- id="submit-homework"> -->
-	<%= render 'gists' %> <!-- id="gists-students">-->
-	<%= render 'main' %> 
-</div>
 
 

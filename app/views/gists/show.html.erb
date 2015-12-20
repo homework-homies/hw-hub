@@ -2,7 +2,7 @@
 	<li class="tab-links previous-page">Back</li>
 </ul>
 <script>
-$(document).ready(function(){
+$(document).ready(function(){ 
 	$('.previous-page').click(function(){
 		parent.history.back();
 		return false;
@@ -14,8 +14,11 @@ $(document).ready(function(){
 <h1>Gists</h1>
 
 <p> Title: <%= @gist.title %> </p>
-<p> Content: <%= @gist.content %> </p>
+<p> Content: <%= markdown(@gist.content) %> </p>
 <p> Link: <%= @gist.gist_link%> </p>
+
 <p> Date: <%= @gist.date %> </p>
+
 </div>
-</div>
+
+
