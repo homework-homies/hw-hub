@@ -11,5 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
+//= require bootstrap.min
 //= require jquery_ujs
 //= require_tree .
