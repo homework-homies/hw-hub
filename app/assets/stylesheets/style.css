@@ -36,19 +36,20 @@ html, body {
   color: black;
 }
 
-.jumbotab {
-  color: white;
-  background-color: black;
-}
-
 .jumbotronpersonalized {
  background-color: rgba(157, 41, 41, 0.8) !important;
- min-width: 80%;
- max-width: 80%;
- height:60%;
- margin: 10% auto;
- /*font-family: 'Open Sans', sans-serif !important;*/
  color: white !important;
  border-radius: 10px !important;
 }
 
+
+.jumbotrontransparent {
+ background-color: transparent;
+ min-width: 70%;
+ max-width: 70%;
+ height: 80%;
+ margin: 8% auto;
+ /*font-family: 'Open Sans', sans-serif !important;*/
+ color: white !important;
+ border-radius: 10px !important;
+}
