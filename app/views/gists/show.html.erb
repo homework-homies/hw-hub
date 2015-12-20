@@ -14,12 +14,11 @@ $(document).ready(function(){
 <h1>Gists</h1>
 
 <p> Title: <%= @gist.title %> </p>
-<p> Content: <%= @markdown.render(@gist.content) %> </p>
+<p> Content: <%= markdown(@gist.content) %> </p>
 <p> Link: <%= @gist.gist_link%> </p>
-<<<<<<< HEAD
+
 <p> Date: <%= @gist.date %> </p>
-=======
-<p> Date: <%= @gist.date %> </p>
+
 </div>
-</div>
->>>>>>> 1429195801237ffc47c1dbc474788bb43d01b6e8
+
+
