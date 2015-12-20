@@ -9,9 +9,9 @@
 <body>
 
   <!-- HEADER -->
-  <div class="navbar navbar-fixed-top navbar-custom ">
+<!--   <div class="navbar navbar-fixed-top navbar-custom "> -->
 
-    <img class="header-logo navbar-left" src="http://washingtontechnology.org/wp-content/uploads/2014/11/General_Assembly_logo.png">
+<!--     <img class="header-logo navbar-left" src="http://washingtontechnology.org/wp-content/uploads/2014/11/General_Assembly_logo.png"> -->
     <p class="header-label navbar-left">HOMEWORK HUB</p>
     <% if session[:student_id] %>
       <% @user = Student.find(session[:student_id]) %>
@@ -31,9 +31,7 @@
   <!--/HEADER-->
 
   <!-- BODY-->
-  <div class="allbody">
     <%= yield %>
-  </div>
   <!--/BODY-->
   
 

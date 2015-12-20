@@ -7,12 +7,18 @@ $(document).ready(function(){
 });
 </script>
 
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-<li class="tab-links button-instructor-cohorts">Cohorts</li>
-<li class="tab-links button-instructor-assignments">Assignments</li>
-<li class="tab-links button-instructor-gists">Gists</li>
-<li class="tab-links button-instructor-new-gist">Create New Gist</li>
+<ul>
+<li class="button-instructor-cohorts">Cohorts</li>
+<li class="button-instructor-assignments">Assignments</li>
+<li class="button-instructor-gists">Gists</li>
+<li class="button-instructor-new-gist">Create New Gist</li>
 </ul>
+<h1><%= @instructor.name %>'s Portal</h1>
+<%= @instructor.email %>
+<%= render 'cohorts' %> <!-- id="instructor-cohorts" -->
+<%= render 'newgist' %> <!-- id="instructor-new-gist" -->
+<%= render 'assignments' %> <!-- id="instructor-assignments" -->
+<%= render 'gists' %> <!-- id="instructor-gists" -->
 
 <script>
 	$('.button-instructor-cohorts').on('click', function(){
@@ -41,13 +47,7 @@ $(document).ready(function(){
 	});
 </script>
 
-<div class="tab-content">
-<h1><%= @instructor.name %>'s Portal</h1>
-<%= @instructor.email %>
-<%= render 'cohorts' %> <!-- id="instructor-cohorts" -->
-<%= render 'newgist' %> <!-- id="instructor-new-gist" -->
-<%= render 'assignments' %> <!-- id="instructor-assignments" -->
-<%= render 'gists' %> <!-- id="instructor-gists" -->
-</div>
+
+
 
 

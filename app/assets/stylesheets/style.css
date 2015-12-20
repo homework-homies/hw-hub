@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Oswald);
+/*@import url(https://fonts.googleapis.com/css?family=Oswald);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 body {
@@ -37,11 +37,10 @@ html, body {
 }
 
 .jumbotronpersonalized {
- background-color: rgba(157, 41, 41, 0.8) !important;
+ background-color: rgba(157, 41, 41, 1) !important;
  color: white !important;
  border-radius: 10px !important;
 }
-
 
 .jumbotrontransparent {
  background-color: transparent;
@@ -53,3 +52,4 @@ html, body {
  color: white !important;
  border-radius: 10px !important;
 }
+*/
