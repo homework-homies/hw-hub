@@ -13,6 +13,10 @@ class GistsController < ApplicationController
   end
 
   def show
+    def markdown(text) # Define method markdown with redcarpet gem
+      Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(text)
+    end
+
     if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @gist = Gist.find(params[:id])
     else
