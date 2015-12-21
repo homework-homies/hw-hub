@@ -1,10 +1,23 @@
 <div id="producer-students-atrisk">
 	<h1>At-risk Students</h1>
-	<ul> 
   	<% @cohorts.each do |cohort| %>
+    <table class="table">
+        <tr>
+          <th>Student</th>
+          <th>Cohort</th>
+          <th>Current Grade</th>
+          <th>% of Assignments Submitted </th>
+          <th># of Unsubmitted Assignments</th>
+        </tr>
     	<% cohort.students.each do |student| %> 
-     		 <% if student.completion_rate <= 20 %>
-      			<li> <a href="/cohorts/<%= cohort.id %>"><%=student.name%></a> </li>
+     		 <% if student.submitted_hw? <= 20 %>
+          <tr>
+            <td><%= student.name %></td>
+            <td><%= student.cohort.cohort_name %></td>
+            <td><%= student.completion_rate %>%</td>
+            <td><%= student.submitted_hw? %>%</td>
+            <td><%= student.pending_assignments? %></td>
+          </tr>
       		<% end %>
     	<% end %>
   	<% end %>
