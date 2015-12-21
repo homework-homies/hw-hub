@@ -35,18 +35,13 @@ student14 = Student.create({name: "Nate", email: "student14@ga.com", password: "
 student15 = Student.create({name: "Anousha", email: "student15@ga.com", password: "password", password_confirmation: "password"})
 student16 = Student.create({name: "Johnny", email: "student16@ga.com", password: "password", password_confirmation: "password"})
 
-<<<<<<< HEAD
+
 assignment1 = Assignment.create({ title: "Project 2", prompt_link:"http://assignment1_link/", assigned_on: Date.new(2015,10,28)})
 assignment2 = Assignment.create({ title: "ShylockBot", prompt_link:"http://assignment2_link/", assigned_on: Date.new(2015,10,31)})
 assignment3 = Assignment.create({ title: "MTA", prompt_link:"http://assignment3_link/", assigned_on: Date.new(2015,11,2)})
 assignment4 = Assignment.create({ title: "SQLITE3", prompt_link:"http://assignment3_link/", assigned_on: Date.new(2015,11,14)})
 assignment5 = Assignment.create({ title: "Oregon Trails App", prompt_link:"http://assignment3_link/", assigned_on: Date.new(2015,11,28)})
 assignment6 = Assignment.create({ title: "Migrations Practice", prompt_link:"http://assignment3_link/", assigned_on: Date.new(2015,12,3)})
-=======
-submission1 = Submission.create({grade_status: "Complete", comments: "comment section", title: "submission1", submission_link:"submission link", submitted_on: Date.today})
-submission2 = Submission.create({grade_status: "Incomplete", comments: "comment section", title: "submission2", submission_link:"submission link", submitted_on: Date.today})
-submission3 = Submission.create({grade_status: "Pending", comments: "comment section", title: "submission3", submission_link:"submission link", submitted_on: Date.today})
->>>>>>> 78d27fda25f4897fab248c2be59918687974551d
 
 # submission1 = Submission.create({submitted_on: Date.new(2015,11, 23), grade_status: "complete", comments: "I found this really easy", title: "HW for W02 D01", submission_link:"http:/github/homework_submission/"})
 # submission2 = Submission.create({submitted_on: Date.new(2015,10, 19), grade_status: "incomplete", comments: "I didnt have time to do this homework", title: "HW for W08 D05", submission_link:"http:/github/homework_submission/"})
@@ -165,64 +160,12 @@ student16.assignments.push(assignment5)
 student16.assignments.push(assignment6)
 
 
-
-
-# submission1.assignments.push(assignment1)
-
-
 # assignment1.submissions.push(submission1)
 # assignment2.submissions.push(submission2)
 # assignment3.submissions.push(submission3)
 # assignment4.submissions.push(submission4)
 # assignment5.submissions.push(submission5)
 # assignment6.submissions.push(submission6)
-
-
-
-
-
-
-
-
-
-
-# this does not work//////
-# cohort1.gists.push(gist1)
-# cohort1.gists.push(gist2)
-# cohort1.gists.push(gist3)
-# cohort1.gists.push(gist4)
-# cohort1.gists.push(gist5)
-# cohort1.gists.push(gist6)
-# cohort2.gists.push(gist1)
-# cohort2.gists.push(gist2)
-# cohort2.gists.push(gist3)
-# cohort2.gists.push(gist4)
-# cohort3.gists.push(gist3)
-# cohort3.gists.push(gist4)
-# cohort3.gists.push(gist5)
-# cohort3.gists.push(gist6)
-# cohort4.gists.push(gist1)
-# cohort4.gists.push(gist2)
-# cohort4.gists.push(gist5)
-# cohort4.gists.push(gist6)
-# cohort4.gists.push(gist3)
-# cohort4.gists.push(gist4)
-# //////////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # student1.submissions.push(submission1)
 # student1.submissions.push(submission2)
