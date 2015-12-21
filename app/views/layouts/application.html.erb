@@ -8,23 +8,28 @@
   <%= favicon_link_tag 'favicon.ico' %>
 </head>
 <body>
-
+ 
   <!-- HEADER -->
   <div class="navbar navbar-fixed-top navbar-custom ">
     <img class="header-logo navbar-left" src="http://washingtontechnology.org/wp-content/uploads/2014/11/General_Assembly_logo.png">
     <p class="header-label navbar-left">HOMEWORK HUB</p>
     <% if session[:student_id] %>
-      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
+
       <% @user = Student.find(session[:student_id]) %>
-      <p class="logout navbar-right"> Hello, <%= @user.name %>!</p>
+      <p class="hello navbar-right"> Hello, <%= @user.name %>!</p><br/>
+      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
+
     <% elsif session[:instructor_id] %>
-      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
+
       <% @user = Instructor.find(session[:instructor_id]) %>
-      <p class="logout navbar-right"> Hello, <%= @user.name %>!</p>
-    <% elsif session[:producer_id] %>
+      <p class="hello navbar-right"> Hello, <%= @user.name %>!</p><br/>
       <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
+
+    <% elsif session[:producer_id] %>
+
       <% @user = Producer.find(session[:producer_id]) %>
-      <p class="logout navbar-right"> Hello, <%= @user.name %>!</p>
+      <p class="hello navbar-right"> Hello, <%= @user.name %>!</p><br/>
+      <%= link_to "Sign Out", login_path, :method => :delete, :class => "logout navbar-right" %>
     <% end %>
   </div>
   <!--/HEADER-->
