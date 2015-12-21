@@ -1,16 +1,16 @@
-#The Homework Hub :dancers::dancers::running:
+# The Homework Hub :dancers::dancers::running:
 
 App created by: The Homework Homies - Alex, Jess, Taylor, Thais and Natasha 
 
-#DESCRIPTION OF APP
+# DESCRIPTION OF APP
 The Homework Hub app is able to track students homework submission throughout their GA course. There will be 3 portals (Instructor, Student and Producer). This app is a perfect way for students and their instructors to analyse students progress in the class. 
 
-#TECHNOLOGIES USED
+# TECHNOLOGIES USED
 HTML, CSS, Bootstrap, Ruby on Rails, RedCarpet Gem, BCrypt, ActionMailer, Jquery, javaScript
 
-#USER STORIES
+# USER STORIES
 
-##**Student Portal**##
+**Student Portal**
 
 1. A student may log in
 
@@ -37,7 +37,7 @@ HTML, CSS, Bootstrap, Ruby on Rails, RedCarpet Gem, BCrypt, ActionMailer, Jquery
 12. A student should get an email if an instructor creates a new cohort/course
 
 
-##**Instructor Portal**##
+**Instructor Portal**
 
 1. An instructor may log in
 
@@ -62,7 +62,7 @@ HTML, CSS, Bootstrap, Ruby on Rails, RedCarpet Gem, BCrypt, ActionMailer, Jquery
 11. An instructor can create a new cohort/course through the app
 
 
-##**Producer Portal**##
+**Producer Portal**
 
 1. A course producer can run several courses
 
