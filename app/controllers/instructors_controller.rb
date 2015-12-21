@@ -1,11 +1,7 @@
 class InstructorsController < ApplicationController
 
   def new
-    if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @instructor = Instructor.new
-    else
-      redirect_to '/'
-    end
   end
 
   def create
@@ -28,9 +24,9 @@ class InstructorsController < ApplicationController
   def show
     if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @instructor = Instructor.find(params[:id])
-      @cohorts = @instructor.cohorts
-      @gists = @instructor.gists
-      @assignments = @instructor.assignments
+      @cohorts = @instructor.cohorts if @instructor.cohorts
+      @gists = @instructor.gists if @instructor.gists
+      @assignments = @instructor.assignments if @instructor.assignments
       @new_gist = Gist.new
     else
       redirect_to '/'
@@ -40,5 +36,5 @@ class InstructorsController < ApplicationController
   private
     def instructor_params
       params.require(:instructor).permit(:name, :email, :password, :password_confirmation)
-  end
+    end
 end  

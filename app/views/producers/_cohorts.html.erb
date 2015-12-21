@@ -2,9 +2,7 @@
 <h1>My Cohorts</h1>
 <ul>
 <% @cohorts.each do |cohort| %>
-  <li><%= link_to cohort.cohort_name, cohort_path(cohort) %> </li>
-  <li>Start Date: <%= cohort.start_on %></li>
-  <li>End Date: <%= cohort.end_on %></li>
+  <li><%= link_to cohort.cohort_name, cohort_path(cohort) %> | Start Date: <%= cohort.start_on %> | End Date: <%= cohort.end_on %></li>
 <% end %>
 </ul>
 </div>

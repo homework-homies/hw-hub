@@ -1,16 +1,34 @@
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-cohort-students" style="margin-left: 10px; margin-right: 3px;">Students</a></li>
+	  <li role="presentation"><a href="#" class="button-cohort-gists">Gists</a></li>
+
+	  <% if session[:instructor_id] %>
+	  	<li role="presentation"><a href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
+	  <% elsif session[:student_id] %>
+	  	<li role="presentation"><a href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
+	  <% elsif session[:producer_id] %>
+	  	<li role="presentation"><a href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
+	  <% end %>
+	</ul>
+
+	<div class="jumbotronpersonalized jumbotron">
+		<%= notice %>
+		<h1>WDI <%= @cohort.cohort_name %></h1>
+		<p>Starts On: <%= @cohort.start_on %> | End On: <%= @cohort.end_on %> </p>
+		
+		<%= render 'gists' %>
+		<%= render 'students' %>
+
+	</div>
+</div>
+
 <script>
 $(document).ready(function(){
+
 	$('#cohort-students').hide();
 	$('#cohort-gists').hide();
-});
-</script>
 
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-	<li class="tab-links button-cohort-students">Students</li>
-	<li class="tab-links button-cohort-gists">Gists</li>
-</ul>
-
-<script>
 	$('.button-cohort-students').on('click', function(){
 		$('#cohort-students').show();
 		$('#cohort-gists').hide();
@@ -19,16 +37,6 @@ $(document).ready(function(){
 		$('#cohort-students').hide();
 		$('#cohort-gists').show();
 	});
+});
 </script>
-
-<div class="tab-content">
-<%= notice %>
-<h1>Cohort <%= @cohort.cohort_name %></h1>
-<p>Start Date: <%= @cohort.start_on %> </p>
-<p>End On: <%= @cohort.end_on %> </p>
-
-<%= render 'students' %> <!-- id="cohort-students" -->
-<%= render 'gists' %> <!-- id="cohort-gists" -->
-</div>
-
 

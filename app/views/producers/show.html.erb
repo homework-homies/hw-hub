@@ -2,27 +2,44 @@
 $(document).ready(function(){
 	$('#producer-cohorts').hide();
 	$('#producer-students').hide();
+	$('#producer-students-atrisk').hide();
+	$('#mainproducerpage').show();
 });
 </script>
 
-<ul>
-	<li class="button-producer-cohorts">Cohorts</li>
-	<li class="button-producer-students">All Students</li>
-</ul>
-
-<h1><%= @producer.name %>'s Page</h1>
-<%= render 'cohorts' %> <!-- id="producer-cohorts" -->
-<%= render 'students' %> <!-- id="producer-students" -->
-
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-producer-cohorts" style="margin-left: 10px; margin-right: 3px;">Cohorts</a></li>
+	  <li role="presentation"><a href="#" style="margin-right: 3px;" class="button-producer-students-atrisk">Students At Risk</a></li>
+	  <li role="presentation"><a href="#" class="button-producer-students">All Students</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		<p><%= @producer.name %> | <%= @producer.email %></p>
+		<%= render 'main' %>
+		<%= render 'cohorts' %> <!-- id="producer-cohorts" -->
+		<%= render 'students' %> <!-- id="producer-students" -->
+		<%= render 'risk' %>
+	</div>
+ </div>
 
 <script>
 	$('.button-producer-cohorts').on('click', function(){
 		$('#producer-cohorts').show();
 		$('#producer-students').hide();
+		$('#producer-students-atrisk').hide();
+		$('#mainproducerpage').hide();
 	});
 	$('.button-producer-students').on('click', function(){
 		$('#producer-cohorts').hide();
 		$('#producer-students').show();
+		$('#producer-students-atrisk').hide();
+		$('#mainproducerpage').hide();
+	});
+	$('.button-producer-students-atrisk').on('click', function(){
+		$('#producer-cohorts').hide();
+		$('#producer-students').hide();
+		$('#producer-students-atrisk').show();
+		$('#mainproducerpage').hide();
 	});
 </script>
 

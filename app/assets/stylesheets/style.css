@@ -1,14 +1,25 @@
-/*@import url(https://fonts.googleapis.com/css?family=Oswald);
+@import url(https://fonts.googleapis.com/css?family=Oswald);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
-body {
-  background: url(https://media.giphy.com/media/QsHnc6PWPIRVe/giphy.gif) no-repeat center center;
-  background-attachment: fixed;
-  background-size: cover;
-}
 
 html, body {
   height:100%;
+}
+
+body {
+  margin: 0 auto;
+  /*background-image: url("https://farm4.staticflickr.com/3949/15375747017_176cc0ac7f_k.jpg");*/
+  background: black url(https://media.giphy.com/media/QsHnc6PWPIRVe/giphy.gif) no-repeat center center;  
+  background-attachment: fixed;
+  background-size: cover;
+  
+}
+
+input, textarea {
+  color : black !important;
+}
+
+a {
+  color: white !important;
 }
 
 .navbar-custom {
@@ -23,7 +34,7 @@ html, body {
 .logout {
   font-family: 'Oswald', sans-serif;
   font-size: 25px;
-  color: black;
+  color: black !important;
   text-align: right;
   text-decoration: none;
   margin: 20px;
@@ -37,19 +48,43 @@ html, body {
 }
 
 .jumbotronpersonalized {
- background-color: rgba(157, 41, 41, 1) !important;
- color: white !important;
- border-radius: 10px !important;
+ background-color: rgba( 157, 41, 41, 1);
+ color: white;
+ border-radius: 10px 10px 10px 10px !important;
+ border: transparent 1px solid;
+ height: 400px;
+ overflow-y: scroll;
+}
+
+::-webkit-scrollbar-track {
+  background: none;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 230px;
+}
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
 }
 
 .jumbotrontransparent {
  background-color: transparent;
- min-width: 70%;
- max-width: 70%;
- height: 80%;
+ min-width: 60%;
+ max-width: 60%;
  margin: 8% auto;
- /*font-family: 'Open Sans', sans-serif !important;*/
- color: white !important;
- border-radius: 10px !important;
 }
-*/
+
+.nav-tabs > li > a {
+  background-color: rgba(157, 41, 41, 1);
+  border: 1px transparent solid;
+  border-radius: 10px 10px 0 0 !important;
+  color: white;
+  font-size: 16px;
+  border-bottom: none !important;
+}
+
+div.form-actions { 
+  width: 100%; 
+  text-align: center;
+}

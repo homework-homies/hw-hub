@@ -1,9 +1,6 @@
 class ProducersController < ApplicationController
   def new
-    if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @producer = Producer.new
-    else
-      redirect_to '/'
     end
   end
 
@@ -28,7 +25,7 @@ class ProducersController < ApplicationController
   def show
     if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @producer = Producer.find(params[:id])
-      @cohorts = @producer.cohorts
+      @cohorts = @producer.cohorts if @producer.cohorts
     else
       redirect_to '/'
     end

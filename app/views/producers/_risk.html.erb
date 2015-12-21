@@ -1,0 +1,12 @@
+<div id="producer-students-atrisk">
+	<h1>At-risk Students</h1>
+	<ul> 
+  	<% @cohorts.each do |cohort| %>
+    	<% cohort.students.each do |student| %> 
+     		 <% if student.completion_rate <= 20 %>
+      			<li> <%= link_to student.name, student_path(student) %> </li>
+      		<% end %>
+    	<% end %>
+  	<% end %>
+	</ul>
+</div>
