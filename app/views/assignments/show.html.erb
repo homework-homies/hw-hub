@@ -1,13 +1,14 @@
-<script>
-$(document).ready(function(){
-	$('.previous-page').click(function(){
-		parent.history.back();
-		return false;
-	});
-});
-</script>
-
 <div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <% if session[:instructor_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
+	  <% elsif session[:student_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
+	  <% elsif session[:producer_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
+	  <% end %>
+	 </ul>
+
 	<div class="jumbotronpersonalized jumbotron">
 		<h1>Assignment Show Page</h1>
 
@@ -16,9 +17,5 @@ $(document).ready(function(){
 		<p> Cohort: <%= @assignment.cohort.cohort_name %></p>
 		<p> Assigned On: <%= @assignment.assigned_on %></p>
 		<p> Made by: <%= @assignment.instructor.name %> </p>
-
-<div class = "center form-actions">
-<button class="tab-links previous-page">Back</button>
-</div>
 </div>
 
