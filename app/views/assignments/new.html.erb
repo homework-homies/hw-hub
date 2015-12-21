@@ -1,25 +1,33 @@
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-	<li class="tab-links previous-page">Back</li>
-</ul>
-<script>
-$(document).ready(function(){
-	$('.previous-page').click(function(){
-		parent.history.back();
-		return false;
-	});
-});
-</script>
+<div class="jumbotrontransparent jumbotron">
 
-<div class="tab-content">
-<h1>Create a New Assignment</h1>
-<%= form_for @assignment, url:{ :action=>'create' } do |f| %>
-  <%= f.text_field :title, :placeholder => "Title" %>
-  <%= f.text_field :prompt_link, :placeholder => "Link" %>
-  <select name="cohort_selector">
-  <option value="" disabled selected> Cohort </option>
-  	<% @instructor.cohorts.each do |cohort| %>
-  		<option value="<%= cohort.cohort_name %>"> <%= cohort.cohort_name %> </option>
-  	<% end %>  
-  <%= f.submit "Submit" %>
-<% end %>
+<ul class="nav nav-tabs">
+    <% if session[:instructor_id] %>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
+    <% elsif session[:student_id] %>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
+    <% elsif session[:producer_id] %>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
+    <% end %>
+  </ul>
+
+  <div class="jumbotronpersonalized jumbotron">
+
+    <div class = "center form-actions">
+      <h1>Create a New Assignment</h1>
+
+      <div class = "center form-actions">
+
+      <%= form_for @assignment, url:{ :action=>'create' } do |f| %>
+        <%= f.text_field :title, :placeholder => "Title" %>
+        <%= f.text_field :prompt_link, :placeholder => "Link" %>
+        <%= f.hidden_field :instructor_id, :value => session[:instructor_id] %>
+        <%= f.hidden_field :assigned_on, :value => Date.today %>
+        <%= f.select(:cohort_id, @instructor.cohorts.all.map {|p| [ p.cohort_name, p.id.to_i ] }) %>
+        <%= f.submit "Submit" %>
+      <% end %>
+
+      </div>
+      
+    </div>
+  </div>
 </div>

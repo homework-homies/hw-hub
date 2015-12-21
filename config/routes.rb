@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   resources :assignments, only: [:new, :create, :show]
   resources :students, except: [:update, :index, :edit] do
-    resources :submissions, only: [:create, :update, :show]
+    resources :submissions, only: [:create, :update, :show, :edit]
   end
   resources :gists, only: [:create, :show]
   resources :producers, except: [:index, :update, :edit]

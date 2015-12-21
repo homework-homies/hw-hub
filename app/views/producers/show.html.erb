@@ -5,10 +5,18 @@ $(document).ready(function(){
 });
 </script>
 
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-	<li class="tab-links button-producer-cohorts">Cohorts</li>
-	<li class="tab-links button-producer-students">All Students</li>
-</ul>
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-producer-cohorts" style="margin-left: 10px; margin-right: 3px;">Cohorts</a></li>
+	  <li role="presentation"><a href="#" class="button-producer-students">All Students</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		<h1><%= @producer.name %>'s Page</h1>
+		<%= render 'cohorts' %> <!-- id="producer-cohorts" -->
+		<%= render 'students' %> <!-- id="producer-students" -->
+	</div>
+ </div>
+
 
 <script>
 	$('.button-producer-cohorts').on('click', function(){
@@ -21,10 +29,4 @@ $(document).ready(function(){
 	});
 </script>
 
-
-<div class="tab-content">
-<h1><%= @producer.name %>'s Page</h1>
-<%= render 'cohorts' %> <!-- id="producer-cohorts" -->
-<%= render 'students' %> <!-- id="producer-students" -->
-</div>
 

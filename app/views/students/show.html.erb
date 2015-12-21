@@ -7,12 +7,21 @@ $(document).ready(function(){
 });
 </script>
 
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-	<li class="tab-links button-assignments-students">Assignments</li>
-	<li class="tab-links button-submissions">Submissions</li>
-	<li class="tab-links button-submit-homework">Submit Homework</li>
-	<li class="tab-links button-gists-students">Gists</li>
-</ul>
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-assignments-students" style="margin-left: 10px; margin-right: 3px;">Assignments</a></li>
+	  <li role="presentation"><a href="#" class="button-submissions" style="margin-right: 3px;">Submissions</a></li>
+	  <li role="presentation"><a href="#" class="button-submit-homework" style="margin-right: 3px;">Submit Homework</a></li>
+	  <li role="presentation"><a href="#" class="button-gists-students">Gists</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		<%= render 'assigments' %> <!-- id="assignments-students">-->
+		<%= render 'submissions' %> <!-- id="submissions"> -->
+		<%= render 'submithomework' %> <!-- id="submit-homework"> -->
+		<%= render 'gists' %> <!-- id="gists-students">-->
+		<%= render 'main' %> 
+	</div>
+ </div>
 
 <script>
 	$('.button-assignments-students').on('click', function(){
@@ -44,13 +53,5 @@ $(document).ready(function(){
 		$('#student-main').hide();
 	});
 </script>
-
-<div class="tab-content">
-	<%= render 'assigments' %> <!-- id="assignments-students">-->
-	<%= render 'submissions' %> <!-- id="submissions"> -->
-	<%= render 'submithomework' %> <!-- id="submit-homework"> -->
-	<%= render 'gists' %> <!-- id="gists-students">-->
-	<%= render 'main' %> 
-</div>
 
 

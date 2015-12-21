@@ -4,15 +4,26 @@ $(document).ready(function(){
 	$('#instructor-new-gist').hide();
 	$('#instructor-assignments').hide();
 	$('#instructor-gists').hide();
+	$('#maininstructorpage').show();
 });
 </script>
 
-<ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
-<li class="tab-links button-instructor-cohorts">Cohorts</li>
-<li class="tab-links button-instructor-assignments">Assignments</li>
-<li class="tab-links button-instructor-gists">Gists</li>
-<li class="tab-links button-instructor-new-gist">Create New Gist</li>
-</ul>
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-instructor-cohorts" style="margin-left: 10px; margin-right: 3px;">Cohorts</a></li>
+	  <li role="presentation"><a href="#" class="button-instructor-assignments" style="margin-right: 3px;">Assignments</a></li>
+	  <li role="presentation"><a href="#" class="button-instructor-gists" style="margin-right: 3px;">Gists</a></li>
+	  <li role="presentation"><a href="#" class="button-instructor-new-gist">New Gist</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		<p><%= @instructor.name %>'s Portal | <%= @instructor.email %></p>
+		<%= render 'main' %>
+		<%= render 'cohorts' %> <!-- id="instructor-cohorts" -->
+		<%= render 'newgist' %> <!-- id="instructor-new-gist" -->
+		<%= render 'assignments' %> <!-- id="instructor-assignments" -->
+		<%= render 'gists' %> <!-- id="instructor-gists" -->
+	</div>
+ </div>
 
 <script>
 	$('.button-instructor-cohorts').on('click', function(){
@@ -20,34 +31,32 @@ $(document).ready(function(){
 		$('#instructor-new-gist').hide();
 		$('#instructor-assignments').hide();
 		$('#instructor-gists').hide();
+		$('#maininstructorpage').hide();
 	});
 	$('.button-instructor-assignments').on('click', function(){
 		$('#instructor-cohorts').hide();
 		$('#instructor-new-gist').hide();
 		$('#instructor-assignments').show();
 		$('#instructor-gists').hide();
+		$('#maininstructorpage').hide();
 	});
 	$('.button-instructor-gists').on('click', function(){
 		$('#instructor-cohorts').hide();
 		$('#instructor-new-gist').hide();
 		$('#instructor-assignments').hide();
 		$('#instructor-gists').show();
+		$('#maininstructorpage').hide();
 	});
 	$('.button-instructor-new-gist').on('click', function(){
 		$('#instructor-cohorts').hide();
 		$('#instructor-new-gist').show();
 		$('#instructor-assignments').hide();
 		$('#instructor-gists').hide();
+		$('#maininstructorpage').hide();
 	});
 </script>
 
-<div class="tab-content">
-<h1><%= @instructor.name %>'s Portal</h1>
-<%= @instructor.email %>
-<%= render 'cohorts' %> <!-- id="instructor-cohorts" -->
-<%= render 'newgist' %> <!-- id="instructor-new-gist" -->
-<%= render 'assignments' %> <!-- id="instructor-assignments" -->
-<%= render 'gists' %> <!-- id="instructor-gists" -->
-</div>
+
+
 
 

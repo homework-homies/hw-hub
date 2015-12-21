@@ -1,0 +1,24 @@
+<div class="jumbotrontransparent jumbotron">
+
+<ul class="nav nav-tabs">
+    <% if session[:instructor_id] %>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
+    <% elsif session[:student_id] %>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
+    <% elsif session[:producer_id] %>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
+    <% end %>
+  </ul>
+
+<div class="jumbotronpersonalized jumbotron">
+<h1>Student's Homework Submission</h1>
+
+<%= form_for [@student, @submission], url:{:controller=>'submissions', :action=>'update'} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :submission_link %>
+  <%= f.text_area :comments, rows: 5, cols: 100 %>
+  <%= f.text_field :grade_status %>
+  <%= f.submit :grade %>
+<% end %>
+	</div>
+</div>

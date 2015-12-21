@@ -1,3 +1,106 @@
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="login-button" style="margin-left: 10px; margin-right: 3px;">Login</a></li>
+	  <li role="presentation"><a href="#" class="instructor-button" style="margin-right: 3px;">Instructor</a></li>
+	  <li role="presentation"><a href="#" class="student-button" style="margin-right: 3px;">Student</a></li>
+	  <li role="presentation"><a href="#" class="producer-button" style="margin-right: 3px;">Producer</a></li>
+	  <li role="presentation"><a href="#" class="main-root-button">Main</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+
+		<div id="hidden-div-login">
+			<%= notice %>
+
+			<h1>LOGIN</h1>
+			<div class = "center form-actions">
+				<%= form_tag "/login" do %>
+				  <%= label_tag "Status: " %>
+				  <%= select_tag :login_selector, options_for_select(['Student', 'Instructor', 'Producer'], :include_blank => true) %><br/>
+				  
+				  <%= label_tag "Email :" %><br>
+				  <%= email_field_tag :email %><br/>
+
+				  <%= label_tag "Password: " %><br>
+				  <%= password_field_tag :password %>
+				<br><br>
+				  <%= submit_tag "Log in" %>
+				<% end %> 
+			</div>
+		</div>
+
+		<div id="hidden-div-student">
+			<%= notice %>
+			<h1>SIGNUP</h1>
+			<p>Welcome on Board Student!<br>
+			Thanks for using your key. <br>
+			Sign Up here to start enjoying all the benefits that our GA portal offers.</p>
+
+			<div class = "center form-actions">
+			<%= form_for @student, url:{:controller=>'students', :action=>'create', :id => @student.id} do |f| %>
+			  	<%= f.text_field :name, :placeholder => "Name" %>
+				<%= f.email_field :email, :placeholder => "Email" %>
+				<%= f.text_field :cohort_id, :placeholder => "Cohort" %>
+				<%= f.password_field :password, :placeholder => "Password" %>
+				<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+				<%= f.submit "Submit" %>
+			<% end %>
+			</div>
+		</div>
+
+
+		<div id="hidden-div-instructor">
+			<%= notice %>
+			<h1>SIGNUP</h1>
+			<p>Welcome on Board Student!<br>
+			Thanks for using your key. <br>
+			Sign Up here to start enjoying all the benefits that our GA portal offers.</p>
+
+			<div class = "center form-actions">
+			<%= form_for @instructor, url:{:controller=>'instructors', :action=>'create', :id => @instructor.id} do |f| %>
+		  	<%= f.text_field :name, :placeholder => "Name" %>
+			<%= f.email_field :email, :placeholder => "Email" %>
+			<%= f.password_field :password, :placeholder => "Password" %>
+			<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+			<%= f.submit "Submit" %>
+			<% end %>
+			</div>
+		</div>
+
+
+		<div id="hidden-div-producer">
+			<%= notice %>
+			<h1>SIGNUP</h1>
+			<p>Welcome on Board Student!<br>
+			Thanks for using your key. <br>
+			Sign Up here to start enjoying all the benefits that our GA portal offers.</p>
+
+			<div class = "center form-actions">
+			<%= form_for @producer , url:{:controller=>'producers', :action=>'create', :id => @producer.id} do |f| %>
+				<%= f.text_field :name, :placeholder => "Name" %>
+				<%= f.email_field :email, :placeholder => "Email" %>
+				<%= f.password_field :password, :placeholder => "Password" %>
+				<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %> 
+				<%= f.submit "Submit" %>
+			<% end %>
+			</div>
+		</div>
+
+		<div id="main-root">
+			<%= notice %>
+			<br>
+			<h1>Welcome to GA Homework HUB</h1>
+			<p>We are glad to see you here. <br>
+			To get started, select student, instructor or producer to sign up!<br>
+			Already registered? Log In and Enjoy</p>
+			<br><br>
+
+			<a href="http://www.generalassemb.ly"><p style="font-size: 16px">GA Website</a> | <a href="https://twitter.com/GA
+">GA Twitter</a> | <a href="https://www.facebook.com/gnrlassembly/">GA Facebook</p></a>
+		</div>
+
+	</div>
+ </div>
+
 <script>
 $(document).ready(function(){
 	$('#hidden-div-instructor').hide();
@@ -5,16 +108,9 @@ $(document).ready(function(){
 	$('#hidden-div-producer').hide();
 	$('#hidden-div-login').hide();
 	$('#main-root').show();
-});
-</script>
- 
- <ul class="tab-all tabs" style="margin-top: 0; margin-bottom: 0;">
- 	<li class="tab-links login-button">LOGIN</li>
-	<li class="tab-links main-root-button">MAIN</li>
- </ul>
 
-<script>
-	$('.login-button').on('click', function(){
+ 	$('.login-button').on('click', function(event){
+ 		event.preventDefault();
 		$('#hidden-div-login').show();
 		$('#hidden-div-instructor').hide();
 		$('#hidden-div-producer').hide();
@@ -22,19 +118,40 @@ $(document).ready(function(){
 		$('#main-root').hide();
 	});
 
-	$('.main-root-button').on('click', function(){
+	$('.main-root-button').on('click', function(event){
+		event.preventDefault();
 		$('#hidden-div-login').hide();
 		$('#hidden-div-instructor').hide();
 		$('#hidden-div-producer').hide();
 		$('#hidden-div-student').hide();
 		$('#main-root').show();
 	});
+	$('.instructor-button').on('click', function(event){
+		event.preventDefault();
+		$('#hidden-div-instructor').show();
+		$('#hidden-div-student').hide();
+		$('#hidden-div-producer').hide();
+		$('#hidden-div-login').hide();
+		$('#main-root').hide();
+	});
+	$('.producer-button').on('click', function(event){
+		event.preventDefault();
+			$('#hidden-div-producer').show();
+			$('#hidden-div-student').hide();
+			$('#hidden-div-instructor').hide();
+			$('#hidden-div-login').hide();
+			$('#main-root').hide();
+	});
+	$('.student-button').on('click', function(event){
+		event.preventDefault();
+			$('#hidden-div-student').show();
+			$('#hidden-div-instructor').hide();
+			$('#hidden-div-producer').hide();
+			$('#hidden-div-login').hide();
+			$('#main-root').hide();
+	});
+});
 </script>
 
- <%= render 'main' %>
- <%= render 'login' %>
- <%= render 'instructorsignup' %>
- <%= render 'producersignup' %>
- <%= render 'studentsignup' %>
 
  

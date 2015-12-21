@@ -10,9 +10,9 @@ student1 = Student.create({name: "Taylor Basso", email: "taylorpbasso@gmail.com"
 student2 = Student.create({name: "student1", email: "student2@ga.com", password: "password", password_confirmation: "password"})
 student3 = Student.create({name: "student1", email: "student3@ga.com", password: "password", password_confirmation: "password"})
 
-submission1 = Submission.create({submitted_on: "12348901", grade_status: "complete", comments: "comment section", title: "submission1", submission_link:"submission link"})
-submission2 = Submission.create({submitted_on: "33248901", grade_status: "incomplete", comments: "comment section", title: "submission2", submission_link:"submission link"})
-submission3 = Submission.create({submitted_on: "52348901", grade_status: "pending", comments: "comment section", title: "submission3", submission_link:"submission link"})
+submission1 = Submission.create({grade_status: "Complete", comments: "comment section", title: "submission1", submission_link:"submission link", submitted_on: Date.today})
+submission2 = Submission.create({grade_status: "Incomplete", comments: "comment section", title: "submission2", submission_link:"submission link", submitted_on: Date.today})
+submission3 = Submission.create({grade_status: "Pending", comments: "comment section", title: "submission3", submission_link:"submission link", submitted_on: Date.today})
 
 gist1 = Gist.create({ title: "gist1", content:"gist1 content", gist_link: "gist1 link", date: Date.new(2015,10,22)})
 gist2 = Gist.create({ title: "gist2", content:"gist2 content", gist_link: "gist2 link", date: Date.new(2015,11,5)})

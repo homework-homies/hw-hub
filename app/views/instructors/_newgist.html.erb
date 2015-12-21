@@ -1,6 +1,7 @@
 <div id="instructor-new-gist">
 <h1>New Gist</h1>
 
+<div class = "center form-actions">
 <%= form_for @new_gist, url:{:controller=>'gists', :action=>'create', :id => @new_gist.id } do |f| %>
 <%= f.text_field :title, :placeholder => "Give it a title" %>
 <%= f.text_field :content, :placeholder => "Content" %>
@@ -18,4 +19,5 @@
 <%= f.submit "Submit" %>
 
 <% end %>
+</div>
 </div>

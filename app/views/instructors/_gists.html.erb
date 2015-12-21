@@ -1,9 +1,19 @@
 <div id="instructor-gists">
 <h1>Gists Created by <%= @instructor.name %></h1>
 
-<ul>
-<% @gists.each do |gist| %>
-	<li><%= link_to gist.title, gist_path(gist) %></li>
-<% end %>
-</ul>
+<table class="table">
+  <tr>
+    <th>Date Posted</th>
+    <th>Title</th>
+    <th>Link</th>
+  </tr>
+
+  <% @gists.each do |gist| %>
+    <tr>
+      <td><%= gist.date %></td>
+      <td><%= link_to gist.title, gist_path(gist) %></a></td>
+      <td><a href="<%= gist.gist_link %>">Click Here</a></td>
+    </tr>
+  <% end %>
+</table>
 </div>
