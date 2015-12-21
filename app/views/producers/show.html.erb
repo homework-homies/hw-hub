@@ -2,7 +2,8 @@
 $(document).ready(function(){
 	$('#producer-cohorts').hide();
 	$('#producer-students').hide();
-	$('producer-students-atrisk').hide();
+	$('#producer-students-atrisk').hide();
+	$('#mainproducerpage').show();
 });
 </script>
 
@@ -13,7 +14,8 @@ $(document).ready(function(){
 	  <li role="presentation"><a href="#" class="button-producer-students">All Students</a></li>
 	</ul>
 	<div class="jumbotronpersonalized jumbotron">
-		<h1><%= @producer.name %>'s Page</h1>
+		<p><%= @producer.name %> | <%= @producer.email %></p>
+		<%= render 'main' %>
 		<%= render 'cohorts' %> <!-- id="producer-cohorts" -->
 		<%= render 'students' %> <!-- id="producer-students" -->
 		<%= render 'risk' %>
@@ -24,17 +26,20 @@ $(document).ready(function(){
 	$('.button-producer-cohorts').on('click', function(){
 		$('#producer-cohorts').show();
 		$('#producer-students').hide();
-		$('producer-students-atrisk').hide();
+		$('#producer-students-atrisk').hide();
+		$('#mainproducerpage').hide();
 	});
 	$('.button-producer-students').on('click', function(){
 		$('#producer-cohorts').hide();
 		$('#producer-students').show();
-		$('producer-students-atrisk').hide();
+		$('#producer-students-atrisk').hide();
+		$('#mainproducerpage').hide();
 	});
 	$('.button-producer-students-atrisk').on('click', function(){
 		$('#producer-cohorts').hide();
 		$('#producer-students').hide();
-		$('producer-students-atrisk').show();
+		$('#producer-students-atrisk').show();
+		$('#mainproducerpage').hide();
 	});
 </script>
 
