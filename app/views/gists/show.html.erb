@@ -1,7 +1,6 @@
 <div class="jumbotrontransparent jumbotron">
 	<div class="jumbotronpersonalized jumbotron">
-		<div class="tab-content"><h1>Gists</h1>
-		<p> Title: <%= @gist.title %> </p>
+		<h1>Gist "<%= @gist.title %>"</h1>
 		<p> Content: <%= markdown(@gist.content) %> </p>
 		<p> Link: <%= @gist.gist_link%> </p>
 		<p> Date: <%= @gist.date %> </p>
