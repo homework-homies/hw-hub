@@ -22,6 +22,10 @@ class InstructorsController < ApplicationController
   end
  
   def show
+    if session[:access_token]
+      client = Octokit::Client.new(session[:access_token]) 
+      @name = client.user.login
+    end
     if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @instructor = Instructor.find(params[:id])
       @cohorts = @instructor.cohorts if @instructor.cohorts

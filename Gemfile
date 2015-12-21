@@ -28,7 +28,7 @@ gem 'pry'
 gem 'redcarpet'
 gem 'coderay'
 gem 'markdown-rails'
-
+gem 'httparty'
 # Use Unicorn as the app server
 # gem 'unicorn'
 

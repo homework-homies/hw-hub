@@ -19,22 +19,28 @@ class Student < ActiveRecord::Base
 
 
   def completion_rate 
-    submissions = self.submissions
-    total_submitted = []
-    completed = []
-    
-    submissions.each { |submission| total_submitted << submission if (submission.grade_status == "incomplete" || submission.grade_status == "complete")}
+    complete = 0
 
-    submissions.each { |submission| completed << submission if submission.grade_status == "complete"}
+    submissions.each do |submission| 
+      if submission.complete?
+        complete += 1 
+      end
 
-    completion_rate = (completed.length.to_f / total_submitted.length.to_f) * 100 
+    end
+
+    if complete > 0 
+      total = (complete.to_f / submissions.all.length.to_f) * 100
+    else
+      total = 0
+    end
+
   end
 
   def pending_assignments?
     pending = []
     submissions = self.submissions
 
-    submissions.each { |submission| pending << submission if submission.grade_status == "pending"}
+    submissions.each { |submission| pending << submission if submission.grade_status == "pending" || submission.grade_status == "incomplete"}
     total_pending = pending.length
   end
 end

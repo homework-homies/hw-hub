@@ -24,6 +24,28 @@ class GistsController < ApplicationController
     end
   end
 
+  def verify
+    code = params[:code]
+    response = HTTParty.post(
+        "https://github.com/login/oauth/access_token",
+        :body => {
+          :code          => code,
+          :client_id     => ENV['GITHUB_CLIENT_ID'],
+          :client_secret => ENV['GITHUB_SECRET'],
+        },
+        :headers => {
+          "Accept"     => "application/json",
+          "User-Agent" => "OAuth Test App"
+        }
+      )
+    session[:github_access_token] = response["access_token"]
+    # TODO session seems to be reseting and we're losing the instructor_id,
+    # so we can grab it from request.env["HTTP_REFERER"]
+    id = request.env["HTTP_REFERER"][-1]
+    session[:instructor_id] = id
+    redirect_to Instructor.find(session[:instructor_id])
+  end
+
   private
     def gist_params
       params.require(:gist).permit(:title, :content, :gist_link, :date, :instructor_id, :cohort_id)

@@ -14,7 +14,7 @@
 		<h1>Gist "<%= @gist.title %>"</h1>
 		<p> <b>Content:</b> <br>
 		<%= markdown(@gist.content) %> </p>
-		<p> <b>Link:</b> <%= @gist.gist_link%> | <b> Created on:</b> <%= @gist.date %> </p>
+		<p> <b>Link:</b> <a href="<%= @gist.gist_link%>">Gist Takeaway Link </a> | <b> Created on:</b> <%= @gist.date %> </p>
 	</div>
  </div>
 

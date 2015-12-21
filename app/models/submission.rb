@@ -13,7 +13,15 @@
 class Submission < ActiveRecord::Base
 	belongs_to :student
 	belongs_to :assignment
+
+
+
+  def complete?
+    grade_status.downcase == "complete"
+  end
+
 end
+
 
 
 

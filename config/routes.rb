@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :producers, except: [:index, :update, :edit]
   resources :instructors, except: [:update, :index, :edit]
   resources :cohorts, only: [:show, :create, :new]
+  get '/auth' => 'gists#verify'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
