@@ -11,12 +11,6 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = Assignment.create(assignment_params)
-    @instructor = Instructor.find(session[:instructor_id])
-    @assignment.instructor.push(@instructor)
-    @cohort = Cohort.find_by(cohort_name: params[:cohort_selector]) 
-    @assignment.cohort.push(@cohort)
-    @assignment.assigned_on = Date.new
-    @assignment.save
     redirect_to instructor_path(session[:instructor_id]) if session[:instructor_id]
   end
 
@@ -30,7 +24,7 @@ class AssignmentsController < ApplicationController
 
   private
      def assignment_params
-        params.require(:assignment).permit(:title, :prompt_link, :assigned_on)
+        params.require(:assignment).permit(:title, :prompt_link, :assigned_on, :cohort_id, :instructor_id)
      end 
 end  
 

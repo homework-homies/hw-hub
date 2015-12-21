@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151218213001) do
+ActiveRecord::Schema.define(version: 20151220231549) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,10 +71,10 @@ ActiveRecord::Schema.define(version: 20151218213001) do
     t.integer "student_id"
     t.integer "assignment_id"
     t.date    "submitted_on"
-    t.string  "grade_status"
     t.string  "comments"
     t.string  "title"
     t.string  "submission_link"
+    t.string  "grade_status",    default: "Pending"
   end
 
 end

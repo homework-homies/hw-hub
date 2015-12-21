@@ -18,5 +18,9 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to '/login' unless current_user
   end
+
+  def markdown(text) # Define method markdown with redcarpet gem
+    Redcarpet::Markdown.new(Redcarpet::Render::HTML).render(text)
+  end
   
 end

@@ -1,8 +1,23 @@
 <div id="cohort-gists">
 <h1>Gists</h1>
-<ul>
-<% @gists.each do |gist| %>
-  <li><%= link_to gist.title, gist_path(gist) %></li>
- <% end %>
-</ul>
+	<% if @gists.any? %>
+	<table class="table">
+      <tr>
+        <th>Title</th>
+        <th>Cohort</th>
+        <th>Link</th>
+        <th>Created At</th>
+      </tr>
+      <tr>
+        <% @gists.each do |gist| %>
+          <td><%= link_to gist.title, gist_path(gist) %></td>
+          <td><%= link_to Cohort.find(gist.cohort_id).cohort_name, gist_path(gist) %></td>
+          <td><%= link_to gist.gist_link, gist_path(gist) %></td>
+          <td><%= link_to gist.date, gist_path(gist) %></td>
+        <% end %>
+      </tr>
+    </table>
+	<% else %>
+		<p>This Cohort Doesn't Have Any Gists Yet</p>
+	<% end %>
 </div>
