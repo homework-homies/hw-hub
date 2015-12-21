@@ -27,11 +27,13 @@
 			<br><%= @submission.comments %></p>
 
 		<% elsif session[:student_id] || session[:producer_id] %>
+
 			<h1><%= @submission.student.name %>'s Homework from <%= @submission.assignment.title %></h1>
 			<p><b>Link:</b> <a href="<%= @submission.submission_link %>">Click Here</a> | 
 			<b>Status:</b> <%= @submission.grade_status %><br>
 			<b>Submission Comments:</b>
 			<br><%= @submission.comments %></p>
+			
 		<% end %>
 	</div>
 </div>

@@ -12,6 +12,7 @@
 	<div class="jumbotronpersonalized jumbotron">
 		<p><b>Assignment "<%= @assignment.title %>"</b></p>
 		<p style="font-size:16px;"><a href="<%= @assignment.prompt_link %>">Link to Github</a> | <%= @assignment.cohort.cohort_name %> | Assigned On: <%= @assignment.assigned_on %> | Created by: <%= @assignment.instructor.name %> </p>
+
 		<% if session[:instructor_id] || session[:producer_id] %>
 			<table class="table">
       		<tr>

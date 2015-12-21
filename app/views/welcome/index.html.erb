@@ -38,10 +38,10 @@
 			<div class = "center form-actions">
 			<%= form_for @student, url:{:controller=>'students', :action=>'create', :id => @student.id} do |f| %>
 			  	<%= f.text_field :name, :placeholder => "Name" %>
-				<%= f.email_field :email, :placeholder => "Email" %>
-				<%= f.text_field :cohort_id, :placeholder => "Cohort" %>
+				<%= f.email_field :email, :placeholder => "Email" %><br>
 				<%= f.password_field :password, :placeholder => "Password" %>
-				<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %>
+				<%= f.password_field :password_confirmation, :placeholder => "Confirm Password" %><br><br>
+				<%= f.select(:cohort_id, Cohort.all.map {|p| [ p.cohort_name, p.id.to_i ] }) %><br><br>
 				<%= f.submit "Submit" %>
 			<% end %>
 			</div>
