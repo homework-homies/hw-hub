@@ -4,7 +4,7 @@
   	<% @cohorts.each do |cohort| %>
     	<% cohort.students.each do |student| %> 
      		 <% if student.completion_rate <= 20 %>
-      			<li> <%= link_to student.name, student_path(student) %> </li>
+      			<li> <a href="/cohorts/<%= cohort.id %>"><%=student.name%></a> </li>
       		<% end %>
     	<% end %>
   	<% end %>
