@@ -8,6 +8,7 @@
 
   <% end %> 
 
-  <p>Homework Completion Rate: <%= @student.completion_rate %>%</p>
-  <p>Number of Pending Assignments: <%= @student.pending_assignments? %></p>
+  <p>Percentage of Complete Submissions: <%= @student.completion_rate %>%</p>
+  <p>Percentage of Assignments Submitted: <%= @student.submitted_hw? %>%</p>
+  <p>Number of Unsubmitted Assignments: <%= @student.pending_assignments? %></p>
 </div>
