@@ -4,13 +4,15 @@
     <table class="table">
       <tr>
         <th>Student</th>
-        <th>Completion Rate</th>
-        <th>Pending Assignments</th>
+        <th>% of Complete Submissions</th>
+        <th>% of Assignments Submitted </th>
+        <th># of Unsubmitted Assignments</th>
       </tr>
         <% @students.each do |student| %>
         <tr>
           <td><%= student.name %></td>
           <td><%= student.completion_rate %>%</td>
+          <td><%= student.submitted_hw? %>%</td>
           <td><%= student.pending_assignments? %></td>
         </tr>
         <% end %>

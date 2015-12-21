@@ -25,7 +25,6 @@ class Student < ActiveRecord::Base
       if submission.complete?
         complete += 1 
       end
-
     end
 
     if complete > 0 
@@ -33,15 +32,14 @@ class Student < ActiveRecord::Base
     else
       total = 0
     end
-
   end
 
   def pending_assignments?
-    pending = []
-    submissions = self.submissions
+    cohort.assignments.all.length - submissions.all.length
+  end
 
-    submissions.each { |submission| pending << submission if submission.grade_status == "pending" || submission.grade_status == "incomplete"}
-    total_pending = pending.length
+  def submitted_hw?
+    (submissions.all.length.to_f / cohort.assignments.all.length.to_f) * 100
   end
 end
 
