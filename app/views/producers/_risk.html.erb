@@ -10,7 +10,7 @@
           <th># of Unsubmitted Assignments</th>
         </tr>
     	<% cohort.students.each do |student| %> 
-     		 <% if student.completion_rate <= 20 %>
+     		 <% if student.submitted_hw? <= 20 %>
           <tr>
             <td><%= student.name %></td>
             <td><%= student.cohort.cohort_name %></td>
