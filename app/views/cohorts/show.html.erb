@@ -1,37 +1,69 @@
 <script>
 $(document).ready(function(){
+
 	$('#cohort-students').hide();
 	$('#cohort-gists').hide();
+
+	$('.button-cohort-students').on('click', function(event){
+		event.preventDefault();
+		$('#cohort-students').show();
+		$('#cohort-gists').hide();
+	});
+	$('.button-cohort-gists').on('click', function(event){
+		event.preventDefault();
+		$('#cohort-students').hide();
+		$('#cohort-gists').show();
+	});
 });
 </script>
 
 
+
 <div class="jumbotrontransparent jumbotron">
 	<ul class="nav nav-tabs">
-	  <li role="presentation"><a href="#" class="button-instructor-cohorts" style="margin-left: 10px; margin-right: 3px;">Login</a></li>
-	  <li role="presentation"><a href="#" class="button-cohort-students" style="margin-right: 3px;">Instructor</a></li>
-	  <li role="presentation"><a href="#" class="button-cohort-gists">Producer</a></li>
+	  <li role="presentation"><a href="#" class="button-cohort-students" style="margin-left: 10px; margin-right: 3px;">Students</a></li>
+	  <li role="presentation"><a href="#" class="button-cohort-gists">Gists</a></li>
 	</ul>
+
 	<div class="jumbotronpersonalized jumbotron">
 		<%= notice %>
-		<h1>Cohort <%= @cohort.cohort_name %></h1>
-		<p>Start Date: <%= @cohort.start_on %> </p>
-		<p>End On: <%= @cohort.end_on %> </p>
+		<h1>WDI <%= @cohort.cohort_name %></h1>
+		<p>Starts On: <%= @cohort.start_on %> | End On: <%= @cohort.end_on %> </p>
+		
+		<div id="cohort-gists">
+		<h1>Gists</h1>
+			<% if @gists.any? %>
+				<ul>
+					<% @gists.each do |gist| %>
+			  			<li><%= link_to gist.title, gist_path(gist) %></li>
+			 		<% end %>
+				</ul>
+			<% else %>
+				<p>This Cohort Doesn't Have Any Gists Yet</p>
+			<% end %>
+		</div>
 
-		<%= render 'students' %> <!-- id="cohort-students" -->
-		<%= render 'gists' %> <!-- id="cohort-gists" -->
+		<div id="cohort-students">
+		<h1>Students</h1>
+			<% if @students.any? %>
+			  <table class="class">
+			    <tr>
+			      <td>Student</td>
+			      <td>Completion Rate</td>
+			      <td>Pending Assignments</td>
+			    </tr>
+			    <tr>
+			      <% @students.each do |student| %>
+			        <td><%=link_to student.name, student_path(student) %></td>
+			        <td><%= student.completion_rate %>%</td>
+			        <td><%= student.pending_assignments? %></td>
+			      <% end %>
+			    </tr>
+			  </table>
+			<% else %>
+				<p>This Cohort Doesn't Have Any Students Registered Yet</p>
+			<% end %>
+		</div>
+
 	</div>
- </div>
-
-<script>
-	$('.button-cohort-students').on('click', function(){
-		$('#cohort-students').show();
-		$('#cohort-gists').hide();
-	});
-	$('.button-cohort-gists').on('click', function(){
-		$('#cohort-students').hide();
-		$('#cohort-gists').show();
-	});
-</script>
-
-
+</div>
