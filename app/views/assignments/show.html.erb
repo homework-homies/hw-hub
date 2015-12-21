@@ -10,12 +10,20 @@
 	 </ul>
 
 	<div class="jumbotronpersonalized jumbotron">
-		<h1>Assignment Show Page</h1>
-
-		<p> Title: <%= @assignment.title %> </p>
-		<p> Link: <%= @assignment.prompt_link %> </p>
-		<p> Cohort: <%= @assignment.cohort.cohort_name %></p>
-		<p> Assigned On: <%= @assignment.assigned_on %></p>
-		<p> Made by: <%= @assignment.instructor.name %> </p>
+		<p><b>Assignment "<%= @assignment.title %>"</b></p>
+		<p style="font-size:16px;"><a href="<%= @assignment.prompt_link %>">Link to Github</a> | <%= @assignment.cohort.cohort_name %> | Assigned On: <%= @assignment.assigned_on %> | Created by: <%= @assignment.instructor.name %> </p>
+		<% if session[:instructor_id] || session[:producer_id] %>
+			<table class="table">
+      		<tr>
+      			<th>Title</th>
+        		<th>Student</th>
+        	</tr>
+			<% @submissions.each do |submission| %>
+				<tr>
+          			<td><%= link_to submission.title, student_submission_path(submission.student_id, submission) %></td>
+         		 	<td><%= Student.find(submission.student_id).name %></a></td>
+       			</tr>
+			<% end %>
+		<% end %>
 </div>
 
