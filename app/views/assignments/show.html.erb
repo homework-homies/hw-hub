@@ -1,7 +1,30 @@
-<h1>Assignment Show Page</h1>
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <% if session[:instructor_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
+	  <% elsif session[:student_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
+	  <% elsif session[:producer_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
+	  <% end %>
+	 </ul>
 
-<p> Title: <%= @assignment.title %> </p>
-<p> Link: <%= @assignment.prompt_link %> </p>
-<p> Cohort: <%= @assignment.cohort.cohort_name %></p>
-<p> Assigned On: <%= @assignment.assigned_on %></p>
-<p> Made by: <%= @assignment.instructor.name %> </p>
+	<div class="jumbotronpersonalized jumbotron">
+		<p><b>Assignment "<%= @assignment.title %>"</b></p>
+		<p style="font-size:16px;"><a href="<%= @assignment.prompt_link %>">Link to Github</a> | <%= @assignment.cohort.cohort_name %> | Assigned On: <%= @assignment.assigned_on %> | Created by: <%= @assignment.instructor.name %> </p>
+
+		<% if session[:instructor_id] || session[:producer_id] %>
+			<table class="table">
+      		<tr>
+      			<th>Title</th>
+        		<th>Student</th>
+        	</tr>
+			<% @submissions.each do |submission| %>
+				<tr>
+          			<td><%= link_to submission.title, student_submission_path(submission.student_id, submission) %></td>
+         		 	<td><%= Student.find(submission.student_id).name %></a></td>
+       			</tr>
+			<% end %>
+		<% end %>
+</div>
+

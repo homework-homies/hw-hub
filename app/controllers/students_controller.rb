@@ -14,11 +14,7 @@ class StudentsController < ApplicationController
   end
  
   def new
-    if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @student = Student.new
-    else
-      redirect_to '/'
-    end
   end
 
   def create

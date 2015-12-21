@@ -1,11 +1,29 @@
 <div id="instructor-assignments">
 <h1>Assignments Created by <%= @instructor.name %></h1>
 
-<ul>
-<% @assignments.each do |assignment| %>
-	<li><%= link_to assignment.title, assignment_path(assignment) %></li>
-<% end %>
-</ul>
 
-<%= link_to "New Assignment", new_assignment_path %>
+<table class="table">
+  <tr>
+    <th>Assignment</th>
+    <th>Date Created</th>
+    <th>Link</th>
+    <th>Cohort</th>
+  </tr>
+
+  <% @assignments.each do |assignment| %>
+    <tr>
+      <td><%= link_to assignment.title, assignment_path(assignment) %></td>
+      <td><%= assignment.assigned_on %></td>
+      <td><a href="<%= assignment.prompt_link %>">Click Here</a>
+      <td><%= Cohort.find(assignment.cohort_id).cohort_name unless assignment.cohort_id == nil %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+
+<div class = "center form-actions">
+<p><%= link_to "<< Create New Assignment >>", new_assignment_path %></p>
+</div>
+
 </div>

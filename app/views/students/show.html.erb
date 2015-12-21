@@ -7,18 +7,21 @@ $(document).ready(function(){
 });
 </script>
 
-<ul >
-	<li class="button-assignments-students">Assignments</li>
-	<li class="button-submissions">Submissions</li>
-	<li class="button-submit-homework">Submit Homework</li>
-	<li class="button-gists-students">Gists</li>
-</ul>
-
-	<%= render 'assigments' %> <!-- id="assignments-students">-->
-	<%= render 'submissions' %> <!-- id="submissions"> -->
-	<%= render 'submithomework' %> <!-- id="submit-homework"> -->
-	<%= render 'gists' %> <!-- id="gists-students">-->
-	<%= render 'main' %> 
+<div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <li role="presentation"><a href="#" class="button-assignments-students" style="margin-left: 10px; margin-right: 3px;">Assignments</a></li>
+	  <li role="presentation"><a href="#" class="button-submissions" style="margin-right: 3px;">Submissions</a></li>
+	  <li role="presentation"><a href="#" class="button-submit-homework" style="margin-right: 3px;">Submit Homework</a></li>
+	  <li role="presentation"><a href="#" class="button-gists-students">Gists</a></li>
+	</ul>
+	<div class="jumbotronpersonalized jumbotron">
+		<%= render 'assigments' %> <!-- id="assignments-students">-->
+		<%= render 'submissions' %> <!-- id="submissions"> -->
+		<%= render 'submithomework' %> <!-- id="submit-homework"> -->
+		<%= render 'gists' %> <!-- id="gists-students">-->
+		<%= render 'main' %> 
+	</div>
+ </div>
 
 <script>
 	$('.button-assignments-students').on('click', function(){

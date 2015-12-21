@@ -39,11 +39,6 @@ class Student < ActiveRecord::Base
   end
 end
 
-          
-    
-    
-    # completion_rate = (num_complete/submissions.length) * 100
-
 
 
 
