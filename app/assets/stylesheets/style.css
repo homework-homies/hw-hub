@@ -32,6 +32,14 @@ a {
   padding: 10px;
 }
 
+.hello {
+  font-family: 'Oswald', sans-serif;
+  padding: 0;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-right: 20px;
+}
+
 .logout {
   font-family: 'Oswald', sans-serif;
   font-size: 15px;
@@ -45,13 +53,6 @@ a {
   float: right;
 }
 
-.hello {
-  padding: 0;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 20px;
-  float: right;
-}
 
 .header-label {
   font-family: 'Oswald', sans-serif;
@@ -98,7 +99,6 @@ a {
   color: white;
   font-size: 14px;
   border-bottom: none !important;
-  ho
 }
 
 div.form-actions { 
