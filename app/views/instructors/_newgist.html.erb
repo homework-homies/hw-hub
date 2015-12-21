@@ -8,14 +8,7 @@
 <%= f.text_field :gist_link, :placeholder => "Github Link to Gist" %>
 <%= f.hidden_field :instructor_id, :value => session[:instructor_id] %>
 <%= f.hidden_field :date, :value => Date.today %>
-<select name="cohort_select">
-  <option value="" disabled selected>Cohort</option>
-  <% @cohorts.each do |cohort| %>
-    <option value="<%= cohort.cohort_name %>">
-      <%= cohort.cohort_name %>
-    </option>
-  <% end %>
-</select>
+<%= f.select(:cohort_id, @cohorts.all.map {|p| [ p.cohort_name, p.id.to_i ] }) %>
 <%= f.submit "Submit" %>
 
 <% end %>
