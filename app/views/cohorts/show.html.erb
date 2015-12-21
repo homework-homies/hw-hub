@@ -1,24 +1,3 @@
-<script>
-$(document).ready(function(){
-
-	$('#cohort-students').hide();
-	$('#cohort-gists').hide();
-
-	$('.button-cohort-students').on('click', function(event){
-		event.preventDefault();
-		$('#cohort-students').show();
-		$('#cohort-gists').hide();
-	});
-	$('.button-cohort-gists').on('click', function(event){
-		event.preventDefault();
-		$('#cohort-students').hide();
-		$('#cohort-gists').show();
-	});
-});
-</script>
-
-
-
 <div class="jumbotrontransparent jumbotron">
 	<ul class="nav nav-tabs">
 	  <li role="presentation"><a href="#" class="button-cohort-students" style="margin-left: 10px; margin-right: 3px;">Students</a></li>
@@ -43,3 +22,21 @@ $(document).ready(function(){
 
 	</div>
 </div>
+
+<script>
+$(document).ready(function(){
+
+	$('#cohort-students').hide();
+	$('#cohort-gists').hide();
+
+	$('.button-cohort-students').on('click', function(){
+		$('#cohort-students').show();
+		$('#cohort-gists').hide();
+	});
+	$('.button-cohort-gists').on('click', function(){
+		$('#cohort-students').hide();
+		$('#cohort-gists').show();
+	});
+});
+</script>
+
