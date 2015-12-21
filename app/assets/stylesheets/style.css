@@ -70,6 +70,11 @@ a {
  border: transparent 1px solid;
  height: 400px;
  overflow-y: scroll;
+ margin-top: 0;
+   padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 0px;
 }
 
 ::-webkit-scrollbar-track {
@@ -98,7 +103,7 @@ a {
   color: white;
   font-size: 14px;
   border-bottom: none !important;
-  ho
+
 }
 
 div.form-actions { 
@@ -106,4 +111,11 @@ div.form-actions {
   text-align: center;
 }
 
+#main-root h1 {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-top: 0px;
+  margin-top: 0;
+}
 
