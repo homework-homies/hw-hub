@@ -8,8 +8,10 @@ class GistsController < ApplicationController
         GistMailer.gist_email(student.email).deliver_now
       end 
     end
-    
-      redirect_to @gist
+    client = Octokit::Client.new(:access_token => session[:access_token])
+    user = client.user.login
+    user.create_gist()
+    redirect_to @gist
   end
 
   def show
@@ -42,7 +44,9 @@ class GistsController < ApplicationController
     # TODO session seems to be reseting and we're losing the instructor_id,
     # so we can grab it from request.env["HTTP_REFERER"]
     id = request.env["HTTP_REFERER"][-1]
-    session[:instructor_id] = id
+    session[:instructor_id] = id.to_i
+    binding.pry
+
     redirect_to Instructor.find(session[:instructor_id])
   end
 
