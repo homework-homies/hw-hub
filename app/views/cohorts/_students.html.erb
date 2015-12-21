@@ -7,13 +7,13 @@
         <th>Completion Rate</th>
         <th>Pending Assignments</th>
       </tr>
-      <tr>
         <% @students.each do |student| %>
-          <td><%=link_to student.name, student_path(student) %></td>
+        <tr>
+          <td><%= student.name %></td>
           <td><%= student.completion_rate %>%</td>
           <td><%= student.pending_assignments? %></td>
+        </tr>
         <% end %>
-      </tr>
     </table>
   <% else %>
     <p>This Cohort Doesn't Have Any Students Registered Yet</p>
