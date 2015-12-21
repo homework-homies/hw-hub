@@ -1,0 +1,9 @@
+<h1>Student's Homework Submission</h1>
+
+<%= form_for [@student, @submission], url:{:controller=>'submissions', :action=>'update'} do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :submission_link %>
+  <%= f.text_area :comments, rows: 5, cols: 100 %>
+  <%= f.text_field :grade_status %>
+  <%= f.submit :grade %>
+<% end %>
