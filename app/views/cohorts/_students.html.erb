@@ -9,7 +9,7 @@
       </tr>
         <% @students.each do |student| %>
         <tr>
-          <td><a href="/students/<%= student.id %>"><%= student.name %></a></td>
+          <td><%= student.name %></td>
           <td><%= student.completion_rate %>%</td>
           <td><%= student.pending_assignments? %></td>
         </tr>
