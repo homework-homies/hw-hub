@@ -28,43 +28,27 @@ a {
 
 .header-logo {
   max-width: 220px;
-  height: 50px;
   padding: 10px;
 }
 
 .logout {
   font-family: 'Oswald', sans-serif;
-  font-size: 15px;
+  font-size: 25px;
   color: black !important;
   text-align: right;
   text-decoration: none;
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 20px;
-  padding: 0;
-  float: right;
-}
-
-.hello {
-  padding: 0;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 20px;
-  float: right;
+  margin: 20px;
 }
 
 .header-label {
   font-family: 'Oswald', sans-serif;
-  font-size: 30px;
+  font-size: 55px;
   margin: 0;
   color: black;
-  display: inline-block;
-  vertical-align: middle;
-  padding-top: 4px;
 }
 
 .jumbotronpersonalized {
- background-color: rgba( 157, 41, 41, .9);
+ background-color: rgba( 157, 41, 41, 1);
  color: white;
  border-radius: 10px 10px 10px 10px !important;
  border: transparent 1px solid;
@@ -92,18 +76,15 @@ a {
 }
 
 .nav-tabs > li > a {
-  background-color: rgba(157, 41, 41, .9);
+  background-color: rgba(157, 41, 41, 1);
   border: 1px transparent solid;
   border-radius: 10px 10px 0 0 !important;
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   border-bottom: none !important;
-  ho
-}
+} 
 
 div.form-actions { 
   width: 100%; 
   text-align: center;
 }
-
-
