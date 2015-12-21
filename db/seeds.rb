@@ -58,10 +58,10 @@ gist6 = Gist.create({ title: "MTA", content:"Homework Takeaways", gist_link: "ht
 gist7 = Gist.create({ title: "James Bond", content:"Useful array methods", gist_link: "https://gist.github.com/annarankin/5f4ee3d5e70ca4336379", date: Date.new(2015,11,14)})
 gist8 = Gist.create({ title: "Sung's style", content:"Homework Takeaways", gist_link: "https://gist.github.com/sunsheeppoplar/490e9f203b9383922898", date: Date.new(2015,12,7)})
 
-cohort1 = Cohort.create({cohort_name: "persephone", start_on: Date.new(2015,10,19), end_on: Date.new(2016,1,29)})
-cohort2 = Cohort.create({cohort_name: "bacon", start_on: Date.new(2015,9,28), end_on: Date.new(2015,12,18)})
-cohort3 = Cohort.create({cohort_name: "tomato", start_on: Date.new(2015,9,28), end_on: Date.new(2015,12,18)})
-cohort4 = Cohort.create({cohort_name: "lettuce", start_on: Date.new(2015,9,28), end_on: Date.new(2015,12,18)})
+cohort1 = Cohort.create({cohort_name: "Persephone", start_on: Date.new(2015,10,19), end_on: Date.new(2016,1,29)})
+cohort2 = Cohort.create({cohort_name: "Bacon", start_on: Date.new(2015,9,28), end_on: Date.new(2015,12,18)})
+cohort3 = Cohort.create({cohort_name: "Tomato", start_on: Date.new(2015,9,28), end_on: Date.new(2015,12,18)})
+cohort4 = Cohort.create({cohort_name: "Lettuce", start_on: Date.new(2015,9,28), end_on: Date.new(2015,12,18)})
 
 
 #join instructors & cohorts
