@@ -2,11 +2,11 @@
 
 <ul class="nav nav-tabs">
     <% if session[:instructor_id] %>
-      <li role="presentation"><a href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
     <% elsif session[:student_id] %>
-      <li role="presentation"><a href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
     <% elsif session[:producer_id] %>
-      <li role="presentation"><a href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
+      <li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
     <% end %>
   </ul>
 
@@ -22,7 +22,7 @@
         <%= f.text_field :prompt_link, :placeholder => "Link" %>
         <%= f.hidden_field :instructor_id, :value => session[:instructor_id] %>
         <%= f.hidden_field :assigned_on, :value => Date.today %>
-        <%= select_tag(:cohort_id, options_for_select(@instructor.cohorts.all.map { |cohort| [cohort.id]}, @instructor.cohorts.all.map { |cohort| [cohort.id]} )) %>
+        <%= f.select(:cohort_id, @instructor.cohorts.all.map {|p| [ p.cohort_name, p.id.to_i ] }) %>
         <%= f.submit "Submit" %>
       <% end %>
 
