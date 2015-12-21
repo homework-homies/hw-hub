@@ -31,26 +31,13 @@ a {
   padding: 10px;
 }
 
-.hello {
-  font-family: 'Oswald', sans-serif;
-  padding: 0;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  margin-right: 20px;
-}
-
 .logout {
   font-family: 'Oswald', sans-serif;
   font-size: 25px;
   color: black !important;
   text-align: right;
   text-decoration: none;
-
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 20px;
-  padding: 0;
-  float: right;
+  margin: 20px;
 }
 
 .header-label {
