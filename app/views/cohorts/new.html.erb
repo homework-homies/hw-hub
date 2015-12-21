@@ -18,6 +18,7 @@
 			<%= f.date_field :start_on, :placeholder => "Starts on" %>
 			<%= f.date_field :end_on, :placeholder => "Finishes on" %>
 			<%= f.select(:producer_id, @producers.all.map {|p| [ p.name, p.id.to_i ] }) %>
+      <%= text_area_tag :student_emails, nil, :placeholder => "Students E-mails (Send students a welcome letter & registration link. Please separate e-mail addresses by commas)." %>
 			<%= f.submit "Submit" %>
 			<% end %>
 		</div>
