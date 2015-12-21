@@ -48,7 +48,7 @@ a {
 }
 
 .jumbotronpersonalized {
- background-color: rgba( 157, 41, 41, 1);
+ background-color: rgba( 157, 41, 41, 0.9);
  color: white;
  border-radius: 10px 10px 10px 10px !important;
  border: transparent 1px solid;
@@ -76,7 +76,7 @@ a {
 }
 
 .nav-tabs > li > a {
-  background-color: rgba(157, 41, 41, 1);
+  background-color: rgba(157, 41, 41, 0.9);
   border: 1px transparent solid;
   border-radius: 10px 10px 0 0 !important;
   color: white;
