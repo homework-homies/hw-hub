@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$('#instructor-new-gist').hide();
 	$('#instructor-assignments').hide();
 	$('#instructor-gists').hide();
+	$('#maininstructorpage').show();
 });
 </script>
 
@@ -15,8 +16,8 @@ $(document).ready(function(){
 	  <li role="presentation"><a href="#" class="button-instructor-new-gist">New Gist</a></li>
 	</ul>
 	<div class="jumbotronpersonalized jumbotron">
-		 <h1><%= @instructor.name %>'s Portal</h1>
-		<%= @instructor.email %>
+		<p><%= @instructor.name %>'s Portal | <%= @instructor.email %></p>
+		<%= render 'main' %>
 		<%= render 'cohorts' %> <!-- id="instructor-cohorts" -->
 		<%= render 'newgist' %> <!-- id="instructor-new-gist" -->
 		<%= render 'assignments' %> <!-- id="instructor-assignments" -->
@@ -30,24 +31,28 @@ $(document).ready(function(){
 		$('#instructor-new-gist').hide();
 		$('#instructor-assignments').hide();
 		$('#instructor-gists').hide();
+		$('#maininstructorpage').hide();
 	});
 	$('.button-instructor-assignments').on('click', function(){
 		$('#instructor-cohorts').hide();
 		$('#instructor-new-gist').hide();
 		$('#instructor-assignments').show();
 		$('#instructor-gists').hide();
+		$('#maininstructorpage').hide();
 	});
 	$('.button-instructor-gists').on('click', function(){
 		$('#instructor-cohorts').hide();
 		$('#instructor-new-gist').hide();
 		$('#instructor-assignments').hide();
 		$('#instructor-gists').show();
+		$('#maininstructorpage').hide();
 	});
 	$('.button-instructor-new-gist').on('click', function(){
 		$('#instructor-cohorts').hide();
 		$('#instructor-new-gist').show();
 		$('#instructor-assignments').hide();
 		$('#instructor-gists').hide();
+		$('#maininstructorpage').hide();
 	});
 </script>
 
