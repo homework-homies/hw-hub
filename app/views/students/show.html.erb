@@ -4,6 +4,7 @@ $(document).ready(function(){
 	$('#submissions').hide();
 	$('#submit-homework').hide();
 	$('#gists-students').hide();
+	$('#student-main-page').show();
 });
 </script>
 
@@ -12,7 +13,8 @@ $(document).ready(function(){
 	  <li role="presentation"><a href="#" class="button-assignments-students" style="margin-left: 10px; margin-right: 3px;">Assignments</a></li>
 	  <li role="presentation"><a href="#" class="button-submissions" style="margin-right: 3px;">Submissions</a></li>
 	  <li role="presentation"><a href="#" class="button-submit-homework" style="margin-right: 3px;">Submit Homework</a></li>
-	  <li role="presentation"><a href="#" class="button-gists-students">Gists</a></li>
+	  <li role="presentation"><a href="#" class="button-gists-students" style="margin-right: 3px;">Gists</a></li>
+	  <li role="presentation"><a href="#" class="button-main-students">Main</a></li>
 	</ul>
 	<div class="jumbotronpersonalized jumbotron">
 		<%= render 'assigments' %> <!-- id="assignments-students">-->
@@ -30,6 +32,7 @@ $(document).ready(function(){
 		$('#submit-homework').hide();
 		$('#gists-students').hide();
 		$('#student-main').hide();
+		$('#student-main-page').hide();
 	});
 	$('.button-submissions').on('click', function(){
 		$('#assignments-students').hide();
@@ -37,6 +40,7 @@ $(document).ready(function(){
 		$('#submit-homework').hide();
 		$('#gists-students').hide();
 		$('#student-main').hide();
+		$('#student-main-page').hide();
 	});
 	$('.button-submit-homework').on('click', function(){
 		$('#assignments-students').hide();
@@ -44,6 +48,7 @@ $(document).ready(function(){
 		$('#submit-homework').show();
 		$('#gists-students').hide();
 		$('#student-main').hide();
+		$('#student-main-page').hide();
 	});
 	$('.button-gists-students').on('click', function(){
 		$('#assignments-students').hide();
@@ -51,6 +56,14 @@ $(document).ready(function(){
 		$('#submit-homework').hide();
 		$('#gists-students').show();
 		$('#student-main').hide();
+		$('#student-main-page').hide();
+	});
+	$('.button-main-students').on('click', function(){
+		$('#assignments-students').hide();
+		$('#submissions').hide();
+		$('#submit-homework').hide();
+		$('#gists-students').hide();
+		$('#student-main-page').show();
 	});
 </script>
 

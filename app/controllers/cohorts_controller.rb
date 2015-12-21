@@ -15,6 +15,12 @@ class CohortsController < ApplicationController
     @cohort.instructors.push(@instructor)
     @cohort.producer = Producer.find_by(name: params["producer_select"])
     @cohort.save()
+
+    @students = params[:student_emails].split(",")
+
+    @students.each do |student| 
+      CohortMailer.cohort_email(student).deliver_now
+    end
     redirect_to @cohort
   end
 
@@ -30,7 +36,7 @@ class CohortsController < ApplicationController
 
   private
     def cohort_params
-       params.require(:cohort).permit(:cohort_name, :start_on, :end_on)
+       params.require(:cohort).permit(:cohort_name, :start_on, :end_on, :producer_id)
     end 
 
 end

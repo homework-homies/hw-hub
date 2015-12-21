@@ -17,6 +17,7 @@ class AssignmentsController < ApplicationController
   def show
     if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @assignment = Assignment.find(params[:id])
+      @submissions = @assignment.submissions
     else
       redirect_to '/'
     end

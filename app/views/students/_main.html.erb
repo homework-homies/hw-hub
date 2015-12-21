@@ -1,3 +1,13 @@
-<div id="student-main">
-	<h1><%= @student.name %>'s Page</h1>
+<div id="student-main-page">
+  <h1><%= @student.name %>'s Page</h1>
+  <% if @student.completion_rate <= 20 %> 
+  	<p>You have completed less than 20% of assignments. Please email one of your instructors: 
+ 	 <% @student.cohort.instructors.each do |instructor| %>
+   		 <%= mail_to instructor.email, instructor.name %>
+ 	 <% end %>
+
+  <% end %> 
+
+  <p>Homework Completion Rate: <%= @student.completion_rate %>%</p>
+  <p>Number of Pending Assignments: <%= @student.pending_assignments? %></p>
 </div>

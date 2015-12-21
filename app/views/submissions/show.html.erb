@@ -1,23 +1,40 @@
-<script>
-$(document).ready(function(){
-	$('.previous-page').click(function(){
-		parent.history.back();
-		return false;
-	});
-});
-</script>
-
 <div class="jumbotrontransparent jumbotron">
+	<ul class="nav nav-tabs">
+	  <% if session[:instructor_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
+	  <% elsif session[:student_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
+	  <% elsif session[:producer_id] %>
+	  	<li role="presentation"><a style="margin-left: 10px; margin-right: 3px;" href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
+	  <% end %>
+	 </ul>
 	<div class="jumbotronpersonalized jumbotron">
-		<h1><%= @submission.student.name %>'s Homework from <%= @submission.assignment.title %></h1>
-		<p><b>Link:</b> <a href="<%= @submission.submission_link %>">Click Here</a></p>
-		<p><b>Status:</b> <%= @submission.grade_status %></p>
-		<p><b>Submission Comments:</b>
-		<br><%= @submission.comments %></p>
+		<% if session[:instructor_id] %>
 
-		<div class = "center form-actions">
-			<button class="previous-page">Back</button>
-		</div>
+			<h1><%= @submission.student.name %>'s Homework from <%= @submission.assignment.title %></h1>
+			<p><b>Link:</b> <a href="<%= @submission.submission_link %>">Click Here</a></p>
+			<p><b>Current Grade:</b> <%= @submission.grade_status %></p>
+			<p><b>Assign New Grade:</b>
+
+			<div class = "center form-actions">
+				<%= form_for @submission, url:{:controller=>'submissions', :action=>'update', :id=> @submission.id } do |f| %>
+			  		<%= f.select(:grade_status, [[ "Pending", "Pending" ], [ "Incomplete", "Incomplete" ], [ "Complete", "Complete" ]]) %> |  
+			  		<%= f.submit "grade" %>
+				<% end %>
+			</div>
+			<br>
+			<p><b>Submission:</b>
+			<br><%= @submission.comments %></p>
+
+		<% elsif session[:student_id] || session[:producer_id] %>
+
+			<h1><%= @submission.student.name %>'s Homework from <%= @submission.assignment.title %></h1>
+			<p><b>Link:</b> <a href="<%= @submission.submission_link %>">Click Here</a> | 
+			<b>Status:</b> <%= @submission.grade_status %><br>
+			<b>Submission Comments:</b>
+			<br><%= @submission.comments %></p>
+			
+		<% end %>
 	</div>
 </div>
 
