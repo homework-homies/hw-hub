@@ -15,6 +15,12 @@ class CohortsController < ApplicationController
     @cohort.instructors.push(@instructor)
     @cohort.producer = Producer.find_by(name: params["producer_select"])
     @cohort.save()
+
+    @students = params[:student_emails].split(",")
+
+    @students.each do |student| 
+      CohortMailer.cohort_email(student).deliver_now
+    end
     redirect_to @cohort
   end
 

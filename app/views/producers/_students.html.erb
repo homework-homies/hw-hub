@@ -4,9 +4,9 @@
   <% @cohorts.each do |cohort| %>
     <% cohort.students.each do |student| %> 
       <li> 
-        <%= student.name %>
+        <%= link_to student.name, student_path(student) %>
       </li>
     <% end %>
   <% end %>
-</ul>
-</div>
+</ul></div>
+
