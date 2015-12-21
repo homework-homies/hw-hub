@@ -11,7 +11,7 @@
   <% @submissions.each do |submission| %>
     <tr>
       <td><%= submission.submitted_on %></td>
-      <td><%= link_to submission.title, student_submission_path(@student.id, submission) %></td>
+      <td><a href="/students/<%= submission.student.id %>/submissions/<%= submission.id %>"><%= submission.title %></a></td>
       <td><a href="<%= submission.submission_link %>">Click Here</a></td>
       <td><%= submission.grade_status %> </td>
     </tr>
