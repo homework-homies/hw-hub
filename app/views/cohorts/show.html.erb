@@ -23,6 +23,14 @@ $(document).ready(function(){
 	<ul class="nav nav-tabs">
 	  <li role="presentation"><a href="#" class="button-cohort-students" style="margin-left: 10px; margin-right: 3px;">Students</a></li>
 	  <li role="presentation"><a href="#" class="button-cohort-gists">Gists</a></li>
+
+	  <% if session[:instructor_id] %>
+	  	<li role="presentation"><a href="/instructors/<%=session[:instructor_id]%>">Back to Instructor Page</a></li>
+	  <% elsif session[:student_id] %>
+	  	<li role="presentation"><a href="/students/<%=session[:student_id] %>">Back to Student Page</a></li>
+	  <% elsif session[:producer_id] %>
+	  	<li role="presentation"><a href="/producers/<%=session[:producer_id] %>">Back to Producer Page</a></li>
+	  <% end %>
 	</ul>
 
 	<div class="jumbotronpersonalized jumbotron">
@@ -30,40 +38,8 @@ $(document).ready(function(){
 		<h1>WDI <%= @cohort.cohort_name %></h1>
 		<p>Starts On: <%= @cohort.start_on %> | End On: <%= @cohort.end_on %> </p>
 		
-		<div id="cohort-gists">
-		<h1>Gists</h1>
-			<% if @gists.any? %>
-				<ul>
-					<% @gists.each do |gist| %>
-			  			<li><%= link_to gist.title, gist_path(gist) %></li>
-			 		<% end %>
-				</ul>
-			<% else %>
-				<p>This Cohort Doesn't Have Any Gists Yet</p>
-			<% end %>
-		</div>
-
-		<div id="cohort-students">
-		<h1>Students</h1>
-			<% if @students.any? %>
-			  <table class="class">
-			    <tr>
-			      <td>Student</td>
-			      <td>Completion Rate</td>
-			      <td>Pending Assignments</td>
-			    </tr>
-			    <tr>
-			      <% @students.each do |student| %>
-			        <td><%=link_to student.name, student_path(student) %></td>
-			        <td><%= student.completion_rate %>%</td>
-			        <td><%= student.pending_assignments? %></td>
-			      <% end %>
-			    </tr>
-			  </table>
-			<% else %>
-				<p>This Cohort Doesn't Have Any Students Registered Yet</p>
-			<% end %>
-		</div>
+		<%= render 'gists' %>
+		<%= render 'students' %>
 
 	</div>
 </div>

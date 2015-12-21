@@ -1,17 +1,21 @@
 <div id="cohort-students">
-  <h1>Students</h1>
-  <table class="class">
-    <tr>
-      <td>Student</td>
-      <td>Completion Rate</td>
-      <td>Pending Assignments</td>
-    </tr>
-    <tr>
-      <% @students.each do |student| %>
-        <td><%=link_to student.name, student_path(student) %></td>
-        <td><%= student.completion_rate %>%</td>
-        <td><%= student.pending_assignments? %></td>
-      <% end %>
-    </tr>
-  </table>
+<h1>Students</h1>
+  <% if @students.any? %>
+    <table class="class">
+      <tr>
+        <td>Student</td>
+        <td>Completion Rate</td>
+        <td>Pending Assignments</td>
+      </tr>
+      <tr>
+        <% @students.each do |student| %>
+          <td><%=link_to student.name, student_path(student) %></td>
+          <td><%= student.completion_rate %>%</td>
+          <td><%= student.pending_assignments? %></td>
+        <% end %>
+      </tr>
+    </table>
+  <% else %>
+    <p>This Cohort Doesn't Have Any Students Registered Yet</p>
+  <% end %>
 </div>
