@@ -16,25 +16,14 @@ class SubmissionsController < ApplicationController
     end
   end
 
-  def edit 
-    if session[:student_id] || session[:instructor_id] || session[:producer_id]
-      @submission = Submission.find(params[:id])
-      @student = Student.find(params[:student_id])
-
+  def update
+    @submission = Submission.find(params[:id])
+    @student = @submission.student_id
+    if @submission.update({:grade_status => params[:submission]["grade_status"]})
+      redirect_to student_submission_url(@student, @submission)
     else
       redirect_to '/'
     end
-  end
-
-  def update
-    @submission = Submission.find(params[:id])
-    @student = @submission.student
-    @submission = @submission.update(submission_params)
-    if @student.completion_rate <= 20
-      RiskEmail.risk_email(@student.email).deliver_now
-    end
-
-    redirect_to "/students/#{params[:student_id]}/submissions/#{params[:id]}"
   end
 
   private
