@@ -18,9 +18,13 @@ class SubmissionsController < ApplicationController
 
   def update
     @submission = Submission.find(params[:id])
-    @student = @submission.student_id
+    @student = @submission.student
+
     if @submission.update({:grade_status => params[:submission]["grade_status"]})
-      redirect_to student_submission_url(@student, @submission)
+      if @student.completion_rate < 20
+        RiskMailer.risk_email(@student.email).deliver_now
+      end    
+      redirect_to student_submission_url(@student.id, @submission)
     else
       redirect_to '/'
     end

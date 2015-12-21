@@ -3,6 +3,6 @@ class RiskMailer < ApplicationMailer
 
   def risk_email(student)
     @student = student
-    mail(to: student, subject: "Your completion rate has fallen below 20%!")
+    mail(to: student, subject: "Your grade has fallen below 20%!")
   end
 end
