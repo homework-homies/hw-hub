@@ -18,4 +18,14 @@ module ApplicationHelper
 
     markdown.render(text).html_safe
   end
+
+  def github_auth_url
+    base_url = "https://github.com/login/oauth/authorize"
+    scope = ["user, gist"]
+    query_params = URI.encode_www_form({
+      :client_id     => ENV["GITHUB_CLIENT_ID"],
+      :scope         => scope
+    })
+    base_url + "?" + query_params
+  end
 end
