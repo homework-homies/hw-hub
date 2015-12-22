@@ -18,7 +18,6 @@ class GistsController < ApplicationController
         }
       }
     })
-    binding.pry
     @gist.gist_link = response[:html_url]
     @gist.save
     redirect_to @gist
