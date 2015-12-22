@@ -3,7 +3,13 @@
 App created by: The Homework Homies - Alex, Jess, Taylor, Thais and Natasha 
 
 # DESCRIPTION OF APP
-The Homework Hub app is able to track students homework submission throughout their GA course. There will be 3 portals (Instructor, Student and Producer). This app is a perfect way for students and their instructors to analyse students progress in the class. 
+The Homework Hub app is able to track students homework submission throughout their GA course. There are  3 portals: Instructor, Student and Producer. This app is a perfect way for students and their instructors to analyse students progress in the class. 
+
+Instructors can create new homework assignments and homework takeaways that will save to their github. They can view all of their cohorts and students pending and submitted assignments, track students progress in the course, and grade their submitted assignments. Instructors are able to view a list of 'At-Risk' students who have submitted less than 20% of assignments. And finally, instructors are able to create new cohorts and add students and producers to that cohort. 
+
+Students can check their progress in the course, track their homework submission scores, create new homework submissions, and read gists created by their instructors.
+
+Producers are able to view all of their cohorts and student submissions for each assignment. They are also able to view a list of 'At-Risk' students who have submitted less than 20% of assignments. 
 
 # TECHNOLOGIES USED
 HTML, CSS, Bootstrap, Ruby on Rails, RedCarpet Gem, BCrypt, ActionMailer, Jquery, javaScript
