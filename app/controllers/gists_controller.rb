@@ -1,16 +1,26 @@
+require 'pry'
 class GistsController < ApplicationController
   
   def create
     @gist = Gist.create(gist_params)
-
     if @gist.cohort.students.any?
       @gist.cohort.students.each do |student|
         GistMailer.gist_email(student.email).deliver_now
       end 
     end
-    client = Octokit::Client.new(:access_token => session[:access_token])
-    user = client.user.login
-    user.create_gist()
+    client = Octokit::Client.new(:access_token => session[:github_access_token])
+    response = client.create_gist({
+    'description': "#{@gist.title}",
+    'public': true,
+    'files': {
+    'gist1.txt': {
+        'content': "#{@gist.content}"
+        }
+      }
+    })
+    binding.pry
+    @gist.gist_link = response[:html_url]
+    @gist.save
     redirect_to @gist
   end
 
@@ -41,12 +51,6 @@ class GistsController < ApplicationController
         }
       )
     session[:github_access_token] = response["access_token"]
-    # TODO session seems to be reseting and we're losing the instructor_id,
-    # so we can grab it from request.env["HTTP_REFERER"]
-    id = request.env["HTTP_REFERER"][-1]
-    session[:instructor_id] = id.to_i
-    binding.pry
-
     redirect_to Instructor.find(session[:instructor_id])
   end
 
