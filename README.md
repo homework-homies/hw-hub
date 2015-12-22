@@ -12,7 +12,7 @@ Students can check their progress in the course, track their homework submission
 Producers are able to view all of their cohorts and student submissions for each assignment. They are also able to view a list of 'At-Risk' students who have submitted less than 20% of assignments. 
 
 # TECHNOLOGIES USED
-HTML, CSS, Bootstrap, Ruby on Rails, RedCarpet Gem, BCrypt, ActionMailer, Jquery, javaScript
+HTML, CSS, Bootstrap, Ruby on Rails, RedCarpet Gem, BCrypt, ActionMailer, Jquery, javaScript, Github API, Octokit, HTTParty
 
 # USER STORIES
 
