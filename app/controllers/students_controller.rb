@@ -1,5 +1,4 @@
 class StudentsController < ApplicationController
-
   def show
     if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @student = Student.find(params[:id])
