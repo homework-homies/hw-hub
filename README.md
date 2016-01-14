@@ -87,4 +87,4 @@ HTML, CSS, Bootstrap, Ruby on Rails, RedCarpet Gem, BCrypt, ActionMailer, Jquery
 [Homework Homies Trello Board](https://trello.com/homeworkhomiesproject)
 
 # LINK TO HOMEWORK APP
-[Homework-App](http://example.com)
+[Homework-App](https://infinite-plains-9478.herokuapp.com/)
