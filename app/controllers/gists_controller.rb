@@ -1,4 +1,3 @@
-require 'pry'
 class GistsController < ApplicationController
   
   def create
