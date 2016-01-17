@@ -1,4 +1,3 @@
-require 'pry'
 class GistsController < ApplicationController
   
   def create
@@ -10,11 +9,11 @@ class GistsController < ApplicationController
     end
     client = Octokit::Client.new(:access_token => session[:github_access_token])
     response = client.create_gist({
-    'description': "#{@gist.title}",
-    'public': true,
-    'files': {
-    'gist1.txt': {
-        'content': "#{@gist.content}"
+      'description' => "#{@gist.title}",
+      'public' => true,
+      'files' => {
+      'gist1.txt' => {
+        'content' => "#{@gist.content}"
         }
       }
     })

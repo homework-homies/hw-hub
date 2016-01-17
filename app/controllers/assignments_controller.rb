@@ -1,5 +1,5 @@
 class AssignmentsController < ApplicationController
-
+  
   def new
     if session[:student_id] || session[:instructor_id] || session[:producer_id]
       @assignment = Assignment.new
